@@ -1,45 +1,46 @@
-function preload() {
-  // put preload code here
+function setup() {
+  let canvas = createCanvas(windowWidth - 50, windowHeight - 150);
+  canvas.style(
+    "border-radius: 10px; border-style: solid; border-color: black; margin-top:2%; margin-bottom:2%"
+  );
+  const x = (windowWidth - width) / 2;
+  const y = (windowHeight - height) / 8;
+  canvas.position(x, y);
+  background("white");
 }
 
-let next;
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  // next = createButton("next");
-  //next.style();
+function eye(x, y) {
+  let d = 40;
+  push();
+  translate(x + 30, y + 10);
+  strokeWeight(2);
+  //ellipse(0, 0, d);
+  beginShape();
+  vertex(-30, 0);
+  bezierVertex(-10, -25, 10, -25, 30, 0);
+  bezierVertex(10, 25, -10, 25, -30, 0);
+  endShape();
+
+  stroke(0);
+  strokeWeight(2);
+  fill("#B0E080");
+  let myAngle = atan2(mouseY - y, mouseX - x);
+  rotate(myAngle);
+  ellipse(7, 0, 25);
+  fill(0);
+  ellipse(6, 0, 10);
+  pop();
 }
 
 function draw() {
-  background("white");
-
-  stroke("black");
-  strokeWeight(5);
-  fill(255);
-  ellipse(width / 2 - 100, height / 2, 200, 300);
-  ellipse(width / 2 + 100, height / 2, 200, 300);
-
-  let xc = constrain(mouseX, width / 2 - 130, width / 2 - 70);
-  let xs = constrain(mouseY, height / 2 - 70, height / 2 + 70);
-  fill(0);
-  ellipse(xc, xs, 100, 120);
-  ellipse(xc + 200, xs, 100, 120);
+  background(255);
+  for (var i = 0; i < width; i += 80) {
+    for (var j = 0; j < height; j += 80) {
+      eye(i, j);
+    }
+  }
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth - 50, windowHeight - 150);
 }
-
-/*display: none;
-  position: absolute;
-  left: 50%;
-  bottom: 20%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 15px;
-  padding-top: 23px;
-  padding-bottom: 23px;
-  border-radius: 100%;
-  border-color: transparent;
-  background-color: #e8dfd2;
-  color: black;
-  cursor: pointer;*/
