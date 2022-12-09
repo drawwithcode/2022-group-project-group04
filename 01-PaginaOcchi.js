@@ -3,7 +3,6 @@ let mySlider2;
 let mySlider3;
 
 let myButton;
-let draggable = false;
 
 function setup() {
   let canvas = createCanvas(windowWidth - 50, windowHeight - 150);
@@ -33,10 +32,17 @@ function setup() {
   );
   mySlider2.size(50, 50);
 
+  let myText2;
+  myText2 = createP("OKAY, LET'S GO!");
+  myText2.style(
+    "position:absolute;  left: 40px; translate(-50%,-50%); bottom: 30px; text-align: right; font-family:'orbitron'; font-size: 20px; color: white"
+  );
+
   myButton = createImg("./assets/images/ButtonSlider.svg");
   myButton.style("position: absolute; cursor:pointer;");
   myButton.size(300, 55);
   myButton.position(0, windowHeight - 88);
+  myButton.attribute("draggable", false);
 }
 
 function eye(x, y) {
@@ -57,7 +63,7 @@ function eye(x, y) {
   rotate(myAngle);
   ellipse(7, 0, 25);
   fill(0);
-  ellipse(6, 0, 10);
+  ellipse(12, 0, 12);
   pop();
 }
 
@@ -78,7 +84,7 @@ function mouseDragged() {
     pop();
   }
 
-  if (mouseY > windowHeight - 120) {
+  if ((mouseX < windowWidth - 25, mouseY > windowHeight - 150)) {
     push();
     let myPos = map(mouseX, 0, width, 0, windowWidth - 320);
     myButton.position(myPos, windowHeight - 88);
@@ -98,5 +104,4 @@ function windowResized() {
   resizeCanvas(windowWidth - 50, windowHeight - 150);
   mySlider.size(windowWidth - 50, 50);
   myButton.position(myPos, windowHeight - 88);
-  myButton.position(0, windowHeight - 88);
 }
