@@ -6,6 +6,8 @@ let myType;
 let go;
 let myHome;
 
+let scena;
+
 function setup() {
   let canvas = createCanvas(windowWidth - 50, windowHeight - 50);
   canvas.style(
@@ -37,9 +39,19 @@ function setup() {
   myHome.style("transform: translate(-50%,-50%); cursor:pointer");
   myHome.size(55, 55);
   myHome.position(width - 180, height - 57);
+
+  capture = createCapture(VIDEO);
+  capture.hide();
 }
 
 function draw() {
+  push();
+  if (capture.loadedmetadata) {
+    image(capture, 50, 50, capture.width, capture.height);
+    filter(GRAY);
+  }
+  pop();
+
   push();
   if ((mouseX > width * 0.65, mouseY > height * 0.65)) {
     let distance = dist(width - 180, height - 57, mouseX, mouseY);
