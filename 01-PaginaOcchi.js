@@ -97,7 +97,7 @@ function mouseDragged() {
 }
 
 function nextPage() {
-  window.open("/02-Name.html", "_self");
+  window.open("/2022-group-project-group04/02-Name.html", "_self");
 }
 
 function windowResized() {
