@@ -1,4 +1,5 @@
 let myFont;
+let delphE;
 
 let myInfo;
 let myHover;
@@ -14,6 +15,12 @@ function setup() {
   const y = (windowHeight - height) / 2;
   canvas.position(x, y);
   background("#FFF44F");
+
+  delphE = createElement("h1");
+  delphE.html("Delph*E");
+  delphE.style(
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+  );
 
   let myText;
   myText = createElement("h1");
@@ -72,7 +79,7 @@ function hovering() {
 }
 
 function nextPage() {
-  window.open("/2022-group-project-group04/02-Name.html", "_self");
+  window.open("/02-Name.html", "_self");
 }
 //Da aggiungere al link: /2022-group-project-group04/
 
