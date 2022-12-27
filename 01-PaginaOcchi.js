@@ -1,107 +1,82 @@
-let mySlider;
-let mySlider2;
-let mySlider3;
+let myFont;
 
+let myInfo;
+let myHover;
 let myButton;
 
-function setup() {
-  let canvas = createCanvas(windowWidth - 50, windowHeight - 150);
-  canvas.style(
-    "border-radius: 10px; border-style: solid; border-color: black; margin-top:2%; margin-bottom:2%"
-  );
-  const x = (windowWidth - width) / 2;
-  const y = (windowHeight - height) / 8;
-  canvas.position(x, y);
-  background("white");
-
-  mySlider = createElement("SVG");
-  mySlider.style(
-    "position:absolute; left: 50%;transform: translate(-50%,-50%); bottom: 5px; background-color: white; border-radius: 265px; border-style: solid;border-width: 2; "
-  );
-  mySlider.size(windowWidth - 50, 50);
-
-  let myText;
-  myText = createP("LET ME KNOW YOU BETTER");
-  myText.style(
-    "position:absolute;  right: 40px; translate(-50%,-50%); bottom: 30px; text-align: right; font-family:'orbitron'; font-size: 20px;"
-  );
-
-  mySlider2 = createElement("SVG");
-  mySlider2.style(
-    "position:absolute; left: 25px; bottom: 5px; text-align: center; transform: translate(0,-50%); background-color:#874CEA; border-radius: 265px; border-style: solid;border-width: 2; "
-  );
-  mySlider2.size(50, 50);
-
-  let myText2;
-  myText2 = createP("OKAY, LET'S GO!");
-  myText2.style(
-    "position:absolute;  left: 40px; translate(-50%,-50%); bottom: 30px; text-align: right; font-family:'orbitron'; font-size: 20px; color: white"
-  );
-
-  myButton = createImg("./assets/images/ButtonSlider.svg");
-  myButton.style("position: absolute; cursor:pointer;");
-  myButton.size(300, 55);
-  myButton.position(0, windowHeight - 88);
-  myButton.attribute("draggable", false);
+function preload() {
+  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
 }
 
-function eye(x, y) {
-  push();
-  translate(x + 30, y + 10);
-  strokeWeight(2);
-  //ellipse(0, 0, d);
-  beginShape();
-  vertex(-30, 0);
-  bezierVertex(-10, -25, 10, -25, 30, 0);
-  bezierVertex(10, 25, -10, 25, -30, 0);
-  endShape();
+function setup() {
+  let canvas = createCanvas(windowWidth, windowHeight);
+  const x = (windowWidth - width) / 2;
+  const y = (windowHeight - height) / 2;
+  canvas.position(x, y);
+  background("#FFF44F");
 
-  stroke(0);
-  strokeWeight(2);
-  fill("#B0E080");
-  let myAngle = atan2(mouseY - y, mouseX - x);
-  rotate(myAngle);
-  ellipse(7, 0, 25);
-  fill(0);
-  ellipse(12, 0, 12);
-  pop();
+  let myText;
+  myText = createElement("h1");
+  myText.html(
+    "HEY!" +
+      "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspYOU LOOK" +
+      "<br /> <u> INTERESTING </u>, LET ME" +
+      "</br> KNOW YOU&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBETTER"
+  );
+  myText.style(
+    "position:absolute;  left: 50px; translate(-50%,-50%); top: 150px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 80px;"
+  );
+
+  myInfo = createImg("./assets/images/Asterisco.svg");
+  myInfo.style("position: absolute; cursor:pointer;");
+  myInfo.size(75, 75);
+  myInfo.position(510, 410);
+  myInfo.attribute("draggable", false);
+
+  myButton = createImg("./assets/images/ButtonNext.svg");
+  myButton.style("position: absolute; cursor:pointer;");
+  myButton.size(290, 45);
+  myButton.position(width - 290, height - 88);
+  myButton.attribute("draggable", false);
+  myButton.mousePressed(nextPage);
+  myButton.mouseOver(hovering);
 }
 
 function draw() {
-  background(255);
-  for (var i = 0; i < width; i += 80) {
-    for (var j = 0; j < height; j += 80) {
-      eye(i, j);
-    }
+  background("#FFF44F");
+  strokeWeight(2);
+
+  fill(255);
+  rect(290, 200, 60, 95, 30);
+  //iris
+  let x2 = constrain(mouseX, 295, 315);
+  let y2 = constrain(mouseY, 205, 250);
+  fill(0);
+  rect(x2, y2, 30, 40, 25);
+
+  fill(255);
+  rect(240, 200, 60, 95, 30);
+  //iris
+  let x = constrain(mouseX, 245, 265);
+  let y = constrain(mouseY, 205, 250);
+  fill(0);
+  rect(x, y, 30, 40, 25);
+
+  if ((mouseX < width - 290, mouseY < height - 88)) {
+    myButton.style("filter:invert(0)");
   }
 }
 
-function mouseDragged() {
-  if ((mouseY > windowHeight - 120, mouseX < windowWidth - 25)) {
-    push();
-    let mySize = map(mouseX, 0, width, 70, windowWidth - 70);
-    mySlider2.size(mySize, 50);
-    pop();
-  }
-
-  if ((mouseX < windowWidth - 25, mouseY > windowHeight - 150)) {
-    push();
-    let myPos = map(mouseX, 0, width, 0, windowWidth - 320);
-    myButton.position(myPos, windowHeight - 88);
-    pop();
-  }
-
-  if (mouseX > windowWidth - 50) {
-    nextPage();
-  }
+function hovering() {
+  myButton.style("filter:invert(1)");
 }
 
 function nextPage() {
   window.open("/02-Name.html", "_self");
 }
+//Da aggiungere al link: /2022-group-project-group04/
 
 function windowResized() {
-  resizeCanvas(windowWidth - 50, windowHeight - 150);
-  mySlider.size(windowWidth - 50, 50);
-  myButton.position(myPos, windowHeight - 88);
+  resizeCanvas(windowWidth, windowHeight);
+  myButton.position(width - 290, height - 88);
 }

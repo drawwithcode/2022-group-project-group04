@@ -3,77 +3,92 @@ const url = new URL(urlString);
 
 let myText;
 let myType;
+let myFont;
 let go;
 let myHome;
+let img;
+let img2;
+let bg;
 
 let scena;
 
+function preload() {
+  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  img = loadImage("./assets/images/Text1.svg");
+  img2 = loadImage("./assets/images/Text2.svg");
+}
+
 function setup() {
-  let canvas = createCanvas(windowWidth - 50, windowHeight - 50);
-  canvas.style(
-    "border-radius: 10px; border-style: solid; border-color: black;"
-  );
+  let canvas = createCanvas(windowWidth, windowHeight);
   const x = (windowWidth - width) / 2;
   const y = (windowHeight - height) / 2;
   canvas.position(x, y);
 
-  myText = createElement("h1", "What's your name?");
+  bg = "#68F6FF";
+  background(bg);
+
+  myText = createElement("h1", "WHAT'S YOUR NAME?");
   myText.style(
-    "position:absolute; top:40%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 40px; font-family:'Orbitron'"
+    "position:absolute; top:40%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 50px; font-family:'ClashDisplay-Variable'"
   );
 
   //Inserimento nome
-  myType = createInput("").attribute("placeholder", " ");
+  myType = createInput("").attribute("placeholder", "Don't be shy...");
   myType.style(
-    "position:absolute; top:55%; left: 50%; transform: translate(-50%,-50%); text-align: center;font-family:'Orbitron'; font-size:20px; border-radius: 20px"
+    "position:absolute; top:60%; left: 50%; transform: translate(-50%,-50%); text-align: left; ont-family:'ClashDisplay-Variable'; font-size:20px; padding-top:10px; padding-bottom:10px; padding-left: 20px;padding-right: 300px; border-radius: 30px"
   );
+  myType.input(textWritten);
 
-  //Botton
-  go = createButton(" ----- ");
+  //Button
+  go = createImg("./assets/images/Next.svg");
   go.style(
-    "position:absolute; right:1%; bottom:7%;transform: translate(-50%,-50%);text-align:center;font-family:'Orbitron'; font-size:40px; border-radius: 40px; background-color: purple; color: white; cursor:pointer"
+    "position:absolute; transform: translate(-50%,-50%); cursor:pointer"
   );
+  go.size(50, 50);
+  go.position(width - 70, height - 70);
   go.mouseClicked(nextPage);
-
-  myHome = createImg("./assets/images/Quit.png");
-  myHome.style("transform: translate(-50%,-50%); cursor:pointer");
-  myHome.size(55, 55);
-  myHome.position(width - 180, height - 57);
-
-  capture = createCapture(VIDEO);
-  capture.hide();
+  go.mouseOver(hovering);
 }
 
 function draw() {
-  push();
-  if (capture.loadedmetadata) {
-    image(capture, 50, 50, capture.width, capture.height);
-    filter(GRAY);
-  }
-  pop();
-
-  push();
-  if ((mouseX > width * 0.65, mouseY > height * 0.65)) {
-    let distance = dist(width - 180, height - 57, mouseX, mouseY);
-    let diameter = map(distance, 0, width, 5, 55);
-    myHome.size(diameter, diameter);
-    myHome.position(width - 180, height - 57);
-    myHome.mousePressed(returnHome);
-    pop();
-  } else {
-    myHome.size(55, 55);
-    myHome.position(width - 180, height - 57);
+  if ((mouseX < width - 100, mouseY < height - 100)) {
+    go.style("filter:invert(0)");
   }
 
-  if (myType.value() == "") {
-    myText.html("What's your name?");
-  } else {
-    myText.html("Welcome, " + myType.value() + "");
+  fill(255);
+  strokeWeight(2);
+  rect(60, height - 90, 30, 45, 15);
+  //iris
+  let x2 = constrain(mouseX, 62, 72);
+  let y2 = constrain(mouseY, height - 87, height - 68);
+  fill(0);
+  rect(x2, y2, 15, 20, 15 / 2);
+
+  fill(255);
+  rect(35, height - 90, 30, 45, 15);
+  //iris
+  let x = constrain(mouseX, 36, 48);
+  let y = constrain(mouseY, height - 87, height - 68);
+  fill(0);
+  rect(x, y, 15, 20, 15 / 2);
+
+  if (frameCount > 20 && frameCount < 500) {
+    image(img, 100, height - 140, 613 / 2, 119 / 2);
   }
 }
 
-function returnHome() {
-  window.open(url.origin + "/index.html?", "_self");
+function keyPressed() {
+  tint(255, 0);
+  push();
+  tint(255, 255);
+  image(img2, 100, height - 140, 613 / 2, 119 / 2);
+  pop();
+}
+
+function textWritten() {}
+
+function hovering() {
+  go.style("filter:invert(1)");
 }
 
 function nextPage() {
@@ -82,8 +97,9 @@ function nextPage() {
     "_self"
   );
 
-  //Da aggiungere la parte del link Github prima di del nome di /03.Video.html
+  //Da aggiungere "/2022-group-project-group04"
 }
 function windowResized() {
-  resizeCanvas(windowWidth - 50, windowHeight - 50);
+  resizeCanvas(windowWidth, windowHeight);
+  go.position(width - 50, height - 50);
 }
