@@ -77,27 +77,19 @@ function draw() {
   }
 }
 
-function keyPressed() {
-  tint(255, 0);
-  push();
-  tint(255, 255);
-  image(img2, 100, height - 140, 613 / 2, 119 / 2);
-  pop();
-}
-
-function textWritten() {}
-
-function hovering() {
-  go.style("filter:invert(1)");
+function returnHome() {
+  window.open(url.origin + "/2022-group-project-group04/index.html?", "_self");
 }
 
 function nextPage() {
   window.open(
-    url.origin + "/03-Video.html?currentUser=" + myType.value(),
+    url.origin +
+      "/2022-group-project-group04/03-Video.html?currentUser=" +
+      myType.value(),
     "_self"
   );
 
-  //Da aggiungere "/2022-group-project-group04"
+  //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
