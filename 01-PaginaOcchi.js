@@ -2,7 +2,6 @@ let myFont;
 let delphE;
 
 let myInfo;
-let myHover;
 let myButton;
 
 function preload() {
@@ -10,11 +9,7 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(windowWidth, windowHeight);
-  const x = (windowWidth - width) / 2;
-  const y = (windowHeight - height) / 2;
-  canvas.position(x, y);
-  background("#FFF44F");
+  createCanvas(windowWidth, windowHeight);
 
   delphE = createElement("h1");
   delphE.html("Delph*E");
@@ -35,7 +30,7 @@ function setup() {
   );
 
   myInfo = createImg("./assets/images/Asterisco.svg");
-  myInfo.style("position: absolute; cursor:pointer;");
+  //myInfo.style("position: absolute; cursor:pointer;");
   myInfo.size(75, 75);
   myInfo.position(510, 410);
   myInfo.attribute("draggable", false);
