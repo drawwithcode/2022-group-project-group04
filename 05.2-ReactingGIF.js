@@ -7,6 +7,8 @@ let uName = url.searchParams.get("currentUser");
 let myUser = JSON.parse(uName);
 let parameter1 = url.searchParams.get("t1"); // Parse the URL object to find a parameter called "Count" and retrieve its value
 let counter1 = JSON.parse(parameter1); // Transform the found parameter from string to JSON
+let AT = url.searchParams.get("AnswerTime");
+let AnswerTime = JSON.parse(AT);
 
 let comment;
 let myFont;
@@ -108,6 +110,8 @@ function nextPage() {
     url.origin +
       "/05.3-ReactingGIF.html?currentUser=" +
       myUser +
+      "&AnswerTime=" +
+      AnswerTime +
       "&t1=" +
       counter1 +
       "&t2=" +

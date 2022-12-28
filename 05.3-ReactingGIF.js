@@ -9,6 +9,8 @@ let para2 = url.searchParams.get("t2");
 let count2 = JSON.parse(para2);
 let uName = url.searchParams.get("currentUser");
 let myUser = JSON.parse(uName);
+let AT = url.searchParams.get("AnswerTime");
+let AnswerTime = JSON.parse(AT);
 
 let comment;
 let myFont;
@@ -110,12 +112,9 @@ function nextPage() {
     url.origin +
       "/05.4-ReactingGIF.html?currentUser" +
       myUser +
-      "&t1=" +
-      counter1 +
-      "&t2=" +
-      count2 +
-      "&t3=" +
-      frameCount / 60,
+      "&AnswerTime=" +
+      AnswerTime,
+    "&t1=" + counter1 + "&t2=" + count2 + "&t3=" + frameCount / 60,
     "_self"
   );
 }

@@ -1,8 +1,10 @@
 const urlString = window.location.href;
-const url = new URL(urlString);
+let url = new URL(urlString);
 
-let uName = url.searchParams.get("currentUser"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let myUser = JSON.parse(uName); // Transform the found parameter from string to JSON
+let uName = url.searchParams.get("currentUser");
+let myUser = JSON.parse(uName);
+let AT = url.searchParams.get("AnswerTime");
+let AnswerTime = JSON.parse(AT);
 
 let myFont;
 let DYK;
@@ -24,8 +26,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  delphE = createElement("h1");
-  delphE.html("Delph*E");
+  delphE = createElement("h1", "Delph*E");
   delphE.style(
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
   );
@@ -93,7 +94,11 @@ function draw() {
 let myTimer = window.setTimeout(nextPage, 14000); //Timeout in millisecondi
 function nextPage() {
   window.open(
-    url.origin + "/05-FirstReact.html?currentUser=" + myUser,
+    url.origin +
+      "/05-FirstReact.html?currentUser=" +
+      myUser +
+      "&AnswerTime=" +
+      AnswerTime,
     "_self"
   );
   //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"

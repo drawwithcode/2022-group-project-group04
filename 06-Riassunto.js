@@ -8,6 +8,8 @@ let parameter2 = url.searchParams.get("t2"); // Parse the URL object to find a p
 let parameter3 = url.searchParams.get("t3"); // Parse the URL object to find a parameter called "Count" and retrieve its value
 let parameter4 = url.searchParams.get("t4"); // Parse the URL object to find a parameter called "Count" and retrieve its value
 let uName = url.searchParams.get("currentUser");
+let AT = url.searchParams.get("AnswerTime");
+let AnswerTime = JSON.parse(AT);
 
 let a1 = JSON.parse(parameter1); // Transform the found parameter from string to JSON
 let a2 = JSON.parse(parameter2); // Transform the found parameter from string to JSON
@@ -29,4 +31,5 @@ function draw() {
   text(round(a3, 2), width / 2, height / 4);
   text(round(a4, 2), width / 2, height / 2.5);
   text("" + myUser, width / 2, height / 5);
+  text("" + AnswerTime, width / 2, height / 6);
 }

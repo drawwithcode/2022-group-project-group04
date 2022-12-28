@@ -11,6 +11,8 @@ let parameter3 = url.searchParams.get("t3"); // Parse the URL object to find a p
 let counter3 = JSON.parse(parameter3);
 let uName = url.searchParams.get("currentUser");
 let myUser = JSON.parse(uName);
+let AT = url.searchParams.get("AnswerTime");
+let AnswerTime = JSON.parse(AT);
 
 let comment;
 let myFont;
@@ -103,7 +105,9 @@ function nextPage() {
     url.origin +
       "/06-Riassunto.html?currentUser=" +
       myUser +
-      "&t1=" +
+      "&AnswerTime" +
+      AnswerTime,
+    "&t1=" +
       counter1 +
       "&t2=" +
       counter2 +

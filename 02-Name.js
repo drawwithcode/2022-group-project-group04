@@ -1,5 +1,5 @@
 const urlString = window.location.href;
-const url = new URL(urlString);
+let url = new URL(urlString);
 
 let myText;
 let myType;
@@ -13,7 +13,6 @@ let scena;
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
-  //img = loadImage("./assets/images/Text1.svg");
   img2 = loadImage("./assets/images/Text2.svg");
 }
 
@@ -75,10 +74,6 @@ function draw() {
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
 
-  //if (frameCount > 20 && frameCount < 500) {
-  //image(img, 100, height - 140, 613 / 2, 119 / 2);
-  // }
-
   myType.input(textWritten);
 }
 
@@ -96,26 +91,20 @@ function hovering() {
   go.style("filter:invert(1)");
 }
 
-function returnHome() {
-  window.open(url.origin + "/index.html?", "_self");
-}
-
 function nextPage() {
   window.open(
-    url.origin + "/03-Video.html?currentUser=" + myType.value(),
+    url.origin +
+      "/04-Load.html?currentUser=" +
+      myType.value() +
+      "&AnswerTime=" +
+      frameCount / 60,
     "_self"
   );
-
-  typer();
-
   //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
 }
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   go.position(width - 50, height - 50);
   background("#68F6FF");
 }
-
-console.log(typer);
-
-//Nota: il tiping speed

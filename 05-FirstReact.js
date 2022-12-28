@@ -3,6 +3,8 @@ let url = new URL(urlString);
 
 let uName = url.searchParams.get("currentUser");
 let myUser = JSON.parse(uName);
+let AT = url.searchParams.get("AnswerTime");
+let AnswerTime = JSON.parse(AT);
 
 let cute;
 let myFont;
@@ -101,6 +103,8 @@ function nextPage() {
     url.origin +
       "/05.2-ReactingGIF.html?currentUser=" +
       myUser +
+      "&AnswerTime=" +
+      AnswerTime +
       "&t1=" +
       frameCount / 60,
     "_self"
