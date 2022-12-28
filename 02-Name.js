@@ -94,7 +94,7 @@ function hovering() {
 function nextPage() {
   window.open(
     url.origin +
-      "/04-Load.html?currentUser=" +
+      "/03-Video.html?currentUser=" +
       myType.value() +
       "&AnswerTime=" +
       frameCount / 60,

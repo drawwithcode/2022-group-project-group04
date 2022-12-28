@@ -1,10 +1,8 @@
 const urlString = window.location.href;
 let url = new URL(urlString);
 
-let uName = url.searchParams.get("currentUser");
-let myUser = JSON.parse(uName);
+let parameter0 = url.searchParams.get("currentUser");
 let AT = url.searchParams.get("AnswerTime");
-let AnswerTime = JSON.parse(AT);
 
 let myFont;
 let DYK;
@@ -26,7 +24,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  delphE = createElement("h1", "Delph*E");
+  delphE = createElement("h1");
+  delphE.html("Delph*E");
   delphE.style(
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
   );
@@ -96,9 +95,9 @@ function nextPage() {
   window.open(
     url.origin +
       "/05-FirstReact.html?currentUser=" +
-      myUser +
+      parameter0 +
       "&AnswerTime=" +
-      AnswerTime,
+      AT,
     "_self"
   );
   //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"

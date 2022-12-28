@@ -4,15 +4,10 @@ const urlString = window.location.href; // Collect the url
 let url = new URL(urlString); // Create a machine-readable object
 
 let parameter1 = url.searchParams.get("t1"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let counter1 = JSON.parse(parameter1); // Transform the found parameter from string to JSON
 let parameter2 = url.searchParams.get("t2"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let counter2 = JSON.parse(parameter2);
 let parameter3 = url.searchParams.get("t3"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let counter3 = JSON.parse(parameter3);
-let uName = url.searchParams.get("currentUser");
-let myUser = JSON.parse(uName);
+let parameter0 = url.searchParams.get("currentUser");
 let AT = url.searchParams.get("AnswerTime");
-let AnswerTime = JSON.parse(AT);
 
 let comment;
 let myFont;
@@ -104,17 +99,17 @@ function nextPage() {
   window.open(
     url.origin +
       "/06-Riassunto.html?currentUser=" +
-      myUser +
+      parameter0 +
       "&AnswerTime" +
-      AnswerTime,
-    "&t1=" +
-      counter1 +
+      AT +
+      "&t1=" +
+      parameter1 +
       "&t2=" +
-      counter2 +
+      parameter2 +
       "&t3=" +
-      counter3 +
+      parameter3 +
       "&t4=" +
-      frameCount,
+      frameCount / 60,
     "_self"
   );
 }

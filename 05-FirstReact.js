@@ -1,10 +1,8 @@
 const urlString = window.location.href;
 let url = new URL(urlString);
 
-let uName = url.searchParams.get("currentUser");
-let myUser = JSON.parse(uName);
+let parameter0 = url.searchParams.get("currentUser");
 let AT = url.searchParams.get("AnswerTime");
-let AnswerTime = JSON.parse(AT);
 
 let cute;
 let myFont;
@@ -102,9 +100,9 @@ function nextPage() {
   window.open(
     url.origin +
       "/05.2-ReactingGIF.html?currentUser=" +
-      myUser +
+      parameter0 +
       "&AnswerTime=" +
-      AnswerTime +
+      AT +
       "&t1=" +
       frameCount / 60,
     "_self"

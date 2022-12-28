@@ -1,16 +1,10 @@
-// Sketch linked to index.html
-
 const urlString = window.location.href; // Collect the url
 let url = new URL(urlString); // Create a machine-readable object
 
 let parameter1 = url.searchParams.get("t1");
-let counter1 = JSON.parse(parameter1);
-let para2 = url.searchParams.get("t2");
-let count2 = JSON.parse(para2);
-let uName = url.searchParams.get("currentUser");
-let myUser = JSON.parse(uName);
+let parameter2 = url.searchParams.get("t2");
+let parameter0 = url.searchParams.get("currentUser");
 let AT = url.searchParams.get("AnswerTime");
-let AnswerTime = JSON.parse(AT);
 
 let comment;
 let myFont;
@@ -110,11 +104,16 @@ function hovering() {
 function nextPage() {
   window.open(
     url.origin +
-      "/05.4-ReactingGIF.html?currentUser" +
-      myUser +
+      "/05.4-ReactingGIF.html?currentUser=" +
+      parameter0 +
       "&AnswerTime=" +
-      AnswerTime,
-    "&t1=" + counter1 + "&t2=" + count2 + "&t3=" + frameCount / 60,
+      AT +
+      "&t1=" +
+      parameter1 +
+      "&t2=" +
+      parameter2 +
+      "&t3=" +
+      frameCount / 60,
     "_self"
   );
 }
