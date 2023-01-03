@@ -31,7 +31,7 @@ function setup() {
 
   myInfo = createImg("./assets/images/Asterisco.svg");
   //myInfo.style("position: absolute; cursor:pointer;");
-  myInfo.size(75, 75);
+  myInfo.size(windowWidth / 10, windowHeight / 10);
   myInfo.position(510, 410);
   myInfo.attribute("draggable", false);
 
