@@ -11,6 +11,10 @@ let img2;
 let bg;
 let scena;
 
+let voice;
+let voiceText2 = "But first, I need some basic information...";
+let voiceText3 = "Wow you type very fast!";
+
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
   img2 = loadImage("./assets/images/Text2.svg");
@@ -21,6 +25,12 @@ function setup() {
   const x = (windowWidth - width) / 2;
   const y = (windowHeight - height) / 2;
   canvas.position(x, y);
+
+  delphE = createElement("h1");
+  delphE.html("Delph*E");
+  delphE.style(
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+  );
 
   myText = createElement("h1", "WHAT'S YOUR NAME?");
   myText.style(
@@ -47,6 +57,19 @@ function setup() {
   img.style("position:absolute; transform: translate(0%,0%);");
   img.size(613 / 2, 119 / 2);
   img.position(100, height - 140);
+
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+
+//  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(0.7);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText2);
 }
 
 function draw() {

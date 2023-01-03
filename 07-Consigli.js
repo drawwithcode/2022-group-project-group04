@@ -1,5 +1,3 @@
-// Sketch linked to secondary HTML page (page.html)
-
 let img4;
 
 function preload() {
@@ -9,16 +7,17 @@ function preload() {
   sugg4h = loadImage("./assets/int/s-4-hover.svg");
 }
 
+function preload() {
+  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background("#FFF44F");
-
-  //rectMode(CENTER);
 
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute; left: 50px; top: 35px; text-align: left; font-family:'Clash Display'; font-size:24px; font-weight: 400;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
   );
 
   myButton = createImg("./assets/images/next-2.svg");
@@ -29,13 +28,47 @@ function setup() {
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
 
+  sugg3 = createImg("./assets/int/s-3.svg");
+  sugg3.style("cursor:pointer;position:absolute");
+  sugg3.size(528 / 1.5, 723 / 1.5);
+  sugg3.position(140, height / 7);
+  sugg3.attribute("draggable", false);
+  sugg3.mouseOver(sugg3hover);
+  sugg3.mouseOut(sugg3over);
+
+  sugg2 = createImg("./assets/int/s-2.svg");
+  sugg2.style("cursor:pointer; ");
+  sugg2.size(542 / 1.5, 723 / 1.5);
+  sugg2.position(540, height / 7);
+  sugg2.attribute("draggable", false);
+  sugg2.mouseOver(sugg2hover);
+  sugg2.mouseOut(sugg2over);
+
+  sugg1 = createImg("./assets/int/s-1.svg");
+  sugg1.style("cursor:pointer; ");
+  sugg1.size(668 / 1.5, 476 / 1.5);
+  sugg1.position(950, height / 7);
+  sugg1.attribute("draggable", false);
+  sugg1.mouseOver(sugg1hover);
+  sugg1.mouseOut(sugg1over);
+
+  sugg4 = createImg("./assets/int/s-4.svg");
+  sugg4.style("cursor:pointer;");
+  sugg4.size(678 / 1.5, 213 / 1.5);
+  sugg4.position(950, height * 0.611);
+  sugg4.attribute("draggable", false);
+  sugg4.mouseOver(sugg4hover);
+  sugg4.mouseOut(sugg4over);
+
   img4 = createImg("./assets/images/suggest.svg");
   img4.style("position:absolute;");
-  img4.size(613 / 1.34, 119 / 1.34);
-  img4.position(10, height - 190);
+  img4.size(413.4 / 2, 121 / 2);
+  img4.position(100, height - 120);
 }
 
 function draw() {
+  background("#FFF44F");
+
   //occhi
   fill(255);
   strokeWeight(2);
@@ -57,34 +90,6 @@ function draw() {
   if ((mouseX < width - 290, mouseY < height - 88)) {
     myButton.style("filter:invert(0)");
   }
-
-  sugg1 = createImg("./assets/int/s-1.svg");
-  sugg1.style("cursor:pointer;");
-  sugg1.size(353 / 0.9, 299 / 0.9);
-  sugg1.position(725, 580);
-  sugg1.attribute("draggable", false);
-  sugg1.mouseOver(sugg1hover);
-
-  sugg2 = createImg("./assets/int/s-2.svg");
-  sugg2.style("cursor:pointer;");
-  sugg2.size(852 / 0.9, 387 / 0.9);
-  sugg2.position(725, 110);
-  sugg2.attribute("draggable", false);
-  sugg2.mouseOver(sugg2hover);
-
-  sugg3 = createImg("./assets/int/s-3.svg");
-  sugg3.style("cursor:pointer;");
-  sugg3.size(498 / 0.9, 582 / 0.9);
-  sugg3.position(120, 110);
-  sugg3.attribute("draggable", false);
-  sugg3.mouseOver(sugg3hover);
-
-  sugg4 = createImg("./assets/int/s-4.svg");
-  sugg4.style("cursor:pointer;");
-  sugg4.size(462 / 0.9, 305 / 0.9);
-  sugg4.position(1150, 580);
-  sugg4.attribute("draggable", false);
-  sugg4.mouseOver(sugg4hover);
 }
 
 function hovering() {
@@ -94,29 +99,45 @@ function hovering() {
 function sugg1hover() {
   sugg1h = createImg("./assets/int/s-1-hover.svg");
   sugg1h.style("cursor:pointer;");
-  sugg1h.size(353 / 0.9, 299 / 0.9);
-  sugg1h.position(725, 580);
+  sugg1h.size(668 / 1.5, 476 / 1.5);
+  sugg1h.position(950, height / 7);
+}
+
+function sugg1over() {
+  sugg1h.size(0, 0);
 }
 
 function sugg2hover() {
   sugg2h = createImg("./assets/int/s-2-hover.svg");
   sugg2h.style("cursor:pointer;");
-  sugg2h.size(852 / 0.9, 387 / 0.9);
-  sugg2h.position(725, 110);
+  sugg2h.size(542 / 1.5, 723 / 1.5);
+  sugg2h.position(540, height / 7);
+}
+
+function sugg2over() {
+  sugg2h.size(0, 0);
 }
 
 function sugg3hover() {
   sugg3h = createImg("./assets/int/s-3-hover.svg");
-  sugg3h.style("cursor:pointer;");
-  sugg3h.size(498 / 0.9, 582 / 0.9);
-  sugg3h.position(120, 110);
+  sugg3h.style("cursor:pointer;position:absolute");
+  sugg3h.size(528 / 1.5, 723 / 1.5);
+  sugg3h.position(140, height / 7);
+}
+
+function sugg3over() {
+  sugg3h.size(0, 0);
 }
 
 function sugg4hover() {
   sugg4h = createImg("./assets/int/s-4-hover.svg");
   sugg4h.style("cursor:pointer;");
-  sugg4h.size(462 / 0.9, 305 / 0.9);
-  sugg4h.position(1150, 580);
+  sugg4h.size(678 / 1.5, 213 / 1.5);
+  sugg4h.position(950, height * 0.611);
+}
+
+function sugg4over() {
+  sugg4h.size(0, 0);
 }
 
 function nextPage() {

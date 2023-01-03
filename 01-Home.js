@@ -4,6 +4,11 @@ let delphE;
 let myInfo;
 let myButton;
 
+let voice;
+let voiceText = [
+  "Hey, you! You look interesting, let me know you better! Come here! I have something for you! Where are you going? Stop, and look at what I have for you! I will tell you, who you are, and what you like, trust me! Do you want to see something interesting?",
+];
+
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
 }
@@ -42,6 +47,19 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
+
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+
+//  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(0.7);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
 }
 
 function draw() {
@@ -74,7 +92,8 @@ function hovering() {
 }
 
 function nextPage() {
-  window.open("/2022-group-project-group04/02-Name.html", "_self");
+  window.open("/02-Name.html", "_self");
+  voice.stop();
 }
 //Da aggiungere al link: /2022-group-project-group04/
 

@@ -12,6 +12,11 @@ let Rush;
 let delphE;
 let loading;
 
+let voice;
+let voiceText = [
+  "Do you know that I am famous for my incredible talent in classifying what kind of person you are? But first, let me check something about you...",
+];
+
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
   DYK = loadImage("./assets/images/DYK.svg");
@@ -29,6 +34,31 @@ function setup() {
   delphE.style(
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
   );
+  //  PER SINTETIZZATORE VOCALE
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+
+//  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(0.8);
+  voice.setPitch(1.3);
+  voice.speak(voiceText);
+
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+
+//  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(0.7);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
 }
 
 function draw() {
