@@ -33,6 +33,12 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
+
+  img4 = createImg("./assets/images/suggest.svg");
+  img4.style("position:absolute;");
+  img4.size(613 / 1.34, 119 / 1.34);
+  img4.position(10, height - 190);
+
 }
 
 function draw() {
@@ -53,11 +59,6 @@ function draw() {
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
-
-  img4 = createImg("./assets/images/suggest.svg");
-  img4.style("position:absolute;");
-  img4.size(613 / 1.34, 119 / 1.34);
-  img4.position(10, height - 190);
 
     //Return Hover
     if ((mouseX < width - 290, mouseY < height - 88)) {
