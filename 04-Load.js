@@ -55,7 +55,7 @@ function voiceReady() {
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
-  voice.setRate(0.7);
+  voice.setRate(1);
   voice.setPitch(1.3);
   voice.setLang("en-US");
   voice.speak(voiceText);
@@ -84,10 +84,10 @@ function draw() {
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
 
-  if (frameCount < 300) {
+  if (frameCount < 400) {
     image(DYK, 100, height - 190, 420 / 2, 217 / 2);
   }
-  if (frameCount < 500 && frameCount > 300) {
+  if (frameCount < 600 && frameCount > 400) {
     image(ButFirst, 100, height - 140, 420 / 2, 146 / 2);
   }
 
@@ -101,7 +101,7 @@ function draw() {
 
   //BALLOONS
 
-  if (frameCount > 510) {
+  if (frameCount > 610) {
     push();
     frameRate(15);
     //differenza tra x corrente del mouse e x precedente --> se differenza = 0 allora non

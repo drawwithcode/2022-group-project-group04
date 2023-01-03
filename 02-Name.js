@@ -13,7 +13,6 @@ let scena;
 
 let voice;
 let voiceText2 = "But first, I need some basic information...";
-let voiceText3 = "Wow you type very fast!";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
@@ -66,7 +65,7 @@ function setup() {
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
-  voice.setRate(0.7);
+  voice.setRate(1);
   voice.setPitch(1.3);
   voice.setLang("en-US");
   voice.speak(voiceText2);

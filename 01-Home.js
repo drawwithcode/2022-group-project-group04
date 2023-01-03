@@ -5,6 +5,7 @@ let myInfo;
 let myButton;
 
 let voice;
+
 let voiceText = [
   "Hey, you! You look interesting, let me know you better! Come here! I have something for you! Where are you going? Stop, and look at what I have for you! I will tell you, who you are, and what you like, trust me! Do you want to see something interesting?",
 ];
@@ -35,9 +36,8 @@ function setup() {
   );
 
   myInfo = createImg("./assets/images/Asterisco.svg");
-  //myInfo.style("position: absolute; cursor:pointer;");
   myInfo.size(windowWidth / 10, windowHeight / 10);
-  myInfo.position(510, 410);
+  myInfo.position(470, 410);
   myInfo.attribute("draggable", false);
 
   myButton = createImg("./assets/images/ButtonNext.svg");
@@ -50,16 +50,6 @@ function setup() {
 
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
-}
-
-//  PER SINTETIZZATORE VOCALE
-function voiceReady() {
-  voice.listVoices();
-  voice.setVoice("Samantha");
-  voice.setRate(0.7);
-  voice.setPitch(1.3);
-  voice.setLang("en-US");
-  voice.speak(voiceText);
 }
 
 function draw() {
@@ -85,6 +75,15 @@ function draw() {
   if ((mouseX < width - 290, mouseY < height - 88)) {
     myButton.style("filter:invert(0)");
   }
+}
+
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(0.9);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
 }
 
 function hovering() {

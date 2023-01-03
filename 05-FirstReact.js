@@ -12,6 +12,9 @@ let myHover;
 let myButton;
 let myGif;
 
+let voice;
+let voiceText = "Yeah, they're VERY cute...";
+
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
   cute = loadImage("./assets/images/cute.svg");
@@ -34,6 +37,19 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
+
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+
+//  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
 }
 
 function draw() {
@@ -79,15 +95,11 @@ function draw() {
   imageMode(CENTER);
 
   image(myGif, width / 2, height / 2.2, myGif.width / 1.1, myGif.height / 1.1);
-  noFill();
-  stroke("black");
-  strokeWeight(2);
-  rectMode(CENTER);
-  rect(width / 2, height / 2 - 15.5, myGif.width / 1.1, myGif.height / 1.2, 40);
+
   pop();
 
   //BALLOON
-  if (frameCount > 70) {
+  if (frameCount > 20) {
     image(cute, 100, height - 140, 413.5 / 2, 121 / 2);
   }
 }
