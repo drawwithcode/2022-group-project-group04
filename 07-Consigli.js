@@ -141,16 +141,7 @@ function sugg4over() {
 }
 
 function nextPage() {
-  window.open(
-    url.origin +
-      "/05.2-ReactingGIF.html?currentUser=" +
-      parameter0 +
-      "&AnswerTime=" +
-      AT +
-      "&t1=" +
-      frameCount / 60,
-    "_self"
-  );
+  window.open("08-Comments.html", "_self");
   //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
 }
 
