@@ -92,7 +92,7 @@ function hovering() {
 }
 
 function nextPage() {
-  window.open("/02-Name.html", "_self");
+  window.open("02-Name.html", "_self");
   voice.stop();
 }
 //Da aggiungere al link: /2022-group-project-group04/
