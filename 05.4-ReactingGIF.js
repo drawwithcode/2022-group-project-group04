@@ -104,8 +104,7 @@ function hovering() {
 
 function nextPage() {
   window.open(
-    url.origin +
-      "/06-Riassunto.html?currentUser=" +
+    "06-Riassunto.html?currentUser=" +
       parameter0 +
       "&AnswerTime" +
       AT +

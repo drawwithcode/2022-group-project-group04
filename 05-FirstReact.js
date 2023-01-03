@@ -110,8 +110,7 @@ function hovering() {
 
 function nextPage() {
   window.open(
-    url.origin +
-      "/05.2-ReactingGIF.html?currentUser=" +
+    "05.2-ReactingGIF.html?currentUser=" +
       parameter0 +
       "&AnswerTime=" +
       AT +

@@ -123,11 +123,7 @@ function draw() {
 let myTimer = window.setTimeout(nextPage, 14000); //Timeout in millisecondi
 function nextPage() {
   window.open(
-    url.origin +
-      "/05-FirstReact.html?currentUser=" +
-      parameter0 +
-      "&AnswerTime=" +
-      AT,
+    "05-FirstReact.html?currentUser=" + parameter0 + "&AnswerTime=" + AT,
     "_self"
   );
   //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
