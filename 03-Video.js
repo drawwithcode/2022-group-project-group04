@@ -1,46 +1,41 @@
 let faceapi;
 let detections = [];
-let font;
+let myFont;
 
-let video;
-let canvas;
+let myVideo;
+let myCanvas;
+let myVid;
 
 let urlString = window.location.href;
 let url = new URL(urlString);
-
 let parameter0 = url.searchParams.get("currentUser");
 let AT = url.searchParams.get("AnswerTime");
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
-  DYK = loadImage("./assets/images/DYK.svg");
-  ButFirst = loadImage("./assets/images/ButFirst.svg");
-  ChillDude = loadImage("./assets/images/ChillDude.svg");
-  Rush = loadImage("./assets/images/Rush.svg");
-  loading = loadImage("./assets/images/Loading.png");
 }
 
 function setup() {
-  createCanvas(960, 720);
-  canvas.id("canvas");
+  background("#8261FF");
+  myCanvas = createCanvas(960, 720);
+  myCanvas.style("position:relative, top:0px, z-index: 1");
 
-  video = createCapture(VIDEO);// Creat the video: ビデオオブジェクトを作る
-  video.id("video");
-  video.size(width, height);
-
-  canvas.center();
-  video.center();
+  myVideo = createCapture(VIDEO); // Creat the video: ビデオオブジェクトを作る
+  myVideo.size(width, height);
+  myVideo.style(
+    "position: absolute; top:0px, left:0px; z-index:0; border: 2px; border-radius:30px"
+  );
+  myVideo.hide();
 
   const faceOptions = {
     //withLandmarks: true,
     withExpressions: true,
     withDescriptors: true,
-    minConfidence: 0.5
+    minConfidence: 0.5,
   };
 
   //Initialize the model: モデルの初期化
-  faceapi = ml5.faceApi(video, faceOptions, faceReady);
-
+  faceapi = ml5.faceApi(myVideo, faceOptions, faceReady);
 
   delphE = createElement("h1");
   delphE.html("Delph*E");
@@ -50,7 +45,7 @@ function setup() {
 }
 
 function faceReady() {
-  faceapi.detect(gotFaces);// Start detecting faces: 顔認識開始
+  faceapi.detect(gotFaces); // Start detecting faces: 顔認識開始
 }
 
 function gotFaces(error, result) {
@@ -59,23 +54,24 @@ function gotFaces(error, result) {
     return;
   }
 
-  detections = result;　//Now all the data in this detections: 全ての検知されたデータがこのdetectionの中に
+  detections = result; //Now all the data in this detections: 全ての検知されたデータがこのdetectionの中に
   // console.log(detections);
 
-  clear();//Draw transparent background;: 透明の背景を描く
-  drawBoxs(detections);//Draw detection box: 顔の周りの四角の描画
+  clear(); //Draw transparent background;: 透明の背景を描く
+  drawBoxs(detections); //Draw detection box: 顔の周りの四角の描画
   drawBoxs2(detections);
- // drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
-  drawExpressions(detections, 200, 250, 14);//Draw face expression: 表情の描画
+  // drawLandmarks(detections);//// Draw all the face points: 全ての顔のポイントの描画
+  drawExpressions(detections, 200, 250, 14); //Draw face expression: 表情の描画
 
-  faceapi.detect(gotFaces);// Call the function again at here: 認識実行の関数をここでまた呼び出す
+  faceapi.detect(gotFaces); // Call the function again at here: 認識実行の関数をここでまた呼び出す
 }
 
-function drawBoxs(detections){
-  if (detections.length > 0) {//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
-    for (f=0; f < detections.length; f++){
-      let {_x, _y, _width, _height} = detections[f].alignedRect._box;
-      stroke('#FFF44F');
+function drawBoxs(detections) {
+  if (detections.length > 0) {
+    //If at least 1 face is detected: もし1つ以上の顔が検知されていたら
+    for (f = 0; f < detections.length; f++) {
+      let { _x, _y, _width, _height } = detections[f].alignedRect._box;
+      stroke("#FFF44F");
       strokeWeight(10);
       noFill();
       rect(_x, _y, _width, _height);
@@ -83,46 +79,60 @@ function drawBoxs(detections){
   }
 }
 
-function drawBoxs2(detections){
-  if (detections.length > 0) {//If at least 1 face is detected: もし1つ以上の顔が検知されていたら
-    for (f=0; f < detections.length; f++){
-      let {_x, _y, _width, _height} = detections[f].alignedRect._box;
-      stroke('#FFF44F');
+function drawBoxs2(detections) {
+  if (detections.length > 0) {
+    //If at least 1 face is detected: もし1つ以上の顔が検知されていたら
+    for (f = 0; f < detections.length; f++) {
+      let { _x, _y, _width, _height } = detections[f].alignedRect._box;
+      stroke("#FFF44F");
       strokeWeight(10);
-      fill('#FFF44F');
-      rect(_x, _y-60, 180, 60);
+      fill("#FFF44F");
+      rect(_x, _y - 60, 180, 60);
     }
   }
 }
 
-
-function drawExpressions(detections, x, y, textYSpace){
-  if(detections.length > 0){//If at least 1 face is detected
-    let {neutral, happy, angry, sad, disgusted, surprised, fearful} = detections[0].expressions;
-    textFont(font);
+function drawExpressions(detections, x, y, textYSpace) {
+  if (detections.length > 0) {
+    //If at least 1 face is detected: もし1つ以上の顔が検知されていたら
+    let { neutral, happy, angry, sad, disgusted, surprised, fearful } =
+      detections[0].expressions;
+    textFont(myFont);
     textSize(14);
     noStroke();
-    fill('black');
-    if (nf(neutral*100, 2, 2) > 80)
-    { text("neutral", x, y);}
-    else if (nf(happy*100, 2, 2) > 80)
-    { text("happy", x, y);}
-    else if (nf(angry*100, 2, 2) > 80)
-    { text("anger" , x, y);}
-    else if (nf(sad*100, 2, 2) > 80)
-    { text("sad", x, y);}
-    else if (nf(disgusted*100, 2, 2) > 80)
-    { text("disgusted", x, y);}
-    else if (nf(disgusted*100, 2, 2) > 80)
-    { text("surprised", x, y);}
-    else if (nf(surprised*100, 2, 2) > 80)
-    { text("fear",x, y);}
-  } else{//If no faces is detected
-    text("no face detected");
+    fill("black");
+
+    text("neutral:       " + nf(neutral * 100, 2, 2) + "%", x, y);
+    text("happiness: " + nf(happy * 100, 2, 2) + "%", x, y + textYSpace);
+    text("anger:        " + nf(angry * 100, 2, 2) + "%", x, y + textYSpace * 2);
+    text("sad:            " + nf(sad * 100, 2, 2) + "%", x, y + textYSpace * 3);
+    text(
+      "disgusted: " + nf(disgusted * 100, 2, 2) + "%",
+      x,
+      y + textYSpace * 4
+    );
+    text(
+      "surprised:  " + nf(surprised * 100, 2, 2) + "%",
+      x,
+      y + textYSpace * 5
+    );
+    text(
+      "fear:           " + nf(fearful * 100, 2, 2) + "%",
+      x,
+      y + textYSpace * 6
+    );
+  } else {
+    //If no faces is detected: 顔が1つも検知されていなかったら
+    text("neutral: ", x, y);
+    text("happiness: ", x, y + textYSpace);
+    text("anger: ", x, y + textYSpace * 2);
+    text("sad: ", x, y + textYSpace * 3);
+    text("disgusted: ", x, y + textYSpace * 4);
+    text("surprised: ", x, y + textYSpace * 5);
+    text("fear: ", x, y + textYSpace * 6);
   }
 }
-
-function nextPage() {
+function mouseClicked() {
   window.open(
     url.origin +
       "/04-Load.html?currentUser=" +
