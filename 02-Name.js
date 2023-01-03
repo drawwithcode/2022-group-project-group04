@@ -115,7 +115,7 @@ function hovering() {
 
 function nextPage() {
   window.open(
-      "03-Video.html?currentUser=" +
+    "03-Video.html?currentUser=" +
       myType.value() +
       "&AnswerTime=" +
       frameCount / 60,

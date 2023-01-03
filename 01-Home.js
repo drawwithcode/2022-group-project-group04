@@ -3,15 +3,11 @@ let delphE;
 
 let myInfo;
 let myButton;
-
-let voice;
-
-let voiceText = [
-  "Hey, you! You look interesting, let me know you better! Come here! I have something for you! Where are you going? Stop, and look at what I have for you! I will tell you, who you are, and what you like, trust me! Do you want to see something interesting?",
-];
+let myAudio;
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myAudio = loadSound("./assets/audio/home.mp3");
 }
 
 function setup() {
@@ -47,9 +43,6 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
-
-  voice = new p5.Speech();
-  voice.onLoad = voiceReady;
 }
 
 function draw() {
@@ -75,15 +68,10 @@ function draw() {
   if ((mouseX < width - 290, mouseY < height - 88)) {
     myButton.style("filter:invert(0)");
   }
-}
 
-function voiceReady() {
-  voice.listVoices();
-  voice.setVoice("Samantha");
-  voice.setRate(0.9);
-  voice.setPitch(1.3);
-  voice.setLang("en-US");
-  voice.speak(voiceText);
+  if (myAudio.isPlaying() === false) {
+    myAudio.play();
+  }
 }
 
 function hovering() {
@@ -92,7 +80,6 @@ function hovering() {
 
 function nextPage() {
   window.open("02-Name.html", "_self");
-  voice.stop();
 }
 //Da aggiungere al link: /2022-group-project-group04/
 
