@@ -7,7 +7,7 @@ let img2;
 
 let voice;
 let voiceText2 = "Nice to meet you. Can I have a big smile?";
-let myAudio;
+
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
@@ -19,7 +19,6 @@ Promise.all([
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
   img2 = loadImage("./assets/images/Text2.svg");
-  myAudio = loadSound("./assets/audio/home.mp3");
 }
 
 function setup() {
@@ -79,9 +78,6 @@ function voiceReady() {
   voice.setPitch(1.3);
   voice.setLang("en-US");
   voice.speak(voiceText2);
-  if (myAudio.isPlaying() === false) {
-    myAudio.play();
-  }
 }
 
 function hovering() {
