@@ -1,13 +1,18 @@
+const urlString = window.location.href;
+let url = new URL(urlString);
+
+let parameter0 = url.searchParams.get("currentUser");
+let AT = url.searchParams.get("AnswerTime");
+
 const video = document.getElementById("video");
 
 let myText;
 let go;
 let img;
-let img2;
+let canvas2;
 
 let voice;
 let voiceText2 = "Nice to meet you. Can I have a big smile?";
-
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
@@ -17,24 +22,26 @@ Promise.all([
 ]).then(startVideo);
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
-  img2 = loadImage("./assets/images/Text2.svg");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
 }
 
 function setup() {
+  canvas2 = createCanvas(windowWidth, windowHeight);
+  canvas2.position(0, 0);
+
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
-  
+
   go = createImg("./assets/images/Next.svg");
   go.style(
     "position:absolute; transform: translate(-50%,-50%); cursor:pointer"
   );
   go.size(50, 50);
-  go.position(width + 1570, height + 870);
-  //go.mouseClicked(nextPage);
+  go.position(width - 70, height - 70);
+  go.mouseClicked(nextPage);
   go.mouseOver(hovering);
 
   img = createImg("./assets/images/Text1.svg");
@@ -47,27 +54,24 @@ function setup() {
 }
 
 function draw() {
+  fill(255);
+  strokeWeight(2);
+  rect(60, height - 90, 30, 45, 15);
 
-  //    QUESTO SECONDO ME POTREBBE ESSERE PORTATO A 1.5
- strokeWeight(1.5);
+  //iris
+  let x2 = constrain(mouseX, 62, 72);
+  let y2 = constrain(mouseY, height - 87, height - 68);
+  fill(0);
+  rect(x2, y2, 15, 20, 15 / 2);
 
- //    right eye
- fill(255);
- rect(60, height - 90, 30, 45, 15);
- //    right iris
- let x2 = constrain(mouseX, 62, 72);
- let y2 = constrain(mouseY, height - 87, height - 68);
- fill(0);
- rect(x2, y2, 15, 20, 15 / 2);
+  fill(255);
+  rect(35, height - 90, 30, 45, 15);
 
- //    left eye
- fill(255);
- rect(35, height - 90, 30, 45, 15);
- //    left iris
- let x = constrain(mouseX, 36, 48);
- let y = constrain(mouseY, height - 87, height - 68);
- fill(0);
- rect(x, y, 15, 20, 15 / 2);
+  //iris
+  let x = constrain(mouseX, 36, 48);
+  let y = constrain(mouseY, height - 87, height - 68);
+  fill(0);
+  rect(x, y, 15, 20, 15 / 2);
 }
 
 //  PER SINTETIZZATORE VOCALE
@@ -81,9 +85,9 @@ function voiceReady() {
 }
 
 function hovering() {
-go.style("filter:invert(1)");
+  go.style("filter:invert(1)");
 }
-  
+
 function startVideo() {
   navigator.getUserMedia =
     navigator.getUserMedia ||
@@ -137,10 +141,7 @@ video.addEventListener("play", () => {
       };
 
       new faceapi.draw.DrawTextField(
-        [
-          `Age: ${faceapi.round(age, 0)}`,
-          `Gender: ${gender}`,
-        ],
+        [`Age: ${faceapi.round(age, 0)}`, `Gender: ${gender}`],
         result.detection.box.topLeft,
         drawOptions
       ).draw(canvas);
@@ -148,6 +149,14 @@ video.addEventListener("play", () => {
   }, 100);
 });
 
+function nextPage() {
+  window.open(
+    "04-Load.html?currentUser=" + parameter0 + "&AnswerTime=" + AT,
+    "_self"
+  );
+  //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
+}
+
 function windowResized() {
-  go.position(width - 50, height - 50);
+  go.position(width - 70, height - 70);
 }

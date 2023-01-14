@@ -6,7 +6,7 @@ let myButton;
 let myAudio;
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
   myAudio = loadSound("./assets/audio/home.mp3");
 }
 
@@ -16,7 +16,7 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
 
   let myText;
@@ -28,7 +28,7 @@ function setup() {
       "</br> KNOW YOU&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspBETTER"
   );
   myText.style(
-    "position:absolute;  left: 50px; translate(-50%,-50%); top: 150px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 80px;"
+    "position:absolute;  left: 50px; translate(-50%,-50%); top: 150px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 80px;"
   );
 
   myInfo = createImg("./assets/images/Asterisco.svg");

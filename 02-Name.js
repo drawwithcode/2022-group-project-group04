@@ -15,7 +15,7 @@ let voice;
 let voiceText2 = "But first, I need some basic information...";
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
   img2 = loadImage("./assets/images/Text2.svg");
 }
 
@@ -28,18 +28,18 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
 
   myText = createElement("h1", "WHAT'S YOUR NAME?");
   myText.style(
-    "position:absolute; top:40%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 50px; font-family:'ClashDisplay-Variable'"
+    "position:absolute; top:40%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 50px; font-family:'ClashDisplay-Regular'"
   );
 
   //Inserimento nome
   myType = createInput("").attribute("placeholder", "Don't be shy...");
   myType.style(
-    "position:absolute; top:60%; left: 50%; transform: translate(-50%,-50%); text-align: left; font-family:'ClashDisplay-Variable'; font-size:20px; padding-top:10px; padding-bottom:10px; padding-left: 20px;padding-right: 300px; border-radius: 30px"
+    "position:absolute; top:60%; left: 50%; transform: translate(-50%,-50%); text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; padding-top:10px; padding-bottom:10px; padding-left: 20px;padding-right: 300px; border-radius: 30px"
   );
 
   //Button
