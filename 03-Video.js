@@ -47,7 +47,7 @@ function setup() {
   img = createImg("./assets/images/Text1.svg");
   img.style("position:absolute; transform: translate(0%,0%);");
   img.size(613 / 2, 119 / 2);
-  img.position(100, height + 770);
+  img.position(100, height - 120);
 
   voice = new p5.Speech();
   voice.onLoad = voiceReady;

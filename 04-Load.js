@@ -18,7 +18,7 @@ let voiceText = [
 ];
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
   DYK = loadImage("./assets/images/DYK.svg");
   ButFirst = loadImage("./assets/images/ButFirst.svg");
   ChillDude = loadImage("./assets/images/ChillDude.svg");
@@ -32,7 +32,7 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
   //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
