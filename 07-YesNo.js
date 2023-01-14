@@ -4,27 +4,28 @@ let delphE;
 let yesButton;
 let noButton;
 
-
 //  PER SINTETIZZATORE VOCALE
 let voice;
 let voiceText = "You want to see your profile, am I right?";
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  
+
   //    logo delphE
   delphE = createElement("h1");
   delphE.html("Delph*E");
-  delphE.style("position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;");
-  
-  //    balloon 
+  delphE.style(
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
+  );
+
+  //    balloon
   img = createImg("./assets/images/Text7.svg");
   img.size(424 / 2, 150 / 2);
-  img.position(100, height - 155);  
+  img.position(100, height - 155);
 
   //    button size
   let w = 461 / 1.3;
@@ -46,27 +47,28 @@ function setup() {
   noButton.mouseOver(moveButton);
   noButton.mousePressed(moveButton);
 
-  //  PER SINTETIZZATORE VOCALE 
+  //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 }
 
-//  PER SINTETIZZATORE VOCALE 
+//  PER SINTETIZZATORE VOCALE
 function voiceReady() {
   voice.listVoices();
-  voice.setVoice("Samantha"); 
-  voice.setRate(0.8); 
-  voice.setPitch(1.3); 
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
   voice.speak(voiceText);
 }
 
 function nextPage() {
-    window.open("/08-Comments.html", "_self");
+  window.open("08-Comments.html", "_self");
 }
-  
+
 function moveButton() {
-   noButton.position(random(0, width - 461), random(0, height - 155));
-} 
+  noButton.position(random(0, width - 461), random(0, height - 155));
+}
 
 function draw() {
   background("#FFF44F");

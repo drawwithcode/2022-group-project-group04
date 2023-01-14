@@ -8,7 +8,7 @@ function preload() {
 }
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
 }
 
 function setup() {
@@ -17,7 +17,7 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
 
   myButton = createImg("./assets/images/next-2.svg");
@@ -141,7 +141,7 @@ function sugg4over() {
 }
 
 function nextPage() {
-  window.open("08-Comments.html", "_self");
+  window.open("07-YesNo.html", "_self");
   //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
 }
 

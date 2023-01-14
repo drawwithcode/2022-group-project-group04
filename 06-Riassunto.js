@@ -15,7 +15,7 @@ let myButton;
 let myFont;
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
 }
 
 function setup() {
@@ -24,7 +24,7 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
 
   video2 = createCapture(VIDEO);
@@ -88,37 +88,37 @@ function draw() {
   textname = createElement("h1");
   textname.html("placeholder", parameter0);
   textname.style(
-    "position:absolute; left: 51%; top: 21%; text-align: left; font-family:'ClashDisplay-Variable'; font-size:24px;"
+    "position:absolute; left: 51%; top: 21%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:24px;"
   );
 
   text1 = createElement("h1");
   text1.html(round(parameter1, 2));
   text1.style(
-    "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Variable'; font-size:16px; "
+    "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
   );
 
   text2 = createElement("h1");
   text2.html(round(parameter2, 2));
   text2.style(
-    "position:absolute; left: 51%; top: 36%; text-align: left; font-family:'ClashDisplay-Variable'; font-size:16px"
+    "position:absolute; left: 51%; top: 36%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
   );
 
   text3 = createElement("h1");
   text3.html(round(parameter3, 2));
   text3.style(
-    "position:absolute; left: 51%; top: 40%; text-align: left; font-family:'ClashDisplay-Variable'; font-size:16px"
+    "position:absolute; left: 51%; top: 40%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
   );
 
   text4 = createElement("h1");
   text4.html(round(parameter4, 2));
   text4.style(
-    "position:absolute; left: 51%; top: 44%; text-align: left; font-family:'ClashDisplay-Variable'; font-size:16px"
+    "position:absolute; left: 51%; top: 44%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
   );
 
   text5 = createElement("h1");
   text5.html(round(AT, 2));
   text5.style(
-    "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Variable'; font-size:16px"
+    "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
   );
 
   //Occhi

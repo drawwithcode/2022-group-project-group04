@@ -21,7 +21,7 @@ let voice;
 let voiceText = "Yeah, I knew it!";
 
 function preload() {
-  myFont = loadFont("./assets/fonts/ClashDisplay-Variable.ttf");
+  myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
   comment = loadImage("./assets/images/Knew.png");
   myGif = loadImage("./assets/gif/Ananas.gif");
 }
@@ -32,7 +32,7 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph*E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Variable'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
 
   myButton = createImg("./assets/images/NextLong.svg");
