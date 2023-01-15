@@ -3,11 +3,12 @@ let delphE;
 
 let myInfo;
 let myButton;
-let myAudio;
+//let myAudio;
+let voiceText1 = "But first, I need some basic information...";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
-  myAudio = loadSound("./assets/audio/home.mp3");
+  //myAudio = loadSound("./assets/audio/home.mp3");
 }
 
 function setup() {
@@ -43,6 +44,8 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
+
+  voice = new p5.Speech();
 }
 
 function draw() {
@@ -69,9 +72,16 @@ function draw() {
     myButton.style("filter:invert(0)");
   }
 
-  if (myAudio.isPlaying() === false) {
-    myAudio.play();
-  }
+  // if (myAudio.isPlaying() === false) {
+  //   myAudio.play();
+  // }
+
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText1);
 }
 
 function hovering() {
