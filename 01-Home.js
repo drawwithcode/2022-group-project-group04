@@ -3,12 +3,13 @@ let delphE;
 
 let myInfo;
 let myButton;
-//let myAudio;
-let voiceText1 = "Hey! You look interesting, let me know you better!  Hey, you! Come over here, I have something for you.  Where are you going? Stop and look at what I have for you.  I’ll tell you who you are and what you like, trust me.  Do you want to see something interesting? ";
+let myAudio;
+//let voiceText1 =
+//"Hey! You look interesting, let me know you better!  Hey, you! Come over here, I have something for you.  Where are you going? Stop and look at what I have for you.  I’ll tell you who you are and what you like, trust me.  Do you want to see something interesting? ";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
-  //myAudio = loadSound("./assets/audio/home.mp3");
+  myAudio = loadSound("./assets/audio/home.mp3");
 }
 
 function setup() {
@@ -19,7 +20,6 @@ function setup() {
   delphE.style(
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
-  
 
   let myText;
   myText = createElement("h1");
@@ -34,6 +34,7 @@ function setup() {
   );
 
   myInfo = createImg("./assets/images/Asterisco.svg");
+  myInfo.style("position: absolute; cursor:pointer;");
   myInfo.size(windowWidth / 10, windowHeight / 10);
   myInfo.position(470, 410);
   myInfo.attribute("draggable", false);
@@ -47,7 +48,7 @@ function setup() {
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
 
-  voice = new p5.Speech();
+  //voice = new p5.Speech();
 }
 
 function draw() {
@@ -74,16 +75,20 @@ function draw() {
     myButton.style("filter:invert(0)");
   }
 
-  // if (myAudio.isPlaying() === false) {
-  //   myAudio.play();
-  // }
+  if (myAudio.isPlaying() === false) {
+    myAudio.play();
+  }
 
-  voice.listVoices();
-  voice.setVoice("Samantha");
-  voice.setRate(1);
-  voice.setPitch(1.3);
-  voice.setLang("en-US");
-  voice.speak(voiceText1);
+  //voice.listVoices();
+  // voice.setVoice("Samantha");
+  //voice.setRate(1);
+  //voice.setPitch(1.3);
+  //voice.setLang("en-US");
+  //voice.speak(voiceText1);
+}
+
+function mousePressed() {
+  userStartAudio();
 }
 
 function hovering() {
@@ -93,7 +98,6 @@ function hovering() {
 function nextPage() {
   window.open("02-Name.html", "_self");
 }
-//Da aggiungere al link: /2022-group-project-group04/
 
 function info() {
   window.open("10-Info2.html", "_self");
