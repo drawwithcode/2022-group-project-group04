@@ -61,18 +61,6 @@ function voiceReady() {
   voice.speak(voiceText);
 }
 
-function hovering() {
-  yesButton.style("filter:invert(1)");
-}
-
-function nextPage() {
-  window.open("08-Comments.html", "_self");
-}
-
-function moveButton() {
-  noButton.position(random(0, width - 461), random(0, height - 155));
-}
-
 function draw() {
   background("#FFF44F");
   strokeWeight(1.5);
@@ -98,6 +86,33 @@ function draw() {
 
 function home() {
   window.open("index.html", "_self");
+}
+
+function hovering() {
+  yesButton.style("filter:invert(1)");
+}
+
+//NON FUNZIONA SISTEMARE
+function nextPage() {
+  window.open(
+    "07-Riassunto.html?currentUser=" +
+      parameter0 +
+      "&AnswerTime" +
+      AT +
+      "&t1=" +
+      parameter1 +
+      "&t2=" +
+      parameter2 +
+      "&t3=" +
+      parameter3 +
+      "&t4=" +
+      frameCount / 60,
+    "_self"
+  );
+}
+
+function moveButton() {
+  noButton.position(random(0, width - 461), random(0, height - 155));
 }
 
 //Da aggiungere al link: /2022-group-project-group04/

@@ -97,7 +97,7 @@ function nextPage() {
 //Da aggiungere al link: /2022-group-project-group04/
 
 function info() {
-  window.open("09-Info2.html", "_self");
+  window.open("10-Info2.html", "_self");
 }
 
 function windowResized() {

@@ -142,7 +142,7 @@ function sugg4over() {
 }
 
 function nextPage() {
-  window.open("07-YesNo.html", "_self");
+  window.open("09-Comments.html", "_self");
   //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
 }
 

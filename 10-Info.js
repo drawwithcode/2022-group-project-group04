@@ -55,7 +55,7 @@ function setup() {
 
 
 function prevPage() {
-    window.open("/08-Comments.html", "_self");
+    window.open("/09-Comments.html", "_self");
 }
 
 function startPage() {

@@ -156,7 +156,7 @@ function hovering() {
 }
 
 function nextPage() {
-  window.open("07-Consigli.html", "_self");
+  window.open("08-Consigli.html", "_self");
 }
 
 function home() {

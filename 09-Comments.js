@@ -63,11 +63,6 @@ function voiceReady() {
   voice.speak(voiceText);
 }
 
-//    pagina
-function info() {
-  window.open("/09-Info.html", "_self");
-}
-
 function draw() {
   //    QUESTO SECONDO ME POTREBBE ESSERE PORTATO A 1.5
   strokeWeight(1.5);
@@ -178,6 +173,11 @@ function keyTyped() {
   if (keyCount == 20) {
     content += "thoughts.";
   }
+}
+
+//    pagina
+function info() {
+  window.open("/10-Info.html", "_self");
 }
 
 function home() {
