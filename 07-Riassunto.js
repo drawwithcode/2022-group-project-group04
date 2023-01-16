@@ -87,7 +87,7 @@ function draw() {
   );
 
   textname = createElement("h1");
-  textname.html("placeholder", parameter0);
+  textname.html(parameter0);
   textname.style(
     "position:absolute; left: 51%; top: 21%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:24px;"
   );
