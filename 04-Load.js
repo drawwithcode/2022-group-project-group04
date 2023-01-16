@@ -66,7 +66,7 @@ function draw() {
 
   //OCCHI:
   fill(255);
-  strokeWeight(2);
+  strokeWeight(1.5);
   rect(60, height - 90, 30, 45, 15);
 
   //iris

@@ -33,11 +33,20 @@ function setup() {
   let inc = 20;
 
   //    YES button
+  
   yesButton = createImg("./assets/images/Yes.svg");
   yesButton.style("position: absolute; cursor:pointer;");
   yesButton.size(w, h);
   yesButton.position(width / 2 - (inc + w), height / 2 - (h - inc));
   yesButton.mousePressed(nextPage);
+  yesButton.mouseOver(hovering);
+
+  enterButton = createElement("button", "OH YES");
+  enterButton.position(width / 2 - (inc + w), height / 2 - (h - inc));
+  enterButton.size(355, 120);
+  enterButton.style("position: absolute; cursor:pointer;");
+  enterButton.id("enterButton");
+  //enterButton.mouseClicked(openPage);
 
   //    NO button
   noButton = createImg("./assets/images/No.svg");
@@ -60,6 +69,10 @@ function voiceReady() {
   voice.setPitch(1.3);
   voice.setLang("en-US");
   voice.speak(voiceText);
+}
+
+function hovering() {
+  yesButton.style("filter:invert(1)");
 }
 
 function nextPage() {

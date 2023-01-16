@@ -4,7 +4,7 @@ let delphE;
 let myInfo;
 let myButton;
 //let myAudio;
-let voiceText1 = "But first, I need some basic information...";
+let voiceText1 = "Hey! You look interesting, let me know you better!  Hey, you! Come over here, I have something for you.  Where are you going? Stop and look at what I have for you.  I’ll tell you who you are and what you like, trust me.  Do you want to see something interesting? ";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
@@ -50,7 +50,7 @@ function setup() {
 
 function draw() {
   background("#FFF44F");
-  strokeWeight(2);
+  strokeWeight(1.5);
 
   fill(255);
   rect(290, 200, 60, 95, 30);

@@ -51,7 +51,7 @@ function draw() {
   image(video2, 50, height / 2 - 480 / 2, 640, 480);
 
   fill(255);
-  strokeWeight(2);
+  strokeWeight(1.5);
   rectMode(CENTER);
   rect(width - 50 - (width * 0.49) / 2, height / 2, width * 0.49, 480, 30);
 
