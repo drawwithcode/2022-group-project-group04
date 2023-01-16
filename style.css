@@ -7,3 +7,50 @@ body {
 canvas {
   display: block;
 }
+
+#yesButton {
+  position: absolute;
+  cursor: pointer;
+  opacity: 100%;
+  font-family: "ClashDisplay-Regular";
+  opacity: 100%;
+  font-size: 70px;
+  border-radius: 100px;
+  background: #CF82FE;
+  border: 1.5px solid;
+  border-color: #000000;
+  color: #000000;
+}
+
+#yesButton:hover {
+  transition: background-color 0.2s;
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+  cursor: pointer;
+}
+
+
+#noButton {
+  position: absolute;
+  cursor: pointer;
+  opacity: 100%;
+  font-family: "ClashDisplay-Regular";
+  opacity: 100%;
+  font-size: 70px;
+  border-radius: 100px;
+  background: #68F6FF;
+  border: 1.5px solid;
+  border-color: #000000;
+  color: #000000;
+}
+
+#noButton:hover {
+  transition: background-color 0.2s;
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff;
+  cursor: pointer;
+}
+
+

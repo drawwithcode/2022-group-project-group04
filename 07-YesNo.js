@@ -1,8 +1,6 @@
 let myFont;
 let delphE;
 
-let yesButton;
-let noButton;
 
 //  PER SINTETIZZATORE VOCALE
 let voice;
@@ -33,26 +31,17 @@ function setup() {
   let inc = 20;
 
   //    YES button
-  
-  yesButton = createImg("./assets/images/Yes.svg");
-  yesButton.style("position: absolute; cursor:pointer;");
-  yesButton.size(w, h);
+  yesButton = createElement("button", "OH YES");
   yesButton.position(width / 2 - (inc + w), height / 2 - (h - inc));
-  yesButton.mousePressed(nextPage);
-  yesButton.mouseOver(hovering);
-
-  enterButton = createElement("button", "OH YES");
-  enterButton.position(width / 2 - (inc + w), height / 2 - (h - inc));
-  enterButton.size(355, 120);
-  enterButton.style("position: absolute; cursor:pointer;");
-  enterButton.id("enterButton");
-  //enterButton.mouseClicked(openPage);
+  yesButton.size(355, 120);
+  yesButton.id("yesButton");
+  yesButton.mouseClicked(nextPage);
 
   //    NO button
-  noButton = createImg("./assets/images/No.svg");
-  noButton.style("position: absolute; cursor:pointer;");
-  noButton.size(w, h);
+  noButton = createElement("button", "HELL NO");
   noButton.position(width / 2 + inc, height / 2 - (h - inc));
+  noButton.size(355, 120);
+  noButton.id("noButton");
   noButton.mouseOver(moveButton);
   noButton.mousePressed(moveButton);
 
@@ -85,8 +74,6 @@ function moveButton() {
 
 function draw() {
   background("#FFF44F");
-
-  //    QUESTO SECONDO ME POTREBBE ESSERE PORTATO A 1.5
   strokeWeight(1.5);
 
   //    right eye
