@@ -8,20 +8,36 @@ let parameter4 = url.searchParams.get("t4"); // Tempo permanenza GIF4
 let parameter0 = url.searchParams.get("currentUser"); //Nome Utente
 let AT = url.searchParams.get("AnswerTime"); //Tempo permanenza pagina iniziale: tempo di rispota dell'Utente
 
-let video2;
+const video = document.getElementById("video");
+
 let img3;
 let myHover;
 let myButton;
 let myFont;
+let canvas2;
 
-let pageLinks = ['08-Consigli.html', '08.1-Consigli.html', '08.2-Consigli.html', '08.3-Consigli.html'];
+let pageLinks = [
+  "08-Consigli.html",
+  "08.1-Consigli.html",
+  "08.2-Consigli.html",
+  "08.3-Consigli.html",
+];
+
+Promise.all([
+  faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("./models"),
+  faceapi.nets.faceExpressionNet.loadFromUri("./models"),
+  faceapi.nets.ageGenderNet.loadFromUri("./models"),
+]).then(startVideo);
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  canvas2 = createCanvas(windowWidth, windowHeight);
+  canvas2.position(0, 0);
+  canvas2.style("position:absolute");
 
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
@@ -29,11 +45,6 @@ function setup() {
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px; cursor: pointer;"
   );
   delphE.mousePressed(home);
-
-  video2 = createCapture(VIDEO);
-  video2.hide();
-  video2.id("video2");
-  noLoop();
 
   myButton = createImg("./assets/images/more.svg");
   myButton.style("position: absolute; cursor:pointer;");
@@ -50,10 +61,6 @@ function setup() {
 }
 
 function draw() {
-  background("#CF82FE");
-
-  image(video2, 50, height / 2 - 480 / 2, 640, 480);
-
   fill(255);
   strokeWeight(1.5);
   rectMode(CENTER);
@@ -157,6 +164,67 @@ function draw() {
 function hovering() {
   myButton.style("filter:invert(1)");
 }
+
+function startVideo() {
+  navigator.getUserMedia =
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia;
+
+  if (navigator.getUserMedia) {
+    navigator.getUserMedia(
+      { video: true },
+      function (stream) {
+        var video = document.querySelector("video");
+        video.srcObject = stream;
+        video.onloadedmetadata = function (e) {
+          video.play();
+        };
+      },
+      function (err) {
+        console.log(err.name);
+      }
+    );
+  } else {
+    document.body.innerText = "getUserMedia not supported";
+    console.log("getUserMedia not supported");
+  }
+}
+
+video.addEventListener("play", () => {
+  const canvas = faceapi.createCanvasFromMedia(video);
+  document.body.append(canvas);
+  const displaySize = { width: video.width, height: video.height };
+  faceapi.matchDimensions(canvas, displaySize);
+  setInterval(async () => {
+    const predictions = await faceapi
+      .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+      .withFaceExpressions()
+      .withAgeAndGender();
+
+    const resizedDetections = faceapi.resizeResults(predictions, displaySize);
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+
+    faceapi.draw.drawDetections(canvas, resizedDetections);
+    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+    resizedDetections.forEach((result) => {
+      const { age, gender } = result;
+
+      const drawOptions = {
+        backgroundColor: "#ffd100",
+        fontColor: "#000000",
+      };
+
+      new faceapi.draw.DrawTextField(
+        [`Age: ${faceapi.round(age, 0)}`, `Gender: ${gender}`],
+        result.detection.box.topLeft,
+        drawOptions
+      ).draw(canvas);
+    });
+  }, 100);
+});
 
 function nextPage() {
   window.open(random(pageLinks), "_self");
