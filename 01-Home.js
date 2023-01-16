@@ -36,6 +36,7 @@ function setup() {
   myInfo.size(windowWidth / 10, windowHeight / 10);
   myInfo.position(470, 410);
   myInfo.attribute("draggable", false);
+  myInfo.mousePressed(info);
 
   myButton = createImg("./assets/images/ButtonNext.svg");
   myButton.style("position: absolute; cursor:pointer;");
@@ -46,6 +47,10 @@ function setup() {
   myButton.mouseOver(hovering);
 
   voice = new p5.Speech();
+}
+
+function info() {
+  window.open("09-Info.html", "_self");
 }
 
 function draw() {
