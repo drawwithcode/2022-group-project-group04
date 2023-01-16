@@ -1,3 +1,12 @@
+const urlString = window.location.href; // Collect the url
+let url = new URL(urlString); // Create a machine-readable object
+
+let parameter1 = url.searchParams.get("t1"); // Parse the URL object to find a parameter called "Count" and retrieve its value
+let parameter2 = url.searchParams.get("t2"); // Parse the URL object to find a parameter called "Count" and retrieve its value
+let parameter3 = url.searchParams.get("t3"); // Parse the URL object to find a parameter called "Count" and retrieve its value
+let parameter0 = url.searchParams.get("currentUser");
+let AT = url.searchParams.get("AnswerTime");
+
 let myFont;
 let delphE;
 

@@ -4,7 +4,7 @@ let myInfo;
 
 let fakeText; 
 
-// effetto
+// effetto testo
 let content = "";
 keyCount = 0;
 
@@ -14,6 +14,9 @@ let voiceText = "Your opinion is very important to me...";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
+  ////
+  Balloon1 = loadImage("./assets/images/Text8.svg");
+  Balloon2 = loadImage("./assets/images/Text9.svg");
 }
 
 function setup() {
@@ -28,12 +31,12 @@ function setup() {
   );
   delphE.mousePressed(home);
 
-  //    balloon
-  img = createImg("./assets/images/Text8.svg");
-  img.size(424 / 2, 150 / 2);
-  img.position(100, height - 155);
+  //   balloon
+  Balloon1 = createImg("./assets/images/Text8.svg");
+  Balloon1.size(424 / 2, 150 / 2);
+  Balloon1.position(100, height - 155);
 
-  //
+  //    text
   myText = createElement("h1", "LEAVE A COMMENT <br> ABOUT THE EXPERIENCE");
   myText.style(
     "position:absolute; top:20%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 50px; font-family:'ClashDisplay-Regular'"
@@ -180,6 +183,11 @@ function keyTyped() {
 
   if (keyCount == 20) {
     content += "thoughts.";
+  }
+
+  if (keyCode === ENTER) {
+    Balloon1.hide();
+    image(Balloon2, 100, height - 155, 424 / 2, 150 / 2);
   }
 }
 

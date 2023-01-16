@@ -92,7 +92,6 @@ function hovering() {
 
 function nextPage() {
   window.open("02-Name.html", "_self");
-
 }
 //Da aggiungere al link: /2022-group-project-group04/
 

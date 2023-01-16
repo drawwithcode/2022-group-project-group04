@@ -118,6 +118,18 @@ function home() {
   window.open("index.html", "_self");
 }
 
+function keyPressed() {
+  if (keyCode === ENTER) {
+    window.open(
+      "03-Video.html?currentUser=" +
+        myType.value() +
+        "&AnswerTime=" +
+        frameCount / 60,
+      "_self"
+    );
+  }
+}
+
 function nextPage() {
   window.open(
     "03-Video.html?currentUser=" +
