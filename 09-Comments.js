@@ -11,6 +11,7 @@ keyCount = 0;
 //  PER SINTETIZZATORE VOCALE (AGGIUNGERE IN HTML COLLEGAMENTO LIBRERIA)
 let voice;
 let voiceText = "Your opinion is very important to me...";
+let voiceText2 = "I mean,  I really don’t care but thank you...";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
@@ -188,6 +189,13 @@ function keyTyped() {
   if (keyCode === ENTER) {
     Balloon1.hide();
     image(Balloon2, 100, height - 155, 424 / 2, 150 / 2);
+
+    voice.listVoices();
+    voice.setVoice("Samantha");
+    voice.setRate(0.8);
+    voice.setPitch(1.3);
+    voice.setLang("en-US");
+    voice.speak(voiceText2);    
   }
 }
 

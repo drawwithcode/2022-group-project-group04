@@ -115,6 +115,7 @@ function draw() {
     //Segnalazione:
     if (mySpeed === 0) {
       image(ChillDude, 100, height - 140, 535 / 2, 121 / 2);
+
     } else if (mySpeed > 10) {
       image(Rush, 100, height - 140, 461 / 2, 146 / 2);
     }
