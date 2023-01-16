@@ -41,14 +41,14 @@ function setup() {
     "position:absolute; transform: translate(-50%,-50%); cursor:pointer"
   );
   go.size(290, 45);
-  go.position(width - 190, height - 88);
+  go.position(width - 190, height - 70);
   go.mouseClicked(nextPage);
   go.mouseOver(hovering);
 
   img = createImg("./assets/images/Textvideo.svg");
   img.style("position:absolute; transform: translate(0%,0%);");
   img.size(613 / 2, 119 / 2);
-  img.position(100, height - 120);
+  img.position(65, height - 140);
 
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
