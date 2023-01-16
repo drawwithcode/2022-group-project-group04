@@ -14,6 +14,8 @@ let myHover;
 let myButton;
 let myFont;
 
+let pageLinks = ['08-Consigli.html', '08.1-Consigli.html', '08.2-Consigli.html', '08.3-Consigli.html'];
+
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
 }
@@ -31,6 +33,7 @@ function setup() {
   video2 = createCapture(VIDEO);
   video2.hide();
   video2.id("video2");
+  noLoop();
 
   myButton = createImg("./assets/images/more.svg");
   myButton.style("position: absolute; cursor:pointer;");
@@ -156,7 +159,7 @@ function hovering() {
 }
 
 function nextPage() {
-  window.open("08-Consigli.html", "_self");
+  window.open(random(pageLinks), "_self");
 }
 
 function home() {
