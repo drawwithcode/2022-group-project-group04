@@ -14,7 +14,7 @@ let loading;
 
 let voice;
 let voiceText = [
-  "Do you know that I am famous for my incredible talent in classifying what kind of person you are? But first, let me check something about you...",
+  "Do you know that I am a PRO in classifying what kind of person you are? But first, let me check something about you...",
 ];
 
 function preload() {
@@ -87,7 +87,7 @@ function draw() {
   rect(x, y, 15, 20, 15 / 2);
 
   if (frameCount < 400) {
-    image(DYK, 100, height - 190, 420 / 2, 217 / 2);
+    image(DYK, 100, height - 190, 420 / 2, 176 / 2);
   }
   if (frameCount < 600 && frameCount > 400) {
     image(ButFirst, 100, height - 140, 420 / 2, 146 / 2);
@@ -115,7 +115,6 @@ function draw() {
     //Segnalazione:
     if (mySpeed === 0) {
       image(ChillDude, 100, height - 140, 535 / 2, 121 / 2);
-
     } else if (mySpeed > 10) {
       image(Rush, 100, height - 140, 461 / 2, 146 / 2);
     }

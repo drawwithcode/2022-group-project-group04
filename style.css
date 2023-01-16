@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 canvas {
@@ -16,7 +17,7 @@ canvas {
   opacity: 100%;
   font-size: 70px;
   border-radius: 100px;
-  background: #CF82FE;
+  background: #cf82fe;
   border: 1.5px solid;
   border-color: #000000;
   color: #000000;
@@ -30,7 +31,6 @@ canvas {
   cursor: pointer;
 }
 
-
 #noButton {
   position: absolute;
   cursor: pointer;
@@ -39,7 +39,7 @@ canvas {
   opacity: 100%;
   font-size: 70px;
   border-radius: 100px;
-  background: #68F6FF;
+  background: #68f6ff;
   border: 1.5px solid;
   border-color: #000000;
   color: #000000;
@@ -52,5 +52,3 @@ canvas {
   border-color: #ffffff;
   cursor: pointer;
 }
-
-
