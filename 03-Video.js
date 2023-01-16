@@ -15,10 +15,10 @@ let voice;
 let voiceText2 = "Nice to meet you. Can I have a big smile?";
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
-  faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
-  faceapi.nets.faceExpressionNet.loadFromUri("/models"),
-  faceapi.nets.ageGenderNet.loadFromUri("/models"),
+  faceapi.nets.tinyFaceDetector.loadFromDisk("/models"),
+  faceapi.nets.faceRecognitionNet.loadFromDisk("/models"),
+  faceapi.nets.faceExpressionNet.loadFromDisk("/models"),
+  faceapi.nets.ageGenderNet.loadFromDisk("/models"),
 ]).then(startVideo);
 
 function preload() {
