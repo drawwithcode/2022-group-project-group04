@@ -28,8 +28,9 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px; cursor: pointer;"
   );
+  delphE.mousePressed(home);
 
   myText = createElement("h1", "WHAT'S YOUR NAME?");
   myText.style(
@@ -111,6 +112,10 @@ function textWritten() {
 
 function hovering() {
   go.style("filter:invert(1)");
+}
+
+function home() {
+  window.open("index.html", "_self");
 }
 
 function nextPage() {

@@ -19,6 +19,7 @@ function setup() {
   delphE.style(
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
+  
 
   let myText;
   myText = createElement("h1");
@@ -47,10 +48,6 @@ function setup() {
   myButton.mouseOver(hovering);
 
   voice = new p5.Speech();
-}
-
-function info() {
-  window.open("09-Info.html", "_self");
 }
 
 function draw() {
@@ -95,8 +92,13 @@ function hovering() {
 
 function nextPage() {
   window.open("02-Name.html", "_self");
+
 }
 //Da aggiungere al link: /2022-group-project-group04/
+
+function info() {
+  window.open("09-Info2.html", "_self");
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

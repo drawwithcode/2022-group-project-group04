@@ -1,6 +1,6 @@
 let myFont;
 let delphE;
-let info;
+let myInfo;
 
 // effetto
 let content = "";
@@ -22,8 +22,9 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px; cursor: pointer;"
   );
+  delphE.mousePressed(home);
 
   //    balloon
   img = createImg("./assets/images/Text8.svg");
@@ -41,11 +42,11 @@ function setup() {
   rect(width / 2 - 350, height / 2 - 150, 700, 350, 30 / 2);
 
   //    info button
-  info = createImg("./assets/images/Info.svg");
-  info.style("position: absolute; cursor:pointer;");
-  info.size(50, 50);
-  info.position(width - 95, height - 95);
-  info.mousePressed(nextPage);
+  myInfo = createImg("./assets/images/Info.svg");
+  myInfo.style("position: absolute; cursor:pointer;");
+  myInfo.size(50, 50);
+  myInfo.position(width - 95, height - 95);
+  myInfo.mousePressed(info);
 
   //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
@@ -63,7 +64,7 @@ function voiceReady() {
 }
 
 //    pagina
-function nextPage() {
+function info() {
   window.open("/09-Info.html", "_self");
 }
 
@@ -177,6 +178,10 @@ function keyTyped() {
   if (keyCount == 20) {
     content += "thoughts.";
   }
+}
+
+function home() {
+  window.open("index.html", "_self");
 }
 
 //Da aggiungere al link: /2022-group-project-group04/

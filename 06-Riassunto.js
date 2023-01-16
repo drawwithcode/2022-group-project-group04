@@ -24,8 +24,9 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px; cursor: pointer;"
   );
+  delphE.mousePressed(home);
 
   video2 = createCapture(VIDEO);
   video2.hide();
@@ -156,6 +157,10 @@ function hovering() {
 
 function nextPage() {
   window.open("07-Consigli.html", "_self");
+}
+
+function home() {
+  window.open("index.html", "_self");
 }
 
 function windowResized() {

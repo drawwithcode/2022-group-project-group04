@@ -32,8 +32,9 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px; cursor: pointer;"
   );
+  delphE.mousePressed(home);
 
   go = createImg("./assets/images/Moveon.svg");
   go.style(
@@ -155,6 +156,10 @@ function nextPage() {
     "_self"
   );
   //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
+}
+
+function home() {
+  window.open("index.html", "_self");
 }
 
 function windowResized() {

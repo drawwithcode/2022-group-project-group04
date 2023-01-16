@@ -17,8 +17,9 @@ function setup() {
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
-    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
+    "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px; cursor: pointer;"
   );
+  delphE.mousePressed(home);
 
   //    balloon
   img = createImg("./assets/images/Text7.svg");
@@ -93,6 +94,10 @@ function draw() {
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
+}
+
+function home() {
+  window.open("index.html", "_self");
 }
 
 //Da aggiungere al link: /2022-group-project-group04/
