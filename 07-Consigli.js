@@ -15,7 +15,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   delphE = createElement("h1");
-  delphE.html("Delph*E");
+  delphE.html("Delph&bull;E");
   delphE.style(
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
