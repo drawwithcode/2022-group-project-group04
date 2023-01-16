@@ -35,16 +35,16 @@ function setup() {
     "position:absolute;  left: 50px; top: 35px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 16px;"
   );
 
-  go = createImg("./assets/images/Next.svg");
+  go = createImg("./assets/images/Moveon.svg");
   go.style(
     "position:absolute; transform: translate(-50%,-50%); cursor:pointer"
   );
-  go.size(50, 50);
-  go.position(width - 70, height - 70);
+  go.size(290, 45);
+  go.position(width - 190, height - 88);
   go.mouseClicked(nextPage);
   go.mouseOver(hovering);
 
-  img = createImg("./assets/images/Text1.svg");
+  img = createImg("./assets/images/Textvideo.svg");
   img.style("position:absolute; transform: translate(0%,0%);");
   img.size(613 / 2, 119 / 2);
   img.position(100, height - 120);
