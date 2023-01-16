@@ -201,7 +201,7 @@ function keyTyped() {
 
 //    pagina
 function info() {
-  window.open("/10-Info.html", "_self");
+  window.open("10-Info.html", "_self");
 }
 
 function home() {
