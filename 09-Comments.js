@@ -2,6 +2,8 @@ let myFont;
 let delphE;
 let myInfo;
 
+let fakeText; 
+
 // effetto
 let content = "";
 keyCount = 0;
@@ -51,6 +53,10 @@ function setup() {
   //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
+
+  fakeText = createElement("h1");
+  fakeText.html("Everything that comes to mind...");
+  fakeText.style("position:absolute;  left: 430px; top: 290px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 20px; color: #5C5C5C;");
 }
 
 //  PER SINTETIZZATORE VOCALE
@@ -88,6 +94,7 @@ function draw() {
   textSize(20);
   textFont("ClashDisplay-Regular");
   text(content, width / 2 - 325, height / 2 - 125, width / 2 - 100, height / 2);
+
 }
 
 function keyTyped() {
@@ -96,6 +103,7 @@ function keyTyped() {
 
   if (keyCount == 1) {
     content += "It ";
+    fakeText.hide();
   }
 
   if (keyCount == 2) {
