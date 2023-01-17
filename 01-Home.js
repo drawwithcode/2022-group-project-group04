@@ -4,8 +4,6 @@ let delphE;
 let myInfo;
 let myButton;
 let myAudio;
-//let voiceText1 =
-//"Hey! You look interesting, let me know you better!  Hey, you! Come over here, I have something for you.  Where are you going? Stop and look at what I have for you.  I’ll tell you who you are and what you like, trust me.  Do you want to see something interesting? ";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
@@ -47,8 +45,6 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
-
-  //voice = new p5.Speech();
 }
 
 function draw() {
@@ -78,13 +74,6 @@ function draw() {
   if (myAudio.isPlaying() === false) {
     myAudio.play();
   }
-
-  //voice.listVoices();
-  // voice.setVoice("Samantha");
-  //voice.setRate(1);
-  //voice.setPitch(1.3);
-  //voice.setLang("en-US");
-  //voice.speak(voiceText1);
 }
 
 function mousePressed() {
