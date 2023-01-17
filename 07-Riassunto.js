@@ -66,6 +66,38 @@ function setup() {
   //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
+
+  if (parameter1 > 0 && parameter1 <= 1) {
+    text1 = createElement("h1");
+    text1.html('wow only ' + round(parameter1, 2) + 'seconds on cute puppies, you must be a serial killer...');
+    text1.style(
+      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+    );
+  } 
+  
+  else if (parameter1 > 1 && parameter1 <= 2.5) {
+    text1 = createElement("h1");
+    text1.html('okay,  ' + round(parameter1, 2) + 'seconds are a reasonable time to watch some cute puppies!');
+    text1.style(
+      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+    );
+  }
+
+  else if (parameter1 > 2.5 && parameter1 <= 7) {
+    text1 = createElement("h1");
+    text1.html('wow profumi ' + round(parameter1, 2));
+    text1.style(
+      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+    );
+  }
+
+  else if (parameter1 > 7){
+    text1 = createElement("h1");
+    text1.html('wow profumi ' + round(parameter1, 2));
+    text1.style(
+      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+    );
+  }
 }
 
 //  PER SINTETIZZATORE VOCALE
@@ -113,18 +145,6 @@ function draw() {
     width * 0.46,
     height * 0.2,
     30
-  );
-
-  textname = createElement("h1");
-  textname.html(parameter0);
-  textname.style(
-    "position:absolute; left: 51%; top: 21%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:24px;"
-  );
-
-  text1 = createElement("h1");
-  text1.html(round(parameter1, 2));
-  text1.style(
-    "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
   );
 
   text2 = createElement("h1");
