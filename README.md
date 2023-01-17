@@ -132,17 +132,51 @@ We had a difficult time with the decodification of the code taken from an [Open 
 In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
 
 After downloading the library and including the code in the html file 
-<!--Inserire codice-->
+```JavaScript
+<script src="libraries/p5.speech.min.js"></script>
+```
+
 we were able to specify what the user will hear in each page and some parameters, such as voice, rate, pitch and language.
-<!--Inserire codice-->
+```JavaScript
+voice = new p5.Speech();
+ voice.onLoad = voiceReady;
+
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
+}
+```
 
 **PARAMETER TRANSMITTION**
 We wanted to pass some information (such as the name and the time spent on each GIF measured in framecounts/60) between pages, and to do so we made it possible to read the parameter we needed from the URL.
 
-<!--Inserire codice-->
+```JavaScript
+const urlString = window.location.href;
+let url = new URL(urlString);
+let myType;
+
+[...]
+
+  myType = createInput("").attribute("placeholder", "Don't be shy...");
+
+[...]
+function nextPage() {
+  window.open(
+    "03-Video.html?currentUser=" +
+      myType.value() +
+      "&AnswerTime=" +
+      frameCount / 60,
+    "_self"
+  );
+}
+```
 
 **TEXT BY INPUT**
-At the review page, at each key pressed, the review box will write a standard and positive opition about the whole experience. 
+On the final comment page, whatever the user tries to type will be displayed in the same sentence, making explicit the mechanism of the site. Each letter that makes up the final sentence is associated with a numeric value with the keyCount variable, so that at each key pressed, that value (initially 0) increases, showing the correct letter each time.
 
 <!--Inserire codice-->
 
