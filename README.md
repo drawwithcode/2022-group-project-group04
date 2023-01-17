@@ -129,29 +129,47 @@ For the first part of the project, where the camera is on and it starts to take 
 
 We had a difficult time with the decodification of the code taken from an [Open Source Github Repository](https://github.com/justadudewhohacks/face-api.js#displaying-detection-results) and the modification of the recognition box style, but we managed to edit the style by directly putting hands into the face-api.min.js file 
 
+<!--Inserire codice-->
+
 **VOICE SYNTHESIZER**
 We decided to use a Voice Synthesizer in order to give voice to the profiling algorithm. 
 With the p5.Speech() library we can change the voice, the speed and the pitch. 
 
+<!--Inserire codice-->
+
 **PARAMETER TRANSMITTION**
+We wanted to pass some information (such as the name and the time spent on each GIF measured in framecounts/60) between pages, and to do so we made it possible to read the parameter we needed from the URL.
+
+<!--Inserire codice-->
 
 **TEXT BY INPUT**
+At the review page, at each key pressed, the review box will write a standard and positive opition about the whole experience. 
+
+<!--Inserire codice-->
+
 
 # REFERENCES 
 
 **LIBRARIES**
-###[Face.api from justadudewhohacks/face-api.js](https://github.com/justadudewhohacks/face-api.js)
-###[IDMNYU - p5.js-speech](https://github.com/IDMNYU/p5.js-speech)
+
+Face.api from [justadudewhohacks/face-api.js](https://github.com/justadudewhohacks/face-api.js)
+
+[IDMNYU - p5.js-speech](https://github.com/IDMNYU/p5.js-speech)
 
 **REFERENCE AND TUTORIALS**
+
 [Daniel Shiffman - The coding train](https://thecodingtrain.com/)
+
 [W3School](https://www.w3schools.com)
+
 [Stealing you feelings](https://stealingurfeelin.gs/)
 
 # CREDITS
-The projects was created for the Creative Coding course at the Politecnico di Milano.
+The projects was created for the [Creative Coding 2022/2023](https://drawwithcode.github.io/2020/) course at **Politecnico di Milano**.
 
-*Delph⋅E* was developed by:
+**Faculty:** Michele Mauri, Andrea Benedetti, Tommaso Elli.
+
+***Delph⋅E* was developed by:**
 Elisabetta Como
 Paola Pia Palumbo
 Benedetta Riccio
