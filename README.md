@@ -1,4 +1,4 @@
-<!--Immagine logo-->
+![](./readme/Home.jpg)
 
 # Delph⋅E
 
@@ -72,11 +72,10 @@ In the exhibition, to make the experience more immersive we thought to have a si
 
 **STRUCTURE**
 
-<!--Immagine structure-->
 **Home**
 The user is welcomed and attracted to join the expirience. 
 
-<!--Immagine structure-->
+![](./readme/Name.jpg)
 **Name**
 The algorithm kindly asks the user's name. This will the only information that the user willingly provides to the website. 
 
@@ -84,25 +83,21 @@ The algorithm kindly asks the user's name. This will the only information that t
 **Face Recognition**
 The algorithm will analyze the user's gender, age and emotions through the webcam. The user knows that these informations are explicitly taken by the algorithm, but she/he don't know for what purpose they will be used.  
 
-<!--Immagine structure-->
 **Loading**
 In this part, while the user's waiting for the loading to end, the website will take the implicit information about her/his behaviours: if the user remains still and doesn't interact with the website then the algorithm will consider he/she as a "chill person", otherwise the user will appear nevrotic. 
 
-<!--Immagine structure-->
-<!--Immagine Consigli e raccomandazioni-->
+![](./readme/React.jpg)
 **Reacting to GIFs**
 In this part the website shows four GIFs. The GIFs shown were chosen because they touch on generic but very polarising topics. From the time spent on each input, it will be possible to draw a complete user profile based on classic stereotypes. This will be another implicit information taken into account. 
 
-<!--Immagine structure-->
 **Report**
 The website will give a coarse report about the user's profile.  
 
-<!--Immagine structure-->
 **Recommendations**
 In the end, the algorith will do what every profiling algorithm does: to give recommendations. 
 The recommendations given are extreme, in some cases violent. This is to make the user feel touched by the process as the algorithm gives them recommendations that they would never actually consider, because they take their reactions to extremes.
 
-<!--Immagine structure-->
+![](./readme/Review.jpg)
 **Review**
 At the end, the website will let the user leave a comment about the whole experience, but the algorithm thinks it knows the user better than the user himself, so it can anticipate and force his opinions.
 
@@ -118,9 +113,11 @@ The site's interface with its playful, friendly and appealing aesthetics has bee
 
 
 **DESIGN SYSTEM**
-<!--Immagine palette-->
-<!--Immagine utilizzata-->
-<!--Immagine bottoni-->
+
+![](./readme/Palette.svg)
+
+![](./readme/Font.svg)
+![](./readme/Bottoni.svg)
 
 # CODING CHALLANGES
 
@@ -132,18 +129,54 @@ We had a difficult time with the decodification of the code taken from an [Open 
 <!--Inserire codice-->
 
 **VOICE SYNTHESIZER**
-We decided to use a Voice Synthesizer in order to give voice to the profiling algorithm. 
-With the p5.Speech() library we can change the voice, the speed and the pitch. 
+In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
 
-<!--Inserire codice-->
+After downloading the library and including the code in the html file 
+```JavaScript
+<script src="libraries/p5.speech.min.js"></script>
+```
+
+we were able to specify what the user will hear in each page and some parameters, such as voice, rate, pitch and language.
+```JavaScript
+voice = new p5.Speech();
+ voice.onLoad = voiceReady;
+
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
+}
+```
 
 **PARAMETER TRANSMITTION**
 We wanted to pass some information (such as the name and the time spent on each GIF measured in framecounts/60) between pages, and to do so we made it possible to read the parameter we needed from the URL.
 
-<!--Inserire codice-->
+```JavaScript
+const urlString = window.location.href;
+let url = new URL(urlString);
+let myType;
+
+[...]
+
+  myType = createInput("").attribute("placeholder", "Don't be shy...");
+
+[...]
+function nextPage() {
+  window.open(
+    "03-Video.html?currentUser=" +
+      myType.value() +
+      "&AnswerTime=" +
+      frameCount / 60,
+    "_self"
+  );
+}
+```
 
 **TEXT BY INPUT**
-At the review page, at each key pressed, the review box will write a standard and positive opition about the whole experience. 
+On the final comment page, whatever the user tries to type will be displayed in the same sentence, making explicit the mechanism of the site. Each letter that makes up the final sentence is associated with a numeric value with the keyCount variable, so that at each key pressed, that value (initially 0) increases, showing the correct letter each time.
 
 <!--Inserire codice-->
 
