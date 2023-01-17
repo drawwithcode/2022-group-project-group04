@@ -54,13 +54,14 @@ function setup() {
   myInfo.position(width - 95, height - 95);
   myInfo.mousePressed(info);
 
+  fakeText = createElement("h1");
+  fakeText.html("Everything that comes to mind...");
+  fakeText.style("position:absolute;  left: 430px; top: 290px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 20px; color: #5C5C5C;");
+
   //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 
-  fakeText = createElement("h1");
-  fakeText.html("Everything that comes to mind...");
-  fakeText.style("position:absolute;  left: 430px; top: 290px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 20px; color: #5C5C5C;");
 }
 
 //  PER SINTETIZZATORE VOCALE
@@ -100,7 +101,6 @@ function draw() {
   text(content, width / 2 - 325, height / 2 - 125, width / 2 - 100, height);
 
 }
-"think you know yourself better than me? Oh shut up! I know everything about you. I’ve been watching you the whole time and, according to your profile, the advice that I’ve given perfectly matches your personality. If you don’t agree... well... I don’t care!"
 
 function keyTyped() {
 
