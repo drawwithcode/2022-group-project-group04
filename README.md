@@ -32,9 +32,7 @@ Delph⋅E is a virtual space that aims to make tangible the presence of technolo
 
 ### a. Libraries
 
-### b. Tools 
-
-### c. References and tutorials
+### b. References and tutorials
 
 ## 5. [CREDITS](#Credits)
 
@@ -91,8 +89,9 @@ The algorithm will analyze the user's gender, age and emotions through the webca
 In this part, while the user's waiting for the loading to end, the website will take the implicit information about her/his behaviours: if the user remains still and doesn't interact with the website then the algorithm will consider he/she as a "chill person", otherwise the user will appear nevrotic. 
 
 <!--Immagine structure-->
+<!--Immagine Consigli e raccomandazioni-->
 **Reacting to GIFs**
-The algorithm will take count of the amount of time the user spends on each gif. This will be another implicit information taken into account. 
+In this part the website shows four GIFs. The GIFs shown were chosen because they touch on generic but very polarising topics. From the time spent on each input, it will be possible to draw a complete user profile based on classic stereotypes. This will be another implicit information taken into account. 
 
 <!--Immagine structure-->
 **Report**
@@ -101,6 +100,7 @@ The website will give a coarse report about the user's profile.
 <!--Immagine structure-->
 **Recommendations**
 In the end, the algorith will do what every profiling algorithm does: to give recommendations. 
+The recommendations given are extreme, in some cases violent. This is to make the user feel touched by the process as the algorithm gives them recommendations that they would never actually consider, because they take their reactions to extremes.
 
 <!--Immagine structure-->
 **Review**
@@ -118,11 +118,35 @@ The site's interface with its playful, friendly and appealing aesthetics has bee
 
 
 **DESIGN SYSTEM**
-
+<!--Immagine palette-->
+<!--Immagine utilizzata-->
+<!--Immagine bottoni-->
 
 # CODING CHALLANGES
 
+**FACE RECOGNITION**
+For the first part of the project, where the camera is on and it starts to take your information, we initially thought of using Face.api on ml5, but we saw that age and gender weren't supported. So we decided to use Face.api built on tensorflow.js library for both the age, gender and emotions’ recognition. 
+
+We had a difficult time with the decodification of the code taken from an [Open Source Github Repository](https://github.com/justadudewhohacks/face-api.js#displaying-detection-results) and the modification of the recognition box style, but we managed to edit the style by directly putting hands into the face-api.min.js file 
+
+**VOICE SYNTHESIZER**
+We decided to use a Voice Synthesizer in order to give voice to the profiling algorithm. 
+With the p5.Speech() library we can change the voice, the speed and the pitch. 
+
+**PARAMETER TRANSMITTION**
+
+**TEXT BY INPUT**
+
 # REFERENCES 
+
+**LIBRARIES**
+###[Face.api from justadudewhohacks/face-api.js](https://github.com/justadudewhohacks/face-api.js)
+###[IDMNYU - p5.js-speech](https://github.com/IDMNYU/p5.js-speech)
+
+**REFERENCE AND TUTORIALS**
+[Daniel Shiffman - The coding train](https://thecodingtrain.com/)
+[W3School](https://www.w3schools.com)
+[Stealing you feelings](https://stealingurfeelin.gs/)
 
 # CREDITS
 The projects was created for the Creative Coding course at the Politecnico di Milano.
