@@ -117,6 +117,7 @@ The site's interface with its playful, friendly and appealing aesthetics has bee
 ![](./readme/Palette.svg)
 
 ![](./readme/Font.svg)
+
 ![](./readme/Bottoni.svg)
 
 # CODING CHALLANGES
@@ -177,9 +178,26 @@ function nextPage() {
 
 **TEXT BY INPUT**
 On the final comment page, whatever the user tries to type will be displayed in the same sentence, making explicit the mechanism of the site. Each letter that makes up the final sentence is associated with a numeric value with the keyCount variable, so that at each key pressed, that value (initially 0) increases, showing the correct letter each time.
+```JavaScript
+keyCount = 0;
 
-<!--Inserire codice-->
+function keyTyped() {
+  keyCount++;
+  console.log(keyCount)
 
+  if (keyCount == 1) {
+    content += “L”;
+  }
+
+  if (keyCount == 2) {
+    content += "O";
+  }
+
+  if (keyCount == 3) {
+    content += "L. ";
+  }
+[...]
+```
 
 # REFERENCES 
 
