@@ -1,3 +1,176 @@
-# P5-empty-project
-This repository is the starting point of the assignments given in the elective course [Creative Coding at Politecnico di Milano](https://www11.ceda.polimi.it/schedaincarico/schedaincarico/controller/scheda_pubblica/SchedaPublic.do?&evn_default=evento&c_classe=696598&__pj0=0&__pj1=3ed8420c42c849845b5caa3de626e8fc).
-Browse [this website](https://drawwithcode.github.io/) if you want to know more about it.
+<!--Immagine logo-->
+
+# Delph⋅E
+
+Delph⋅E is a virtual space that aims to make tangible the presence of technology and profiling algorithms in everyday life. Every time a user surfs the Internet, he unknowingly leaves behind a trail of data. This data is collected and exploited by profiling algorithms to 'know' the user and return 'tailored' recommendations, showing only what the user might like.
+
+## 1. [THE PROJECT](#the-project)
+
+### a. Theme: the presence 
+
+### b. Concept 
+
+### c. Context of use 
+
+### d. The structure 
+
+## 2. [DESIGN CHALLENGES](#Design-Challenges)
+
+### a. Design System
+
+## 3. [CODING CHALLENGES](#Coding-Challenges)
+
+### a. Face recognition
+
+### b. Voice Synthesizer 
+
+### c. Parameter transmission 
+
+### d. Text By input 
+
+## 4. [REFERENCES](#References)
+
+### a. Libraries
+
+### b. References and tutorials
+
+## 5. [CREDITS](#Credits)
+
+
+# THE PROJECT
+
+**THEME: THE PRESENCE**
+
+*"Is there a usage of technology that makes it **present, tangible, persistent**?"*
+
+We imagined technology as being an ever-vigilant entity. Always present. With an eye constantly on the user. It monitors our activities so as to classify and assimilate them into larger patterns.
+It collects endless amounts of data about our actions and movements by studying them to the point of being able to predict them. 
+
+So, the question is: "Are the algorithms the **new crystal ball or even the 21st Century Oracle of Delphi?**"
+
+Profiling algorithms tend to to draw stereotypical profiles to which they propose sometimes inaccurate recommendations.
+Users are not always aware of the ways in which the network collects their data to exploit it in profiling processes. 
+
+The goal of our project is to make the profiling algorithm very tangible, raw, and coarse, highlighting the moment it collects data and translates it into recommendations.
+
+
+**CONCEPT**
+
+<!--Immagine concept-->
+
+Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profilation uses also some implicit datas, that the user is not aware  he is giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
+
+The name "Delph⋅E" comes from the algorithms' ambition not only to know everything about the world but to know everything about yourself.  The most famous  Delphic maxim in the Ancient Greek was indeed "know thyself".
+
+
+**CONTEXT OF USE**
+
+The project was conceived for the context of an exhibition.
+
+In the exhibition, to make the experience more immersive we thought to have a single screen with a keyboard and a mouse surrounded by multiple stereos to attract the attention of people passing by. When nobody is doing the experience at the monitor, the voice of the algorithm will call for the passers-by's attention until they click and start the experience.
+
+
+**STRUCTURE**
+
+<!--Immagine structure-->
+**Home**
+The user is welcomed and attracted to join the expirience. 
+
+<!--Immagine structure-->
+**Name**
+The algorithm kindly asks the user's name. This will the only information that the user willingly provides to the website. 
+
+<!--Immagine structure-->
+**Face Recognition**
+The algorithm will analyze the user's gender, age and emotions through the webcam. The user knows that these informations are explicitly taken by the algorithm, but she/he don't know for what purpose they will be used.  
+
+<!--Immagine structure-->
+**Loading**
+In this part, while the user's waiting for the loading to end, the website will take the implicit information about her/his behaviours: if the user remains still and doesn't interact with the website then the algorithm will consider he/she as a "chill person", otherwise the user will appear nevrotic. 
+
+<!--Immagine structure-->
+<!--Immagine Consigli e raccomandazioni-->
+**Reacting to GIFs**
+In this part the website shows four GIFs. The GIFs shown were chosen because they touch on generic but very polarising topics. From the time spent on each input, it will be possible to draw a complete user profile based on classic stereotypes. This will be another implicit information taken into account. 
+
+<!--Immagine structure-->
+**Report**
+The website will give a coarse report about the user's profile.  
+
+<!--Immagine structure-->
+**Recommendations**
+In the end, the algorith will do what every profiling algorithm does: to give recommendations. 
+The recommendations given are extreme, in some cases violent. This is to make the user feel touched by the process as the algorithm gives them recommendations that they would never actually consider, because they take their reactions to extremes.
+
+<!--Immagine structure-->
+**Review**
+At the end, the website will let the user leave a comment about the whole experience, but the algorithm thinks it knows the user better than the user himself, so it can anticipate and force his opinions.
+
+
+# DESIGN CHALLENGES
+
+In order to answer the question of the presence of technology, instead of choosing a more aggressive approach that imposes itself on the user's decisions, we wanted to work on the concept of explicit and implicit information that the user surrenders to the profiling algorithm.
+
+The challenge was to make the feeling of constant vigilance without making it overly disturbing and intimidating.
+Therefore, we chose to create a site with friendlier dynamics, with the site trying to constantly maintain a contact and relationship with the user.
+
+The site's interface with its playful, friendly and appealing aesthetics has been created in this way as it masks and completely hides the omnipresent and sometimes disturbing logic of the profiling algorithm. In fact, the moving eyes are the only element that could remind us how a seemingly friendly detail hides behind the fact that we are constantly being followed.
+
+
+**DESIGN SYSTEM**
+<!--Immagine palette-->
+<!--Immagine utilizzata-->
+<!--Immagine bottoni-->
+
+# CODING CHALLANGES
+
+**FACE RECOGNITION**
+For the first part of the project, where the camera is on and it starts to take your information, we initially thought of using Face.api on ml5, but we saw that age and gender weren't supported. So we decided to use Face.api built on tensorflow.js library for both the age, gender and emotions’ recognition. 
+
+We had a difficult time with the decodification of the code taken from an [Open Source Github Repository](https://github.com/justadudewhohacks/face-api.js#displaying-detection-results) and the modification of the recognition box style, but we managed to edit the style by directly putting hands into the face-api.min.js file 
+
+<!--Inserire codice-->
+
+**VOICE SYNTHESIZER**
+We decided to use a Voice Synthesizer in order to give voice to the profiling algorithm. 
+With the p5.Speech() library we can change the voice, the speed and the pitch. 
+
+<!--Inserire codice-->
+
+**PARAMETER TRANSMITTION**
+We wanted to pass some information (such as the name and the time spent on each GIF measured in framecounts/60) between pages, and to do so we made it possible to read the parameter we needed from the URL.
+
+<!--Inserire codice-->
+
+**TEXT BY INPUT**
+At the review page, at each key pressed, the review box will write a standard and positive opition about the whole experience. 
+
+<!--Inserire codice-->
+
+
+# REFERENCES 
+
+**LIBRARIES**
+
+Face.api from [justadudewhohacks/face-api.js](https://github.com/justadudewhohacks/face-api.js)
+
+[IDMNYU - p5.js-speech](https://github.com/IDMNYU/p5.js-speech)
+
+**REFERENCE AND TUTORIALS**
+
+[Daniel Shiffman - The coding train](https://thecodingtrain.com/)
+
+[W3School](https://www.w3schools.com)
+
+[Stealing you feelings](https://stealingurfeelin.gs/)
+
+# CREDITS
+The projects was created for the [Creative Coding 2022/2023](https://drawwithcode.github.io/2020/) course at **Politecnico di Milano**.
+
+**Faculty:** Michele Mauri, Andrea Benedetti, Tommaso Elli.
+
+***Delph⋅E* was developed by:**
+Elisabetta Como
+Paola Pia Palumbo
+Benedetta Riccio
+Zeya Wu
