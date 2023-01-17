@@ -57,6 +57,8 @@ The goal of our project is to make the profiling algorithm very tangible, raw, a
 
 **CONCEPT**
 
+<!--Immagine concept-->
+
 Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profilation uses also some implicit datas, that the user is not aware  he is giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
 
 The name "Delph⋅E" comes from the algorithms' ambition not only to know everything about the world but to know everything about yourself.  The most famous  Delphic maxim in the Ancient Greek was indeed "know thyself".
@@ -64,4 +66,41 @@ The name "Delph⋅E" comes from the algorithms' ambition not only to know everyt
 
 **CONTEXT OF USE**
 
+The project was conceived for the context of an exhibition.
 
+In the exhibition, to make the experience more immersive we thought to have a single screen with a keyboard and a mouse surrounded by multiple stereos to attract the attention of people passing by. When nobody is doing the experience at the monitor, the voice of the algorithm will call for the passers-by's attention until they click and start the experience.
+
+
+**STRUCTURE**
+
+<!--Immagine structure-->
+**Home**
+The user is welcomed and attracted to join the expirience. 
+
+<!--Immagine structure-->
+**Name**
+The algorithm kindly asks the user's name. This will the only information that the user willingly provides to the website. 
+
+<!--Immagine structure-->
+**Face Recognition**
+The algorithm will analyze the user's gender, age and emotions through the webcam. The user knows that these informations are explicitly taken by the algorithm, but she/he don't know for what purpose they will be used.  
+
+<!--Immagine structure-->
+**Loading**
+In this part, while the user's waiting for the loading to end, the website will take the implicit information about her/his behaviours: if the user remains still and doesn't interact with the website then the algorithm will consider he/she as a "chill person", otherwise the user will appear nevrotic. 
+
+<!--Immagine structure-->
+**Reacting to GIFs**
+The algorithm will take count of the amount of time the user spends on each gif. This will be another implicit information taken into account. 
+
+<!--Immagine structure-->
+**Report**
+The website will give a coarse report about the user's profile.  
+
+<!--Immagine structure-->
+**Recommendations**
+In the end, the algorith will do what every profiling algorithm does: to give recommendations. 
+
+<!--Immagine structure-->
+**Review**
+At he end, the website will let the user leave a comment about the whole experience, but in reality the user won't be able to express his/her opinion because the algorithm thinks to already know it. 
