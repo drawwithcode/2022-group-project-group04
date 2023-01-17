@@ -132,7 +132,7 @@ We had a difficult time with the decodification of the code taken from an [Open 
 **VOICE SYNTHESIZER**
 In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
 
-After downloading the library, uploading it in the "libraries folder" and including the code in the html file 
+After downloading the library, uploading it in the "libraries" folder and including the code in the html file 
 ```JavaScript
 <script src="libraries/p5.speech.min.js"></script>
 ```
