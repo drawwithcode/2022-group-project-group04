@@ -2,7 +2,7 @@ let myFont;
 let delphE;
 let myInfo;
 
-let fakeText; 
+let myColor = "#5C5C5C";
 
 // effetto testo
 let content = "";
@@ -15,7 +15,6 @@ let voiceText2 = "I mean,  I really don’t care but thank you...";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
-  ////
   Balloon1 = loadImage("./assets/images/Text8.svg");
   Balloon2 = loadImage("./assets/images/Text9.svg");
 }
@@ -45,7 +44,7 @@ function setup() {
 
   //    fake input box
   strokeWeight(2);
-  rect(width / 2 - 350, height / 2 - 150, 700, 350, 30 / 2);
+  rect(width / 2 - 350, height / 2 - 150, width / 2 - 75, 350, 30 / 2);
 
   //    info button
   myInfo = createImg("./assets/images/Info.svg");
@@ -54,9 +53,9 @@ function setup() {
   myInfo.position(width - 95, height - 95);
   myInfo.mousePressed(info);
 
-  fakeText = createElement("h1");
-  fakeText.html("Everything that comes to mind...");
-  fakeText.style("position:absolute;  left: 430px; top: 290px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 20px; color: #5C5C5C;");
+  // fakeText = createElement("h1");
+  // fakeText.html("Everything that comes to mind...");
+  // fakeText.style("position:absolute;  left: 430px; top: 290px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 20px; color: #5C5C5C;");
 
   //  PER SINTETIZZATORE VOCALE
   voice = new p5.Speech();
@@ -96,20 +95,28 @@ function draw() {
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
 
+  //    fakeText
   textSize(20);
+  fill(myColor);
+  textFont("ClashDisplay-Regular");
+  text("Everything that comes to mind...", width / 2 - 325, height / 2 - 125, width / 2 - 100, height);
+
+  //    text comment
+  textSize(20);
+  fill("black");
   textFont("ClashDisplay-Regular");
   text(content, width / 2 - 325, height / 2 - 125, width / 2 - 100, height);
-
 }
 
 function keyTyped() {
 
   keyCount++;
   console.log(keyCount);
+  myColor = (0,0,0,255);
 
   if (keyCount == 1) {
     content += "L";
-    fakeText.hide();
+    // fakeText.hide();j
   }
 
   if (keyCount == 2) {
