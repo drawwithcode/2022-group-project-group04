@@ -38,6 +38,7 @@ Delph⋅E is a virtual space that aims to make tangible the presence of technolo
 
 ## 5. [CREDITS](#Credits)
 
+
 # THE PROJECT
 
 **THEME: THE PRESENCE**
@@ -103,4 +104,31 @@ In the end, the algorith will do what every profiling algorithm does: to give re
 
 <!--Immagine structure-->
 **Review**
-At he end, the website will let the user leave a comment about the whole experience, but in reality the user won't be able to express his/her opinion because the algorithm thinks to already know it. 
+At the end, the website will let the user leave a comment about the whole experience, but the algorithm thinks it knows the user better than the user himself, so it can anticipate and force his opinions.
+
+
+# DESIGN CHALLENGES
+
+In order to answer the question of the presence of technology, instead of choosing a more aggressive approach that imposes itself on the user's decisions, we wanted to work on the concept of explicit and implicit information that the user surrenders to the profiling algorithm.
+
+The challenge was to make the feeling of constant vigilance without making it overly disturbing and intimidating.
+Therefore, we chose to create a site with friendlier dynamics, with the site trying to constantly maintain a contact and relationship with the user.
+
+The site's interface with its playful, friendly and appealing aesthetics has been created in this way as it masks and completely hides the omnipresent and sometimes disturbing logic of the profiling algorithm. In fact, the moving eyes are the only element that could remind us how a seemingly friendly detail hides behind the fact that we are constantly being followed.
+
+
+**DESIGN SYSTEM**
+
+
+# CODING CHALLANGES
+
+# REFERENCES 
+
+# CREDITS
+The projects was created for the Creative Coding course at the Politecnico di Milano.
+
+*Delph⋅E* was developed by:
+Elisabetta Como
+Paola Pia Palumbo
+Benedetta Riccio
+Zeya Wu
