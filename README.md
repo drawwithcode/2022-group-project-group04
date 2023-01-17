@@ -123,6 +123,7 @@ The site's interface with its playful, friendly and appealing aesthetics has bee
 # CODING CHALLANGES
 
 **FACE RECOGNITION**
+
 For the first part of the project, where the camera is on and it starts to take your information, we initially thought of using Face.api on ml5, but we saw that age and gender weren't supported. So we decided to use Face.api built on tensorflow.js library for both the age, gender and emotions’ recognition. 
 
 We had a difficult time with the decodification of the code taken from an [Open Source Github Repository](https://github.com/justadudewhohacks/face-api.js#displaying-detection-results) and the modification of the recognition box style, but we managed to edit the style by directly putting hands into the face-api.min.js file 
@@ -130,6 +131,7 @@ We had a difficult time with the decodification of the code taken from an [Open 
 <!--Inserire codice-->
 
 **VOICE SYNTHESIZER**
+
 In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
 
 After downloading the library, uploading it in the "libraries" folder and including the code in the html file 
@@ -152,7 +154,8 @@ function voiceReady() {
 }
 ```
 
-**PARAMETER TRANSMITTION**
+**PARAMETER TRANSMISSION**
+
 We wanted to pass some information (such as the name and the time spent on each GIF measured in framecounts/60) between pages, and to do so we made it possible to read the parameter we needed from the URL.
 
 ```JavaScript
@@ -177,6 +180,7 @@ function nextPage() {
 ```
 
 **TEXT BY INPUT**
+
 On the final comment page, whatever the user tries to type will be displayed in the same sentence, making explicit the mechanism of the site. Each letter that makes up the final sentence is associated with a numeric value with the keyCount variable, so that at each key pressed, that value (initially 0) increases, showing the correct letter each time.
 ```JavaScript
 keyCount = 0;
@@ -221,7 +225,7 @@ The projects was created for the [Creative Coding 2022/2023](https://drawwithcod
 **Faculty:** Michele Mauri, Andrea Benedetti, Tommaso Elli.
 
 ***Delph⋅E* was developed by:**
-Elisabetta Como
-Paola Pia Palumbo
-Benedetta Riccio
+Elisabetta Como,
+Paola Pia Palumbo,
+Benedetta Riccio,
 Zeya Wu
