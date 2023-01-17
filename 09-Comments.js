@@ -120,7 +120,7 @@ function keyTyped() {
 
   if (keyCount == 1) {
     content += "L";
-    // fakeText.hide();j
+    // fakeText.hide();
   }
 
   if (keyCount == 2) {
