@@ -16,6 +16,10 @@ let myButton;
 let myFont;
 let canvas2;
 
+//  PER SINTETIZZATORE VOCALE
+let voice;
+let voiceText = "Perfect, here you go!";
+
 let pageLinks = [
   "08-Consigli.html",
   "08.1-Consigli.html",
@@ -58,13 +62,28 @@ function setup() {
   img3.style("position:absolute;");
   img3.size(413.5 / 2, 121 / 2);
   img3.position(100, height - 140);
+
+  //  PER SINTETIZZATORE VOCALE
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+
+//  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
 }
 
 function draw() {
   fill(255);
   strokeWeight(1.5);
   rectMode(CENTER);
-  rect(width - 50 - (width * 0.49) / 2, height / 2, width * 0.49, 480, 30);
+  rect(width - 50 - (width * 0.49) / 2, height / 2, width * 0.49, height / 1.6, 30);
+  // rect(width - 50 - (width * 0.49) / 2, height / 2, width * 0.49, 480, 30);
 
   fill("#68F6FF");
   strokeWeight(2);

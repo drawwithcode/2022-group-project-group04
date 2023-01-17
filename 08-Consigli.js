@@ -1,5 +1,10 @@
 let img4;
 
+//  PER SINTETIZZATORE VOCALE
+let voice;
+let voiceText = "I highly suggest you...";
+
+
 function preload() {
   sugg1h = loadImage("./assets/int/s-1-hover.svg");
   sugg2h = loadImage("./assets/int/s-2-hover.svg");
@@ -33,6 +38,20 @@ function setup() {
   img4.style("position:absolute;");
   img4.size(413.4 / 2, 121 / 2);
   img4.position(100, height - 120);
+
+  //  PER SINTETIZZATORE VOCALE
+  voice = new p5.Speech();
+  voice.onLoad = voiceReady;
+}
+  
+  //  PER SINTETIZZATORE VOCALE
+function voiceReady() {
+  voice.listVoices();
+  voice.setVoice("Samantha");
+  voice.setRate(1);
+  voice.setPitch(1.3);
+  voice.setLang("en-US");
+  voice.speak(voiceText);
 }
 
 function draw() {
