@@ -39,6 +39,7 @@ Delph⋅E is a virtual space that aims to make tangible the presence of technolo
 
 # THE PROJECT
 
+
 **THEME: THE PRESENCE**
 
 *"Is there a usage of technology that makes it **present, tangible, persistent**?"*
@@ -130,6 +131,7 @@ We had a difficult time with the decodification of the code taken from an [Open 
 
 <!--Inserire codice-->
 
+
 **VOICE SYNTHESIZER**
 
 In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
@@ -153,6 +155,7 @@ function voiceReady() {
   voice.speak(voiceText);
 }
 ```
+
 
 **PARAMETER TRANSMISSION**
 
@@ -178,6 +181,7 @@ function nextPage() {
   );
 }
 ```
+
 
 **TEXT BY INPUT**
 
