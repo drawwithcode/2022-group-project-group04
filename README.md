@@ -397,6 +397,8 @@ Face.api from [justadudewhohacks/face-api.js](https://github.com/justadudewhohac
 
 [Stealing you feelings](https://stealingurfeelin.gs/)
 
+[Mouse speed](https://editor.p5js.org/laurajunco/sketches/S1ok4hM9m)
+
 # CREDITS
 The projects was created for the [Creative Coding 2022/2023](https://drawwithcode.github.io/2020/) course at **Politecnico di Milano**.
 
