@@ -129,9 +129,143 @@ For the first part of the project, where the camera is on and it starts to take 
 
 We had a difficult time with the decodification of the code taken from an [Open Source Github Repository](https://github.com/justadudewhohacks/face-api.js#displaying-detection-results) and the modification of the recognition box style, but we managed to edit the style by directly putting hands into the face-api.min.js file 
 
-<!--Inserire codice-->
+We added the library source to html:
 
+```JavaScript
+ <script src="libraries/face-api.min.js" defer></script>
+```
 
+Then we worked on the correlated .js file:
+```JavaScript
+const video = document.getElementById("video");
+```
+
+```JavaScript
+Promise.all([
+  faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri("./models"),
+  faceapi.nets.faceExpressionNet.loadFromUri("./models"),
+  faceapi.nets.ageGenderNet.loadFromUri("./models"),
+]).then(startVideo);
+```
+
+```JavaScript
+function startVideo() {
+  navigator.getUserMedia =
+    navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia;
+
+  if (navigator.getUserMedia) {
+    navigator.getUserMedia(
+      { video: true },
+      function (stream) {
+        var video = document.querySelector("video");
+        video.srcObject = stream;
+        video.onloadedmetadata = function (e) {
+          video.play();
+        };
+      },
+      function (err) {
+        console.log(err.name);
+      }
+    );
+  } else {
+    document.body.innerText = "getUserMedia not supported";
+    console.log("getUserMedia not supported");
+  }
+}
+
+video.addEventListener("play", () => {
+  const canvas = faceapi.createCanvasFromMedia(video);
+  document.body.append(canvas);
+  const displaySize = { width: video.width, height: video.height };
+  faceapi.matchDimensions(canvas, displaySize);
+  setInterval(async () => {
+    const predictions = await faceapi
+      .detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+      .withFaceExpressions()
+      .withAgeAndGender();
+
+    const resizedDetections = faceapi.resizeResults(predictions, displaySize);
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+
+    faceapi.draw.drawDetections(canvas, resizedDetections);
+    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+    resizedDetections.forEach((result) => {
+      const { age, gender } = result;
+
+      const drawOptions = {
+        backgroundColor: "#ffd100",
+        fontColor: "#000000",
+      };
+
+      new faceapi.draw.DrawTextField(
+        [`Age: ${faceapi.round(age, 0)}`, `Gender: ${gender}`],
+        result.detection.box.topLeft,
+        drawOptions
+      ).draw(canvas);
+    });
+  }, 100);
+});
+```
+
+To work with the video pistion and box styling we worked on both html file and the face-api.min.js file:
+**Html**
+```JavaScript
+  <style>
+ body {
+        background: #8261ff;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-family: "Clash Display 500";
+      }
+
+      canvas {
+        position: absolute;
+      }
+  </style>
+ </head>
+  <body>
+    <video
+      id="video"
+      width="720"
+      height="540"
+      autoplay
+      muted
+      style="border: 2px #000 solid; border-radius: 30px"
+    ></video>
+  </body>
+</html>
+```
+
+**Face-api.min.js** *(near line 25491)*
+```JavaScript
+ var Vh = function (t) {
+      void 0 === t && (t = {});
+      var e = t.anchorPosition,
+        n = t.backgroundColor,
+        r = t.fontColor,
+        o = t.fontSize,
+        i = t.fontStyle,
+        a = t.padding;
+      (this.anchorPosition = e || Bh.TOP_LEFT),
+        (this.backgroundColor = n || "#FFD100"),
+        (this.fontColor = r || "rgba(0, 0, 0, 1)"),
+        (this.fontSize = o || 20),
+        (this.fontStyle = i || "Clash Display"),
+        (this.padding = a || 4);
+    },
+```
 **VOICE SYNTHESIZER**
 
 In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
@@ -155,7 +289,6 @@ function voiceReady() {
   voice.speak(voiceText);
 }
 ```
-
 
 **PARAMETER TRANSMISSION**
 
