@@ -320,7 +320,7 @@ function sugg11hover() {
 }
 
 function sugg12hover() {
-  sugg12h = createImg("./assets/ins/s-12-h.svg");
+  sugg12h = createImg("./assets/ints/s-12-h.svg");
   sugg12h.style("cursor:pointer;position:absolute");
   sugg12h.size(329/1.05, 544/1.05);
   sugg12h.position(width/1.33, height/6);

@@ -20,7 +20,7 @@ let voiceText = "Yeah, I knew it!";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
-  comment = loadImage("./assets/images/Knew.png");
+  comment = loadImage("./assets/images/Knew.svg");
   myGif = loadImage("./assets/gif/Ananas.gif");
 }
 

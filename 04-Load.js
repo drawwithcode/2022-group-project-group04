@@ -23,7 +23,7 @@ function preload() {
   ButFirst = loadImage("./assets/images/ButFirst.svg");
   ChillDude = loadImage("./assets/images/ChillDude.svg");
   Rush = loadImage("./assets/images/Rush.svg");
-  loading = loadImage("./assets/images/Loading.png");
+  loading = loadImage("./assets/images/Loading.svg");
 }
 
 function setup() {
