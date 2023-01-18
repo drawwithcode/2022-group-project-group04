@@ -80,7 +80,7 @@ The user is welcomed and attracted to join the expirience.
 **Name**
 The algorithm kindly asks the user's name. This will the only information that the user willingly provides to the website. 
 
-<!--Immagine structure-->
+![](./readme/Video.jpg)
 **Face Recognition**
 The algorithm will analyze the user's gender, age and emotions through the webcam. The user knows that these informations are explicitly taken by the algorithm, but she/he don't know for what purpose they will be used.  
 
