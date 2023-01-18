@@ -384,7 +384,21 @@ video.addEventListener("play", () => {
 });
 
 function nextPage() {
-  window.open("08-Consigli.html", "_self");
+  window.open(
+    "08-Consigli.html?currentUser=" +
+      parameter0 +
+      "&AnswerTime" +
+      AT +
+      "&t1=" +
+      parameter1 +
+      "&t2=" +
+      parameter2 +
+      "&t3=" +
+      parameter3 +
+      "&t4=" +
+      frameCount / 60,
+    "_self"
+  );
 }
 
 function home() {
