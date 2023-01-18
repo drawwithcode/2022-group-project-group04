@@ -218,15 +218,11 @@ function draw() {
   if ((mouseX < width - 300 - 50 && mouseX < width - 290, mouseY < height - 88)) {
     myButton2.style("filter:invert(0)");
   }
-<<<<<<< Updated upstream
-=======
 
-    //Return Hover
-    if ((mouseX < width - 555 - 100 && mouseX < width - 150, mouseY < height - 88)) {
-      myButton3.style("filter:invert(0)");
-    }
-
->>>>>>> Stashed changes
+  //Return Hover
+  if ((mouseX < width - 555 - 100 && mouseX < width - 150, mouseY < height - 88)) {
+    myButton3.style("filter:invert(0)");
+  }
 }
 
 function hovering() {
