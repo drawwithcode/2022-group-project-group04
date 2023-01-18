@@ -12,6 +12,9 @@ let img4;
 let myButton;
 let myButton2;
 
+//////
+let test = 0;
+
 //  PER SINTETIZZATORE VOCALE
 let voice;
 let voiceText = "I highly suggest you...";
@@ -207,9 +210,6 @@ function draw() {
   if ((mouseX < width - 500 && mouseX > width - 210, mouseY < height - 88)) {
     myButton2.style("filter:invert(0)");
   }
-
-
-
 }
 
 function hovering() {
@@ -226,7 +226,20 @@ function nextPage() {
 }
 
 function backPage() {
-  window.open("07-Riassunto.html", "_self");
+  window.open("07-Riassunto.html?currentUser=" +
+  parameter0 +
+  "&AnswerTime" +
+  AT +
+  "&t1=" +
+  parameter1 +
+  "&t2=" +
+  parameter2 +
+  "&t3=" +
+  parameter3 +
+  "&t4=" +
+  frameCount / 60,
+"_self"
+);
   //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
 }
 
@@ -319,14 +332,12 @@ function sugg11hover() {
 }
 
 function sugg12hover() {
-  sugg12h = createImg("./assets/ins/s-10-h.svg");
+  sugg12h = createImg("./assets/ins/s-12-h.svg");
   sugg12h.style("cursor:pointer;position:absolute");
   sugg12h.size(329/1.05, 544/1.05);
   sugg12h.position(width/1.33, height / 5);
   sugg12h.attribute("draggable", false);
 }
-
-
 
 function home() {
   window.open("index.html", "_self");

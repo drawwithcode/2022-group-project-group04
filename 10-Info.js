@@ -41,11 +41,11 @@ function setup() {
   myText = createElement("h2", "“Are the algorithms the new crystal ball or even the 21st Century Oracle of Delphi? The Internet’s maxim seems to be: Give me some information about yourself and I’ll give you what you want”.");
   myText.style("position:absolute; top:12%; left: 40%; transform: translate(-30%,-50%); text-align:left; font-size: 24px; font-family:'Clash Display'; font-weight: 500");
   
-  myText2 = createElement("h2", "Delph⋅E is a virtual space that aims to make tangible the presence of technology and profiling algorithms in everyday life. Every time a user surfs the Internet, he unknowingly leaves behind a trail of data. This data is collected and exploited by profiling algorithms to 'know' the user and return 'tailored' recommendations, showing only what the user might like. <br>Delph⋅E replicates this experience, making it explicit and intentionally coarse and stereotypical. Through facial expression recognition technologies, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The result is the flattening of the user, associated with a false and stereotypical identity model.");
+  myText2 = createElement("h2", "Delph⋅E is a virtual space that aims to make tangible the presence of technology and profiling algorithms in everyday life. Every time a user surfs the Internet, he unknowingly leaves behind a trail of data. This data is collected and exploited by profiling algorithms to 'know' the user and return 'tailored' recommendations, showing only what the user might like. <br>Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profilation uses also some implicit datas, that the user is not aware  he is giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.");
   myText2.style("position:absolute; top:38%; left: 40%; transform: translate(-30%,-50%); text-align:left; font-size: 24px; font-family:'Clash Display'; font-weight: 400");
-
-  myText3 = createElement("h2", "The project was developed during the Creative Coding course at Politecnico di Milano (2022-23).");
-  myText3.style("position:absolute; top:62%; left: 40%; transform: translate(-30%,-50%); text-align:left; font-size: 24px; font-family:'Clash Display'; font-weight: 500");
+ 
+  myText3 = createElement("h2", "The project was developed during the <a href='https://drawwithcode.github.io'>Creative Coding</a> course at Politecnico di Milano (2022-23).");
+  myText3.style("position:absolute; top:63%; left: 40%; transform: translate(-30%,-50%); text-align:left; font-size: 24px; font-family:'Clash Display'; font-weight: 500");
 
   asterisco = createImg("./assets/images/Asterisco.svg");
   asterisco.size(85, 85);

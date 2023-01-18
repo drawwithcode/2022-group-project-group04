@@ -52,3 +52,7 @@ canvas {
   border-color: #ffffff;
   cursor: pointer;
 }
+
+a {
+  color: black;
+}

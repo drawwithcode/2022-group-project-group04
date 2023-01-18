@@ -122,7 +122,7 @@ function draw() {
   }
 }
 
-let myTimer = window.setTimeout(nextPage, 14000); //Timeout in millisecondi
+let myTimer = window.setTimeout(nextPage, 10000); //Timeout in millisecondi
 function nextPage() {
   window.open(
     "05-FirstReact.html?currentUser=" + parameter0 + "&AnswerTime=" + AT,
