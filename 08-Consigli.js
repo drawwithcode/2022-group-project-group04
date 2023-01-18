@@ -62,7 +62,7 @@ function setup() {
       sugg1 = createImg("./assets/ints/s-1.svg");
       sugg1.style("cursor:pointer;position:absolute");
       sugg1.size(329/1.05, 544/1.05);
-      sugg1.position(40, height / 5);
+      sugg1.position(40, height/6);
       sugg1.attribute("draggable", false);
       sugg1.mousePressed(sugg1hover);
     } 
@@ -71,7 +71,7 @@ function setup() {
       sugg2 = createImg("./assets/ints/s-2.svg");
       sugg2.style("cursor:pointer;position:absolute");
       sugg2.size(329/1.05, 544/1.05);
-      sugg2.position(40, height / 5);
+      sugg2.position(40, height/6);
       sugg2.attribute("draggable", false);
       sugg2.mousePressed(sugg2hover);
     }
@@ -80,7 +80,7 @@ function setup() {
       sugg3 = createImg("./assets/ints/s-3.svg");
       sugg3.style("cursor:pointer;position:absolute");
       sugg3.size(329/1.05, 544/1.05);
-      sugg3.position(40, height / 5);
+      sugg3.position(40, height/6);
       sugg3.attribute("draggable", false);
       sugg3.mousePressed(sugg3hover);
     }
@@ -90,7 +90,7 @@ function setup() {
       sugg4 = createImg("./assets/ints/s-4.svg");
       sugg4.style("cursor:pointer;position:absolute");
       sugg4.size(329/1.05, 544/1.05);
-      sugg4.position(width/4 + 26, height / 5);
+      sugg4.position(width/4 + 26, height/6);
       sugg4.attribute("draggable", false);
       sugg4.mousePressed(sugg4hover);
     } 
@@ -99,7 +99,7 @@ function setup() {
       sugg5 = createImg("./assets/ints/s-5.svg");
       sugg5.style("cursor:pointer;position:absolute");
       sugg5.size(329/1.05, 544/1.05);
-      sugg5.position(width/4 + 26, height / 5);
+      sugg5.position(width/4 + 26, height/6);
       sugg5.attribute("draggable", false);
       sugg5.mousePressed(sugg5hover);
     }
@@ -108,7 +108,7 @@ function setup() {
       sugg6 = createImg("./assets/ints/s-6.svg");
       sugg6.style("cursor:pointer;position:absolute");
       sugg6.size(329/1.05, 544/1.05);
-      sugg6.position(width/4 + 26, height / 5);
+      sugg6.position(width/4 + 26, height/6);
       sugg6.attribute("draggable", false);
       sugg6.mousePressed(sugg6hover);
     }
@@ -118,7 +118,7 @@ function setup() {
       sugg7 = createImg("./assets/ints/s-7.svg");
       sugg7.style("cursor:pointer;position:absolute");
       sugg7.size(329/1.05, 544/1.05);
-      sugg7.position(width/2 + 13, height / 5);
+      sugg7.position(width/2 + 13, height/6);
       sugg7.attribute("draggable", false);
       sugg7.mousePressed(sugg7hover);
     } 
@@ -127,7 +127,7 @@ function setup() {
       sugg8 = createImg("./assets/ints/s-8.svg");
       sugg8.style("cursor:pointer;position:absolute");
       sugg8.size(329/1.05, 544/1.05);
-      sugg8.position(width/2 + 13, height / 5);
+      sugg8.position(width/2 + 13, height/6);
       sugg8.attribute("draggable", false);
       sugg8.mousePressed(sugg8hover);
     }
@@ -136,7 +136,7 @@ function setup() {
       sugg9 = createImg("./assets/ints/s-9.svg");
       sugg9.style("cursor:pointer;position:absolute");
       sugg9.size(329/1.05, 544/1.05);
-      sugg9.position(width/2 + 13, height / 5);
+      sugg9.position(width/2 + 13, height/6);
       sugg9.attribute("draggable", false);
       sugg9.mousePressed(sugg9hover);
     }
@@ -146,7 +146,7 @@ function setup() {
       sugg10 = createImg("./assets/ints/s-10.svg");
       sugg10.style("cursor:pointer;position:absolute");
       sugg10.size(329/1.05, 544/1.05);
-      sugg10.position(width/1.33, height / 5);
+      sugg10.position(width/1.33, height/6);
       sugg10.attribute("draggable", false);
       sugg10.mousePressed(sugg10hover);
     } 
@@ -155,7 +155,7 @@ function setup() {
       sugg11 = createImg("./assets/ints/s-10.svg");
       sugg11.style("cursor:pointer;position:absolute");
       sugg11.size(329/1.05, 544/1.05);
-      sugg11.position(width/1.33, height / 5);
+      sugg11.position(width/1.33, height/6);
       sugg11.attribute("draggable", false);
       sugg11.mousePressed(sugg11hover);
     }
@@ -164,7 +164,7 @@ function setup() {
       sugg12 = createImg("./assets/ints/s-10.svg");
       sugg12.style("cursor:pointer;position:absolute");
       sugg12.size(329/1.05, 544/1.05);
-      sugg12.position(width/1.33, height / 5);
+      sugg12.position(width/1.33, height/6);
       sugg12.attribute("draggable", false);
       sugg12.mousePressed(sugg12hover);
     }
@@ -269,7 +269,7 @@ function sugg1hover() {
   sugg1h = createImg("./assets/ints/s-1-h.svg");
   sugg1h.style("cursor:pointer");
   sugg1h.size(329/1.05, 544/1.05);
-  sugg1h.position(40, height / 5);
+  sugg1h.position(40, height/6);
   sugg1h.attribute("draggable", false);
 }
 
@@ -277,7 +277,7 @@ function sugg2hover() {
   sugg2h = createImg("./assets/ints/s-2-h.svg");
   sugg2h.style("cursor:pointer");
   sugg2h.size(329/1.05, 544/1.05);
-  sugg2h.position(40, height / 5);
+  sugg2h.position(40, height/6);
   sugg2h.attribute("draggable", false);
 }
 
@@ -285,7 +285,7 @@ function sugg3hover() {
   sugg3h = createImg("./assets/ints/s-3-h.svg");
   sugg3h.style("cursor:pointer");
   sugg3h.size(329/1.05, 544/1.05);
-  sugg3h.position(40, height / 5);
+  sugg3h.position(40, height/6);
   sugg3h.attribute("draggable", false);
 }
 
@@ -293,7 +293,7 @@ function sugg4hover() {
   sugg4h = createImg("./assets/ints/s-4-h.svg");
   sugg4h.style("cursor:pointer");
   sugg4h.size(329/1.05, 544/1.05);
-  sugg4h.position(width/4 + 26, height / 5);
+  sugg4h.position(width/4 + 26, height/6);
   sugg4h.attribute("draggable", false);
 }
 
@@ -301,7 +301,7 @@ function sugg5hover() {
   sugg5h = createImg("./assets/ints/s-5-h.svg");
   sugg5h.style("cursor:pointer");
   sugg5h.size(329/1.05, 544/1.05);
-  sugg5h.position(width/4 + 26, height / 5);
+  sugg5h.position(width/4 + 26, height/6);
   sugg5h.attribute("draggable", false);
 }
 
@@ -309,7 +309,7 @@ function sugg6hover() {
   sugg6h = createImg("./assets/ints/s-6-h.svg");
   sugg6h.style("cursor:pointer");
   sugg6h.size(329/1.05, 544/1.05);
-  sugg6h.position(width/4 + 26, height / 5);
+  sugg6h.position(width/4 + 26, height/6);
   sugg6h.attribute("draggable", false);
 }
 
@@ -317,7 +317,7 @@ function sugg7hover() {
   sugg7h = createImg("./assets/ints/s-7-h.svg");
   sugg7h.style("cursor:pointer;position:absolute");
   sugg7h.size(329/1.05, 544/1.05);
-  sugg7h.position(width/2 + 13, height / 5);
+  sugg7h.position(width/2 + 13, height/6);
   sugg7h.attribute("draggable", false);
 }
 
@@ -325,7 +325,7 @@ function sugg8hover() {
   suggh8h = createImg("./assets/ints/s-8-h.svg");
   suggh8h.style("cursor:pointer;position:absolute");
   suggh8h.size(329/1.05, 544/1.05);
-  suggh8h.position(width/2 + 13, height / 5);
+  suggh8h.position(width/2 + 13, height/6);
   suggh8h.attribute("draggable", false);
 }
 
@@ -333,7 +333,7 @@ function sugg9hover() {
   sugg9h = createImg("./assets/ints/s-9-h.svg");
   sugg9h.style("cursor:pointer;position:absolute");
   sugg9h.size(329/1.05, 544/1.05);
-  sugg9h.position(width/2 + 13, height / 5);
+  sugg9h.position(width/2 + 13, height/6);
   sugg9h.attribute("draggable", false);
 }
 
@@ -341,7 +341,7 @@ function sugg10hover() {
   sugg10h = createImg("./assets/ints/s-10-h.svg");
   sugg10h.style("cursor:pointer;position:absolute");
   sugg10h.size(329/1.05, 544/1.05);
-  sugg10h.position(width/1.33, height / 5);
+  sugg10h.position(width/1.33, height/6);
   sugg10h.attribute("draggable", false);
 }
 
@@ -349,7 +349,7 @@ function sugg11hover() {
   sugg11h = createImg("./assets/ints/s-11-h.svg");
   sugg11h.style("cursor:pointer;position:absolute");
   sugg11h.size(329/1.05, 544/1.05);
-  sugg11h.position(width/1.33, height / 5);
+  sugg11h.position(width/1.33, height/6);
   sugg11h.attribute("draggable", false);
 }
 
@@ -357,7 +357,7 @@ function sugg12hover() {
   sugg12h = createImg("./assets/ins/s-12-h.svg");
   sugg12h.style("cursor:pointer;position:absolute");
   sugg12h.size(329/1.05, 544/1.05);
-  sugg12h.position(width/1.33, height / 5);
+  sugg12h.position(width/1.33, height/6);
   sugg12h.attribute("draggable", false);
 }
 
