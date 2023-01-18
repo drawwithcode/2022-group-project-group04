@@ -22,11 +22,13 @@ Delph⋅E is a virtual space that aims to make tangible the presence of technolo
 
 ### a. Face recognition
 
-### b. Voice Synthesizer 
+### b. Profiling system
 
-### c. Parameter transmission 
+### c. Voice Synthesizer 
 
-### d. Text By input 
+### d. Parameter transmission 
+
+### e. Text By input 
 
 ## 4. [REFERENCES](#References)
 
@@ -59,7 +61,7 @@ The goal of our project is to make the profiling algorithm very tangible, raw, a
 
 <!--Immagine concept-->
 
-Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such as facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profilation uses also some implicit datas, that the user is not aware  he is giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
+Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such as facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profiling uses also some implicit datas, that the user is not aware  he is giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
 
 The name "Delph⋅E" comes from the algorithms' ambition to not only know everything about the world but to know everything about its user.  The most famous  Delphic maxim in the Ancient Greek was indeed "know thyself".
 
@@ -266,6 +268,45 @@ To work with the video pistion and box styling we worked on both html file and t
         (this.padding = a || 4);
     },
 ```
+**PROFILING SYSTEM**
+
+In order to create a small profiling algorithm, we used the data of time spent on each GIF by the user to generate some recommendations based on experience. In this highly simplifying way, we ensured that an increasing number of seconds spent on an image corresponds to a higher topic liking index.
+
+```JavaScript
+  if (parameter1 > 0 && parameter1 <= 2) {
+    text1 = createElement("h1");
+    text1.html('EMPATHY: Only ' + round(parameter1, 2) + ' sec on cute puppies, you must be a serial killer...');
+    text1.style(
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
+    );
+  } 
+  
+  else if (parameter1 > 2 && parameter1 <= 4.5) {
+    text1 = createElement("h1");
+    text1.html('EMPATHY: Okay,  ' + round(parameter1, 2) + ' sec are a reasonable time to watch puppies!');
+    text1.style(
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
+    );
+  }
+
+  else if (parameter1 > 4.5 && parameter1 <= 7) {
+    text1 = createElement("h1");
+    text1.html('EMPATHY: You stared at those puppies for ' + round(parameter1, 2) + ' sec, are you a hippie?');
+    text1.style(
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
+    );
+  }
+
+  else if (parameter1 > 7){
+    text1 = createElement("h1");
+    text1.html('EMPATHY: You stared at those puppies for more than' + round(parameter1, 2) + ' seconds, LOSER!' );
+    text1.style(
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
+    );
+  }
+ ```   
+ The "If" sentences are used to return a different result depending on the values of the time parameters.
+
 **VOICE SYNTHESIZER**
 
 In order to give a personality and a voice to the profiling algorithm.  We decided to use the p5.Speech() library, a p5 extension to provide Web Speech (Synthesis and Recognition) API functionality, following the directions given in the GitHub repository: [IDMNYU/p5.js-speech](https://github.com/IDMNYU/p5.js-speech/blob/master/LICENSE). 
