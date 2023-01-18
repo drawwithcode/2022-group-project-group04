@@ -1,4 +1,4 @@
-![](./readme/Home.jpg)
+![](./readme/intestazione.jpg)
 
 # Delph⋅E
 
@@ -41,6 +41,7 @@ Delph⋅E is a virtual space that aims to make tangible the presence of technolo
 
 # THE PROJECT
 
+![](./readme/Home.jpg)
 
 **THEME: THE PRESENCE**
 
