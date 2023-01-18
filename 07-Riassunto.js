@@ -20,12 +20,6 @@ let canvas2;
 let voice;
 let voiceText = "Perfect, here you go!";
 
-let pageLinks = [
-  "08-Consigli.html",
-  "08.1-Consigli.html",
-  "08.2-Consigli.html",
-  "08.3-Consigli.html",
-];
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
@@ -67,37 +61,177 @@ function setup() {
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 
-  if (parameter1 > 0 && parameter1 <= 1) {
+
+  // PER PARAMETRO UNO
+  if (parameter1 > 0 && parameter1 <= 2) {
     text1 = createElement("h1");
-    text1.html('wow only ' + round(parameter1, 2) + 'seconds on cute puppies, you must be a serial killer...');
+    text1.html('EMPATHY: Only ' + round(parameter1, 2) + ' sec on cute puppies, you must be a serial killer...');
     text1.style(
-      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
     );
   } 
   
-  else if (parameter1 > 1 && parameter1 <= 2.5) {
+  else if (parameter1 > 2 && parameter1 <= 4.5) {
     text1 = createElement("h1");
-    text1.html('okay,  ' + round(parameter1, 2) + 'seconds are a reasonable time to watch some cute puppies!');
+    text1.html('EMPATHY: Okay,  ' + round(parameter1, 2) + ' sec are a reasonable time to watch puppies!');
     text1.style(
-      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
     );
   }
 
-  else if (parameter1 > 2.5 && parameter1 <= 7) {
+  else if (parameter1 > 4.5 && parameter1 <= 7) {
     text1 = createElement("h1");
-    text1.html('wow profumi ' + round(parameter1, 2));
+    text1.html('EMPATHY: You stared at those puppies for ' + round(parameter1, 2) + ' sec, are you a hippie?');
     text1.style(
-      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
     );
   }
 
   else if (parameter1 > 7){
     text1 = createElement("h1");
-    text1.html('wow profumi ' + round(parameter1, 2));
+    text1.html('EMPATHY: You stared at those puppies for more than' + round(parameter1, 2) + ' seconds, LOSER!' );
     text1.style(
-      "position:absolute; left: 51%; top: 32%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px; "
+      "position:absolute; left: 51%; top: 33%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; "
     );
   }
+
+  // PER PARAMETRO DUE
+  if (parameter2 > 0 && parameter2 <= 2) {
+    text2 = createElement("h1");
+    text2.html('HOBBIES: Why do you hate Bob? You looked at him for just ' + round(parameter2, 2) + ' sec...');
+    text2.style(
+      "position:absolute; left: 51%; top: 38%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  } 
+  
+  else if (parameter2 > 2 && parameter2 <= 4.5) {
+    text2 = createElement("h1");
+    text2.html('HOBBIES: You stared at Bob for ' + round(parameter2, 2) + ' seconds, did you even recognize him?');
+    text2.style(
+      "position:absolute; left: 51%; top: 38%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  else if (parameter2 > 4.5 && parameter2 <= 7) {
+    text2 = createElement("h1");
+    text2.html('HOBBIES: Well, somebody here loves Bob way too much... ' + round(parameter2, 2) + ' seconds are a lot!');
+    text2.style(
+      "position:absolute; left: 51%; top: 38%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  else if (parameter2 > 7){
+    text2 = createElement("h1");
+    text2.html('HOBBIES: Oh god, SMOKING IS BAD! ' + round(parameter2, 2) + ' sec and you are already high?');
+    text2.style(
+      "position:absolute; left: 51%; top: 38%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  // PER PARAMETRO TRE
+  if (parameter3 > 0 && parameter3 <= 2) {
+    text3 = createElement("h1");
+    text3.html('FAMILY: Well, maybe not your cup of tea, but ' + round(parameter3, 2) + ' seconds are very few...');
+    text3.style(
+      "position:absolute; left: 51%; top: 43%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  } 
+  
+  else if (parameter3 > 2 && parameter3 <= 4.5) {
+    text3 = createElement("h1");
+    text3.html('FAMILY: Somebody here hates babies... you lasted only  ' + round(parameter3, 2) + ' sec');
+    text3.style(
+      "position:absolute; left: 51%; top: 43%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  else if (parameter3 > 4.5 && parameter3 <= 7) {
+    text3 = createElement("h1");
+    text3.html('FAMILY: Someone here dreams of a family ' + round(parameter3, 2) + ' seconds is a long time!');
+    text3.style(
+      "position:absolute; left: 51%; top: 43%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  else if (parameter3 > 7){
+    text3 = createElement("h1");
+    text3.html('FAMILY: Wake up! Those ' + round(parameter3, 2) + ' sec are not meant to fantasize about your future');
+    text3.style(
+      "position:absolute; left: 51%; top: 43%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+  // PER PARAMETRO QUATTRO
+  if (parameter4 > 0 && parameter4 <= 2) {
+    text4 = createElement("h1");
+    text4.html('TASTE: Well,  ' + round(parameter4, 2) + ' sec watching that pizza is already too much!');
+    text4.style(
+      "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  } 
+  
+  else if (parameter4 > 2 && parameter4 <= 4.5) {
+    text4 = createElement("h1");
+    text4.html('TASTE: Only ' + round(parameter4, 2) + ' sec on that pizza, you must be Italian');
+    text4.style(
+      "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  else if (parameter4 > 4.5 && parameter4 <= 7) {
+    text4 = createElement("h1");
+    text4.html('TASTE: I am scared, why did you stared at that pizza for ' + round(parameter4, 2) + ' sec?');
+    text4.style(
+      "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+  else if (parameter4 > 7){
+    text4 = createElement("h1");
+    text4.html('TASTE: I hope you fell asleep, cause ' + round(parameter4, 2) + ' sec on that pizza are an insult!');
+    text4.style(
+      "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+    );
+  }
+
+    // PER PARAMETRO QUOTE
+    if (parameter4 > 0 && parameter4 <= 2) {
+      text6 = createElement("h1");
+      text6.html('FAV QUOTE: ' + ' Live me alone.');
+      text6.style(
+        "position:absolute; left: 51%; top: 60%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+      );
+    } 
+    
+    else if (parameter4 > 2 && parameter4 <= 4.5) {
+      text6 = createElement("h1");
+      text6.html('FAV QUOTE: ' + ' I love puppies, candies, flowers and diabetes!');
+      text6.style(
+        "position:absolute; left: 51%; top: 60%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+      );
+    }
+  
+    else if (parameter4 > 4.5 && parameter4 <= 7) {
+      text6 = createElement("h1");
+      text6.html('FAV QUOTE: ' + ' Nah, I can totally do it better!');
+      text6.style(
+        "position:absolute; left: 51%; top: 60%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+      );
+    }
+  
+    else if (parameter4 > 7){
+      text6 = createElement("h1");
+      text6.html('FAV QUOTE: ' + ' Yes, that will be the first thing I will do tomorrow');
+      text6.style(
+        "position:absolute; left: 51%; top: 60%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px"
+      );
+    }
+
+  textname = createElement("h1");
+  textname.html('NAME: ' + parameter0);
+  textname.style(
+    "position:absolute; left: 51%; top: 21%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px;"
+  );
+
 }
 
 //  PER SINTETIZZATORE VOCALE
@@ -147,29 +281,13 @@ function draw() {
     30
   );
 
-  text2 = createElement("h1");
-  text2.html(round(parameter2, 2));
-  text2.style(
-    "position:absolute; left: 51%; top: 36%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
-  );
 
-  text3 = createElement("h1");
-  text3.html(round(parameter3, 2));
-  text3.style(
-    "position:absolute; left: 51%; top: 40%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
-  );
 
-  text4 = createElement("h1");
-  text4.html(round(parameter4, 2));
-  text4.style(
-    "position:absolute; left: 51%; top: 44%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
-  );
-
-  text5 = createElement("h1");
-  text5.html(round(AT, 2));
-  text5.style(
-    "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
-  );
+  // text5 = createElement("h1");
+  // text5.html(round(AT, 2));
+  // text5.style(
+  //   "position:absolute; left: 51%; top: 48%; text-align: left; font-family:'ClashDisplay-Regular'; font-size:16px"
+  // );
 
   //Occhi
   push();
@@ -266,7 +384,7 @@ video.addEventListener("play", () => {
 });
 
 function nextPage() {
-  window.open(random(pageLinks), "_self");
+  window.open("08-Consigli.html", "_self");
 }
 
 function home() {

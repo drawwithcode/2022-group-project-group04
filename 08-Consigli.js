@@ -1,3 +1,13 @@
+let urlString = window.location.href;
+let url = new URL(urlString);
+
+let parameter1 = url.searchParams.get("t1"); // Tempo permanenza GIF1
+let parameter2 = url.searchParams.get("t2"); // Tempo permanenza GIF2
+let parameter3 = url.searchParams.get("t3"); // Tempo permanenza GIF3
+let parameter4 = url.searchParams.get("t4"); // Tempo permanenza GIF4
+let parameter0 = url.searchParams.get("currentUser"); //Nome Utente
+let AT = url.searchParams.get("AnswerTime"); //Tempo permanenza pagina iniziale: tempo di rispota dell'Utente
+
 let img4;
 let myButton;
 let myButton2;
@@ -36,33 +46,62 @@ function setup() {
   myButton2.mousePressed(backPage);
   myButton2.mouseOver(hoveringback);
 
-  sugg1 = createImg("./assets/int/s-5.svg");
-  sugg1.style("cursor:pointer;position:absolute");
-  sugg1.size(329/1.05, 544/1.05);
-  sugg1.position(40, height / 5);
-  sugg1.attribute("draggable", false);
-  sugg1.mousePressed(sugg1hover);
 
-  sugg2 = createImg("./assets/int/s-6.svg");
-  sugg2.style("cursor:pointer;position:absolute");
-  sugg2.size(329/1.05, 544/1.05);
-  sugg2.position(329+60, height / 5);
-  sugg2.attribute("draggable", false);
-  sugg2.mousePressed(sugg2hover);
+  // PER GIF UNO : ANIMALI
+  if (parameter1 > 0 && parameter1 <= 2) {
+    sugg1 = createImg("./assets/ints/s-1.svg");
+    sugg1.style("cursor:pointer;position:absolute");
+    sugg1.size(329/1.05, 544/1.05);
+    sugg1.position(40, height / 5);
+    sugg1.attribute("draggable", false);
+    // sugg1.mousePressed(sugg1hover);
+  } 
+  
+  else if (parameter1 > 2 && parameter1 <= 4.5) {
+    sugg2 = createImg("./assets/ints/s-2.svg");
+    sugg2.style("cursor:pointer;position:absolute");
+    sugg2.size(329/1.05, 544/1.05);
+    sugg2.position(40, height / 5);
+    sugg2.attribute("draggable", false);
+    // sugg2.mousePressed(sugg2hover);
+  }
 
-  sugg3 = createImg("./assets/int/s-7.svg");
-  sugg3.style("cursor:pointer;position:absolute");
-  sugg3.size(329/1.05, 544/1.05);
-  sugg3.position(329+50+329+30, height / 5);
-  sugg3.attribute("draggable", false);
-  sugg3.mousePressed(sugg3hover);
+  else if (parameter1 > 7) {
+    sugg3 = createImg("./assets/ints/s-3.svg");
+    sugg3.style("cursor:pointer;position:absolute");
+    sugg3.size(329/1.05, 544/1.05);
+    sugg3.position(40, height / 5);
+    sugg3.attribute("draggable", false);
+    // sugg3.mousePressed(sugg3hover);
+  }
 
-  sugg4 = createImg("./assets/int/s-8.svg");
-  sugg4.style("cursor:pointer;position:absolute");
-  sugg4.size(329/1.05, 544/1.05);
-  sugg4.position(329+50+329+25+329+30, height / 5);
-  sugg4.attribute("draggable", false);
-  sugg4.mousePressed(sugg4hover);
+  // sugg1 = createImg("./assets/int/s-5.svg");
+  // sugg1.style("cursor:pointer;position:absolute");
+  // sugg1.size(329/1.05, 544/1.05);
+  // sugg1.position(40, height / 5);
+  // sugg1.attribute("draggable", false);
+  // sugg1.mousePressed(sugg1hover);
+
+  // sugg2 = createImg("./assets/int/s-6.svg");
+  // sugg2.style("cursor:pointer;position:absolute");
+  // sugg2.size(329/1.05, 544/1.05);
+  // sugg2.position(width/4 + 26, height / 5);
+  // sugg2.attribute("draggable", false);
+  // sugg2.mousePressed(sugg2hover);
+
+  // sugg3 = createImg("./assets/int/s-7.svg");
+  // sugg3.style("cursor:pointer;position:absolute");
+  // sugg3.size(329/1.05, 544/1.05);
+  // sugg3.position(width/2 + 13, height / 5);
+  // sugg3.attribute("draggable", false);
+  // sugg3.mousePressed(sugg3hover);
+
+  // sugg4 = createImg("./assets/int/s-8.svg");
+  // sugg4.style("cursor:pointer;position:absolute");
+  // sugg4.size(329/1.05, 544/1.05);
+  // sugg4.position(width/1.33, height / 5);
+  // sugg4.attribute("draggable", false);
+  // sugg4.mousePressed(sugg4hover);
 
   img4 = createImg("./assets/images/suggest.svg");
   img4.style("position:absolute;");
@@ -133,37 +172,37 @@ function backPage() {
   //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
 }
 
-function sugg1hover() {
-  sugg1h = createImg("./assets/int/s-5-hover.svg");
-  sugg1h.style("cursor:pointer");
-  sugg1h.size(329/1.05, 544/1.05);
-  sugg1h.position(40, height / 5);
-  sugg1h.attribute("draggable", false);
-}
+// function sugg1hover() {
+//   sugg1h = createImg("./assets/ints/s-1-h.svg");
+//   sugg1h.style("cursor:pointer");
+//   sugg1h.size(329/1.05, 544/1.05);
+//   sugg1h.position(40, height / 5);
+//   sugg1h.attribute("draggable", false);
+// }
 
-function sugg2hover() {
-  sugg2h = createImg("./assets/int/s-6-hover.svg");
-  sugg2h.style("cursor:pointer");
-  sugg2h.size(329/1.05, 544/1.05);
-  sugg2h.position(329+60, height / 5);
-  sugg2h.attribute("draggable", false);
-}
+// function sugg2hover() {
+//   sugg2h = createImg("./assets/ints/s-2-h.svg");
+//   sugg2h.style("cursor:pointer");
+//   sugg2h.size(329/1.05, 544/1.05);
+//   sugg2h.position(width/4 + 26, height / 5);
+//   sugg2h.attribute("draggable", false);
+// }
 
-function sugg3hover() {
-  sugg3h = createImg("./assets/int/s-7-hover.svg");
-  sugg3h.style("cursor:pointer");
-  sugg3h.size(329/1.05, 544/1.05);
-  sugg3h.position(329+50+329+30, height / 5);
-  sugg3h.attribute("draggable", false);
-}
+// function sugg3hover() {
+//   sugg3h = createImg("./assets/ints/s-3-h.svg");
+//   sugg3h.style("cursor:pointer");
+//   sugg3h.size(329/1.05, 544/1.05);
+//   sugg3h.position(width/2 + 13, height / 5);
+//   sugg3h.attribute("draggable", false);
+// }
 
-function sugg4hover() {
-  sugg4h = createImg("./assets/int/s-8-hover.svg");
-  sugg4h.style("cursor:pointer");
-  sugg4h.size(329/1.05, 544/1.05);
-  sugg4h.position(329+50+329+25+329+30, height / 5);
-  sugg4h.attribute("draggable", false);
-}
+// function sugg4hover() {
+//   sugg4h = createImg("./assets/int/s-8-hover.svg");
+//   sugg4h.style("cursor:pointer");
+//   sugg4h.size(329/1.05, 544/1.05);
+//   sugg4h.position(width/1.33, height / 5);
+//   sugg4h.attribute("draggable", false);
+// }
 
 function home() {
   window.open("index.html", "_self");
