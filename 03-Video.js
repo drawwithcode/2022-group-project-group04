@@ -1,8 +1,8 @@
-const urlString = window.location.href;
-let url = new URL(urlString);
+const urlString = window.location.href; //  Collect the url
+let url = new URL(urlString); //  Create a machine-readable object
 
-let parameter0 = url.searchParams.get("currentUser");
-let AT = url.searchParams.get("AnswerTime");
+let parameter0 = url.searchParams.get("currentUser"); //  user name
+let AT = url.searchParams.get("AnswerTime"); //  start page permanence time: user response time
 
 const video = document.getElementById("video");
 
@@ -29,6 +29,7 @@ function setup() {
   canvas2 = createCanvas(windowWidth, windowHeight);
   canvas2.position(0, 0);
 
+  //  logo delphE
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
@@ -36,6 +37,7 @@ function setup() {
   );
   delphE.mousePressed(home);
 
+  //  next button
   go = createImg("./assets/images/Moveon.svg");
   go.style(
     "position:absolute; transform: translate(-50%,-50%); cursor:pointer"
@@ -45,6 +47,7 @@ function setup() {
   go.mouseClicked(nextPage);
   go.mouseOver(hovering);
 
+  //  balloon
   img = createImg("./assets/images/Textvideo.svg");
   img.style("position:absolute; transform: translate(0%,0%);");
   img.size(613 / 2, 119 / 2);
@@ -54,28 +57,7 @@ function setup() {
   voice.onLoad = voiceReady;
 }
 
-function draw() {
-  fill(255);
-  strokeWeight(1.5);
-  rect(60, height - 90, 30, 45, 15);
-
-  //iris
-  let x2 = constrain(mouseX, 62, 72);
-  let y2 = constrain(mouseY, height - 87, height - 68);
-  fill(0);
-  rect(x2, y2, 15, 20, 15 / 2);
-
-  fill(255);
-  rect(35, height - 90, 30, 45, 15);
-
-  //iris
-  let x = constrain(mouseX, 36, 48);
-  let y = constrain(mouseY, height - 87, height - 68);
-  fill(0);
-  rect(x, y, 15, 20, 15 / 2);
-}
-
-//  PER SINTETIZZATORE VOCALE
+//  voice synthesizer
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
@@ -85,10 +67,32 @@ function voiceReady() {
   voice.speak(voiceText2);
 }
 
+function draw() {
+  //  right eye
+  fill(255);
+  strokeWeight(1.5);
+  rect(60, height - 90, 30, 45, 15);
+  //  right iris
+  let x2 = constrain(mouseX, 62, 72);
+  let y2 = constrain(mouseY, height - 87, height - 68);
+  fill(0);
+  rect(x2, y2, 15, 20, 15 / 2);
+
+  //  left eye
+  fill(255);
+  rect(35, height - 90, 30, 45, 15);
+  // left iris
+  let x = constrain(mouseX, 36, 48);
+  let y = constrain(mouseY, height - 87, height - 68);
+  fill(0);
+  rect(x, y, 15, 20, 15 / 2);
+}
+
 function hovering() {
   go.style("filter:invert(1)");
 }
 
+//  face api
 function startVideo() {
   navigator.getUserMedia =
     navigator.getUserMedia ||
@@ -150,14 +154,15 @@ video.addEventListener("play", () => {
   }, 100);
 });
 
+//  go to next page
 function nextPage() {
   window.open(
     "04-Load.html?currentUser=" + parameter0 + "&AnswerTime=" + AT,
     "_self"
   );
-  //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
 }
 
+//  go to homepage
 function home() {
   window.open("index.html", "_self");
 }

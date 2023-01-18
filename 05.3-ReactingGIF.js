@@ -1,10 +1,10 @@
-const urlString = window.location.href; // Collect the url
+let urlString = window.location.href; // Collect the url
 let url = new URL(urlString); // Create a machine-readable object
 
-let parameter1 = url.searchParams.get("t1");
-let parameter2 = url.searchParams.get("t2");
-let parameter0 = url.searchParams.get("currentUser");
-let AT = url.searchParams.get("AnswerTime");
+let parameter0 = url.searchParams.get("currentUser"); //  user name
+let parameter1 = url.searchParams.get("t1"); //  GIF1 (animals) permanence time
+let parameter2 = url.searchParams.get("t2"); //  GIF2 (Bob Marley) permanence time
+let AT = url.searchParams.get("AnswerTime"); //  start page permanence time: user response time
 
 let comment;
 let myFont;
@@ -26,6 +26,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  //  logo delphE
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
@@ -33,6 +34,7 @@ function setup() {
   );
   delphE.mousePressed(home);
 
+  //  next button
   myButton = createImg("./assets/images/NextLong.svg");
   myButton.style("position: absolute; cursor:pointer;");
   myButton.size(290, 45);
@@ -40,11 +42,13 @@ function setup() {
   myButton.attribute("draggable", false);
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
+
+  //  voice synthesizer
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 }
 
-//  PER SINTETIZZATORE VOCALE
+//  voice synthesizer
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
@@ -57,56 +61,56 @@ function voiceReady() {
 function draw() {
   background("#8261FF");
 
-  //OCCHI:
+  //  right eye
   fill(255);
   strokeWeight(1.5);
   rect(60, height - 90, 30, 45, 15);
-
-  //iris
+  //  right iris
   let x2 = constrain(mouseX, 62, 73);
   let y2 = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x2, y2, 15, 20, 15 / 2);
 
+  //  left eye
   fill(255);
   rect(35, height - 90, 30, 45, 15);
-
-  //iris
+  //  left iris
   let x = constrain(mouseX, 36, 48);
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
 
-  //Return Hover
+  //  return hover
   if ((mouseX < width - 290, mouseY < height - 88)) {
     myButton.style("filter:invert(0)");
   }
 
+  //  GIF
   push();
   imageMode(CENTER);
-
   image(myGif, width / 2, height / 2.2, myGif.width / 1.1, myGif.height / 1.1);
-
   pop();
 
-  //BALLOON
+  //  balloon
   if (frameCount > 20) {
     image(comment, 100, height - 140, 413.5 / 2, 121 / 2);
   }
 
+  //  eyelids
   if (frameCount > 20) {
-    strokeWeight(2);
+    strokeWeight(1.5);
     fill("#8261FF");
-
     rect(60, height - 90, 30, 20, 15, 15, 0, 0);
     rect(35, height - 90, 30, 20, 15, 15, 0, 0);
   }
 }
 
+//  hover
 function hovering() {
   myButton.style("filter:invert(1)");
 }
 
+//  go to next page
 function nextPage() {
   window.open(
     "05.4-ReactingGIF.html?currentUser=" +
@@ -123,6 +127,7 @@ function nextPage() {
   );
 }
 
+//  go to home
 function home() {
   window.open("index.html", "_self");
 }

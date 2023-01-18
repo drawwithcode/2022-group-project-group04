@@ -4,26 +4,24 @@ let myInfo;
 
 let myColor = "#5C5C5C";
 
-// effetto testo
 let content = "";
 keyCount = 0;
 
-//  PER SINTETIZZATORE VOCALE (AGGIUNGERE IN HTML COLLEGAMENTO LIBRERIA)
 let voice;
 let voiceText = "Your opinion is very important to me...";
 let voiceText2 = "I mean,  I really don’t care but thank you...";
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
-  Balloon1 = loadImage("./assets/images/Text8.svg");
-  Balloon2 = loadImage("./assets/images/Text9.svg");
+  balloon1 = loadImage("./assets/images/Text8.svg");
+  balloon2 = loadImage("./assets/images/Text9.svg");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background("#8261FF");
 
-  //    logo delphE
+  //  logo delphE
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
@@ -31,38 +29,34 @@ function setup() {
   );
   delphE.mousePressed(home);
 
-  //   balloon
-  Balloon1 = createImg("./assets/images/Text8.svg");
-  Balloon1.size(424 / 2, 150 / 2);
-  Balloon1.position(100, height - 155);
-
-  //    text
+  //  text
   myText = createElement("h1", "LEAVE A COMMENT <br> ABOUT THE EXPERIENCE");
   myText.style(
     "position:absolute; top:18%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 50px; font-family:'ClashDisplay-Regular'"
   );
 
-  //    fake input box
+  //  fake input box
   strokeWeight(2);
   rect(width / 2 - 350, height / 2 - 150, width / 2 - 75, 350, 30 / 2);
 
-  //    info button
+  //  info button
   myInfo = createImg("./assets/images/Info.svg");
   myInfo.style("position: absolute; cursor:pointer;");
   myInfo.size(50, 50);
   myInfo.position(width - 95, height - 95);
   myInfo.mousePressed(info);
 
-  // fakeText = createElement("h1");
-  // fakeText.html("Everything that comes to mind...");
-  // fakeText.style("position:absolute;  left: 430px; top: 290px; text-align: left; font-family:'ClashDisplay-Regular'; font-size: 20px; color: #5C5C5C;");
+  //  balloon
+  balloon1 = createImg("./assets/images/Text8.svg");
+  balloon1.size(424 / 2, 150 / 2);
+  balloon1.position(100, height - 155);
 
-  //  PER SINTETIZZATORE VOCALE
+  //  voice synthesizer
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 }
 
-//  PER SINTETIZZATORE VOCALE
+//  voice synthesizer
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
@@ -73,28 +67,27 @@ function voiceReady() {
 }
 
 function draw() {
-  //    QUESTO SECONDO ME POTREBBE ESSERE PORTATO A 1.5
   strokeWeight(1.5);
 
-  //    right eye
+  //  right eye
   fill(255);
   rect(60, height - 90, 30, 45, 15);
-  //    right iris
+  //  right iris
   let x2 = constrain(mouseX, 62, 72);
   let y2 = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x2, y2, 15, 20, 15 / 2);
 
-  //    left eye
+  //  left eye
   fill(255);
   rect(35, height - 90, 30, 45, 15);
-  //    left iris
+  //  left iris
   let x = constrain(mouseX, 36, 48);
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
 
-  //    fakeText
+  //  fakeText
   textSize(20);
   fill(myColor);
   textFont("ClashDisplay-Regular");
@@ -106,13 +99,14 @@ function draw() {
     height
   );
 
-  //    text comment
+  //  text comment
   textSize(20);
   fill("black");
   textFont("ClashDisplay-Regular");
   text(content, width / 2 - 325, height / 2 - 125, width / 2 - 100, height);
 }
 
+//  text comment function: each letter is associated with a number, equal to the number of keys pressed 
 function keyTyped() {
   keyCount++;
   console.log(keyCount);
@@ -120,7 +114,6 @@ function keyTyped() {
 
   if (keyCount == 1) {
     content += "L";
-    // fakeText.hide();
   }
 
   if (keyCount == 2) {
@@ -491,9 +484,10 @@ function keyTyped() {
     content += "... ";
   }
 
+  //  change balloon and voice
   if (keyCode === ENTER) {
-    Balloon1.hide();
-    image(Balloon2, 100, height - 155, 424 / 2, 150 / 2);
+    balloon1.hide();
+    image(balloon2, 100, height - 155, 424 / 2, 150 / 2);
 
     voice.listVoices();
     voice.setVoice("Samantha");
@@ -504,11 +498,12 @@ function keyTyped() {
   }
 }
 
-//    pagina
+//  go to info page
 function info() {
   window.open("10-Info.html", "_self");
 }
 
+//  go to homepage
 function home() {
   window.open("index.html", "_self");
 }

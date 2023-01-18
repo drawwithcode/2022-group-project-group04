@@ -1,8 +1,8 @@
-const urlString = window.location.href;
-let url = new URL(urlString);
+const urlString = window.location.href; //  Collect the url
+let url = new URL(urlString); //  Create a machine-readable object
 
-let parameter0 = url.searchParams.get("currentUser");
-let AT = url.searchParams.get("AnswerTime");
+let parameter0 = url.searchParams.get("currentUser"); //  user name
+let AT = url.searchParams.get("AnswerTime"); //  start page permanence time: user response time
 
 let myFont;
 let DYK;
@@ -29,6 +29,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
+  //  logo delphE
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
@@ -36,64 +37,53 @@ function setup() {
   );
   delphE.mousePressed(home);
 
-  //  PER SINTETIZZATORE VOCALE
+  //  voice synthesizer
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 }
 
-//  PER SINTETIZZATORE VOCALE
-function voiceReady() {
-  voice.listVoices();
-  voice.setVoice("Samantha");
-  voice.setRate(0.8);
-  voice.setPitch(1.3);
-  voice.speak(voiceText);
-
-  voice = new p5.Speech();
-  voice.onLoad = voiceReady;
-}
-
-//  PER SINTETIZZATORE VOCALE
+//  voice synthesizer
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
   voice.setRate(1);
   voice.setPitch(1.3);
-  voice.setLang("en-US");
   voice.speak(voiceText);
 }
 
 function draw() {
   background("#FFF44F");
 
-  //OCCHI:
+  //  right eye
   fill(255);
   strokeWeight(1.5);
   rect(60, height - 90, 30, 45, 15);
-
-  //iris
+  //  right iris
   let x2 = constrain(mouseX, 62, 72);
   let y2 = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x2, y2, 15, 20, 15 / 2);
 
+  //  left eye
   fill(255);
   rect(35, height - 90, 30, 45, 15);
-
-  //iris
+  //  left iris
   let x = constrain(mouseX, 36, 48);
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
 
-  if (frameCount < 400) {
-    image(DYK, 100, height - 190, 420 / 2, 176 / 2);
+  //  first balloon
+  if (frameCount < 300 && frameCount > 20) {
+    image(DYK, 100, height - 190, 420 / 2, 221 / 2);
   }
-  if (frameCount < 600 && frameCount > 400) {
+
+  //  second balloon
+  if (frameCount < 600 && frameCount > 300) {
     image(ButFirst, 100, height - 140, 420 / 2, 146 / 2);
   }
 
-  //CARICAMENTO:
+  //  loading
   push();
   imageMode(CENTER);
   translate(width / 2, height / 2);
@@ -101,18 +91,17 @@ function draw() {
   image(loading, 0, 0, 100, 100);
   pop();
 
-  //BALLOONS
-
+  //  balloons
   if (frameCount > 610) {
     push();
     frameRate(15);
-    //differenza tra x corrente del mouse e x precedente --> se differenza = 0 allora non
+    //  difference mouseX and pmouseX --> if difference = 0 
     var difX = abs(mouseX - pmouseX);
-    //differenza tra y corrente del mouse e y precedente.
+    //  difference mouseY and pmouseY
     var difY = abs(mouseY - pmouseY);
-    //con floor() si arrotonda la velocità
+    //  floor() approximates the speed
     var mySpeed = floor(difX + difY) / 10;
-    //Segnalazione:
+    //  ballons associated with each speed
     if (mySpeed === 0) {
       image(ChillDude, 100, height - 140, 535 / 2, 121 / 2);
     } else if (mySpeed > 10) {
@@ -122,15 +111,18 @@ function draw() {
   }
 }
 
-let myTimer = window.setTimeout(nextPage, 10000); //Timeout in millisecondi
+//  timeout in milliseconds
+let myTimer = window.setTimeout(nextPage, 14000); 
+
+//  go to next page
 function nextPage() {
   window.open(
-    "05-FirstReact.html?currentUser=" + parameter0 + "&AnswerTime=" + AT,
+    "05-ReactingGIF.html?currentUser=" + parameter0 + "&AnswerTime=" + AT,
     "_self"
   );
-  //Da aggiungere la parte del link Github prima di del nome di /03.Video.html"2022-group-project-group04/"
 }
 
+//  go to homepage
 function home() {
   window.open("index.html", "_self");
 }

@@ -1,17 +1,16 @@
-const urlString = window.location.href; // Collect the url
+let urlString = window.location.href; // Collect the url
 let url = new URL(urlString); // Create a machine-readable object
 
-let parameter1 = url.searchParams.get("t1"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let parameter2 = url.searchParams.get("t2"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let parameter3 = url.searchParams.get("t3"); // Parse the URL object to find a parameter called "Count" and retrieve its value
-let parameter0 = url.searchParams.get("currentUser");
-let AT = url.searchParams.get("AnswerTime");
+let parameter0 = url.searchParams.get("currentUser"); //  user name
+let parameter1 = url.searchParams.get("t1"); //  GIF1 (animals) permanence time
+let parameter2 = url.searchParams.get("t2"); //  GIF2 (Bob Marley) permanence time
+let parameter3 = url.searchParams.get("t3"); //  GIF3 (moms) permanence time
+let parameter4 = url.searchParams.get("t4"); //  GIF4 (pizza) permanence time
+let AT = url.searchParams.get("AnswerTime"); //  start page permanence time: user response time
 
 let myFont;
 let delphE;
 
-
-//  PER SINTETIZZATORE VOCALE
 let voice;
 let voiceText = "You want to see your profile, am I right?";
 
@@ -22,7 +21,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  //    logo delphE
+  //  logo delphE
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
@@ -30,24 +29,19 @@ function setup() {
   );
   delphE.mousePressed(home);
 
-  //    balloon
-  img = createImg("./assets/images/Text7.svg");
-  img.size(424 / 2, 150 / 2);
-  img.position(100, height - 155);
-
-  //    button size
+  //  buttons size
   let w = 461 / 1.3;
   let h = 155 / 1.3;
   let inc = 20;
 
-  //    YES button
+  //  YES button
   yesButton = createElement("button", "OH YES");
   yesButton.position(width / 2 - (inc + w), height / 2 - (h - inc));
   yesButton.size(355, 120);
   yesButton.id("yesButton");
   yesButton.mouseClicked(nextPage);
 
-  //    NO button
+  //  NO button
   noButton = createElement("button", "HELL NO");
   noButton.position(width / 2 + inc, height / 2 - (h - inc));
   noButton.size(355, 120);
@@ -55,12 +49,12 @@ function setup() {
   noButton.mouseOver(moveButton);
   noButton.mousePressed(moveButton);
 
-  //  PER SINTETIZZATORE VOCALE
+  //  voice synthesizer
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 }
 
-//  PER SINTETIZZATORE VOCALE
+//  voice synthesizer
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
@@ -74,37 +68,46 @@ function draw() {
   background("#FFF44F");
   strokeWeight(1.5);
 
-  //    right eye
+  //  right eye
   fill(255);
   rect(60, height - 90, 30, 45, 15);
-  //    right iris
+  //  right iris
   let x2 = constrain(mouseX, 62, 72);
   let y2 = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x2, y2, 15, 20, 15 / 2);
 
-  //    left eye
+  //  left eye
   fill(255);
   rect(35, height - 90, 30, 45, 15);
-  //    left iris
+  //  left iris
   let x = constrain(mouseX, 36, 48);
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
+
+  //  balloon
+  if (frameCount > 20) {
+    img = createImg("./assets/images/Text7.svg");
+    img.size(424 / 2, 150 / 2);
+    img.position(100, height - 155);
+  }
 }
 
+//  move NO button on hover and click
+function moveButton() {
+  noButton.position(random(0, width - 461), random(0, height - 155));
+}
+
+//  go to homepage
 function home() {
   window.open("index.html", "_self");
 }
 
-function hovering() {
-  yesButton.style("filter:invert(1)");
-}
-
-//NON FUNZIONA SISTEMARE
+//  go to next page
 function nextPage() {
   window.open(
-    "07-Riassunto.html?currentUser=" +
+    "07-Profile.html?currentUser=" +
       parameter0 +
       "&AnswerTime" +
       AT +
@@ -115,16 +118,10 @@ function nextPage() {
       "&t3=" +
       parameter3 +
       "&t4=" +
-      frameCount / 60,
-    "_self"
+      parameter4,
+      "_self"
   );
 }
-
-function moveButton() {
-  noButton.position(random(0, width - 461), random(0, height - 155));
-}
-
-//Da aggiungere al link: /2022-group-project-group04/
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

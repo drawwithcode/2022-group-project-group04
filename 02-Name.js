@@ -1,5 +1,5 @@
-const urlString = window.location.href;
-let url = new URL(urlString);
+const urlString = window.location.href; //  Collect the url
+let url = new URL(urlString); //  Create a machine-readable object
 
 let myText;
 let myType;
@@ -25,6 +25,7 @@ function setup() {
   const y = (windowHeight - height) / 2;
   canvas.position(x, y);
 
+  //  logo delphE
   delphE = createElement("h1");
   delphE.html("Delph&bull;E");
   delphE.style(
@@ -32,37 +33,38 @@ function setup() {
   );
   delphE.mousePressed(home);
 
+  //  text
   myText = createElement("h1", "WHAT'S YOUR NAME?");
   myText.style(
     "position:absolute; top:40%; left: 50%; transform: translate(-50%,-50%); text-align:center;color:black;font-size: 50px; font-family:'ClashDisplay-Regular'"
   );
 
-  //Inserimento nome
+  //  name input
   myType = createInput("").attribute("placeholder", "Don't be shy...");
   myType.style(
     "position:absolute; top:60%; left: 50%; transform: translate(-50%,-50%); text-align: left; font-family:'ClashDisplay-Regular'; font-size:20px; padding-top:10px; padding-bottom:10px; padding-left: 20px;padding-right: 300px; border-radius: 30px"
   );
 
-  //Button
+  //  next button
   go = createImg("./assets/images/Next.svg");
-  go.style(
-    "position:absolute; transform: translate(-50%,-50%); cursor:pointer"
-  );
+  go.style("position:absolute; transform: translate(-50%,-50%); cursor:pointer");
   go.size(50, 50);
   go.position(width - 70, height - 70);
   go.mouseClicked(nextPage);
   go.mouseOver(hovering);
 
+  //  ballon
   img = createImg("./assets/images/Text1.svg");
   img.style("position:absolute; transform: translate(0%,0%);");
   img.size(613 / 2, 119 / 2);
   img.position(100, height - 140);
 
+  //  voice synthesizer
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
 }
 
-//  PER SINTETIZZATORE VOCALE
+//  voice synthesizer
 function voiceReady() {
   voice.listVoices();
   voice.setVoice("Samantha");
@@ -74,24 +76,26 @@ function voiceReady() {
 
 function draw() {
   background("#68F6FF");
+ 
+  //  return hover
   if ((mouseX < width - 100, mouseY < height - 100)) {
     go.style("filter:invert(0)");
   }
 
+  //  right eye
   fill(255);
   strokeWeight(1.5);
   rect(60, height - 90, 30, 45, 15);
-
-  //iris
+  //  right iris
   let x2 = constrain(mouseX, 62, 72);
   let y2 = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x2, y2, 15, 20, 15 / 2);
 
+  //  left eye
   fill(255);
   rect(35, height - 90, 30, 45, 15);
-
-  //iris
+  //  left iris
   let x = constrain(mouseX, 36, 48);
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
@@ -100,6 +104,7 @@ function draw() {
   myType.input(textWritten);
 }
 
+//  balloon
 function textWritten() {
   push();
   img.size(0, 0);
@@ -110,14 +115,23 @@ function textWritten() {
   img2.position(100, height - 140);
 }
 
+//  hover
 function hovering() {
   go.style("filter:invert(1)");
 }
 
-function home() {
-  window.open("index.html", "_self");
+//  go to next page (next button)
+function nextPage() {
+  window.open(
+    "03-Video.html?currentUser=" +
+      myType.value() +
+      "&AnswerTime=" +
+      frameCount / 60,
+    "_self"
+  );
 }
 
+//  go to next page (enter button)
 function keyPressed() {
   if (keyCode === ENTER) {
     window.open(
@@ -130,14 +144,9 @@ function keyPressed() {
   }
 }
 
-function nextPage() {
-  window.open(
-    "03-Video.html?currentUser=" +
-      myType.value() +
-      "&AnswerTime=" +
-      frameCount / 60,
-    "_self"
-  );
+//  go to homepage
+function home() {
+  window.open("index.html", "_self");
 }
 
 function windowResized() {
