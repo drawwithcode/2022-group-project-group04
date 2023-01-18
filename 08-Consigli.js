@@ -41,13 +41,21 @@ function setup() {
   myButton.mousePressed(nextPage);
   myButton.mouseOver(hovering);
 
-  myButton2 = createImg("./assets/images/LONG-BACK.svg");
+  myButton2 = createImg("./assets/images/reload.svg");
   myButton2.style("position: absolute; cursor:pointer;");
-  myButton2.size(290, 45);
-  myButton2.position(width - 500, height - 88);
+  myButton2.size(45, 45);
+  myButton2.position(width - 300 - 50, height - 88);
   myButton2.attribute("draggable", false);
-  myButton2.mousePressed(backPage);
-  myButton2.mouseOver(hoveringback);
+  myButton2.mousePressed(reload);
+  myButton2.mouseOver(hoveringReload);
+
+  myButton3 = createImg("./assets/images/LONG-BACK.svg");
+  myButton3.style("position: absolute; cursor:pointer;");
+  myButton3.size(290, 45);
+  myButton3.position(width - 555 - 100, height - 88);
+  myButton3.attribute("draggable", false);
+  myButton3.mousePressed(backPage);
+  myButton3.mouseOver(hoveringback);
 
     // PER GIF UNO : ANIMALI
     if (parameter1 > 0 && parameter1 <= 2) {
@@ -207,17 +215,30 @@ function draw() {
   }
 
   //Return Hover
-  if ((mouseX < width - 500 && mouseX > width - 210, mouseY < height - 88)) {
+  if ((mouseX < width - 300 - 50 && mouseX < width - 290, mouseY < height - 88)) {
     myButton2.style("filter:invert(0)");
   }
+<<<<<<< Updated upstream
+=======
+
+    //Return Hover
+    if ((mouseX < width - 555 - 100 && mouseX < width - 150, mouseY < height - 88)) {
+      myButton3.style("filter:invert(0)");
+    }
+
+>>>>>>> Stashed changes
 }
 
 function hovering() {
   myButton.style("filter:invert(1)");
 }
 
-function hoveringback() {
+function hoveringReload() {
   myButton2.style("filter:invert(1)");
+}
+
+function hoveringback() {
+  myButton3.style("filter:invert(1)");
 }
 
 function nextPage() {
@@ -240,6 +261,11 @@ function backPage() {
   frameCount / 60,
 "_self"
 );
+  //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
+}
+
+function reload() {
+  setup();
   //Da aggiungere la parte del link Github prima di del nome di /03-Video.html"2022-group-project-group04/"
 }
 
