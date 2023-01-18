@@ -52,7 +52,7 @@ It collects endless amounts of data about our actions and movements by studying 
 
 So, the question is: "Are the algorithms the **new crystal ball or even the 21st Century Oracle of Delphi?**"
 
-Profiling algorithms tend to to draw stereotypical profiles to which they propose sometimes inaccurate recommendations.
+Profiling algorithms tend to draw stereotypical profiles to which they propose sometimes inaccurate recommendations.
 Users are not always aware of the ways in which the network collects their data to exploit it in profiling processes. 
 
 The goal of our project is to make the profiling algorithm very tangible, raw, and coarse, highlighting the moment it collects data and translates it into recommendations.
