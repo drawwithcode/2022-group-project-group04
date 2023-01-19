@@ -10,9 +10,9 @@ let myText;
 let go;
 let img;
 let canvas2;
-
+let img2;
 let voice;
-let voiceText2 = "Nice to meet you. Can I have a big smile?";
+let voiceText2 = ["Nice to meet you. Can I have a big smile?",];
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri("./models"),
@@ -23,6 +23,8 @@ Promise.all([
 
 function preload() {
   myFont = loadFont("./assets/fonts/ClashDisplay-Regular.ttf");
+  img = loadImage("./assets/images/Textvideo.svg");
+  img2 = loadImage("./assets/images/Textvideo2.svg");
 }
 
 function setup() {
@@ -47,11 +49,7 @@ function setup() {
   go.mouseClicked(nextPage);
   go.mouseOver(hovering);
 
-  //  balloon
-  img = createImg("./assets/images/Textvideo.svg");
-  img.style("position:absolute; transform: translate(0%,0%);");
-  img.size(613 / 2, 119 / 2);
-  img.position(65, height - 140);
+  
 
   voice = new p5.Speech();
   voice.onLoad = voiceReady;
@@ -63,7 +61,7 @@ function voiceReady() {
   voice.setVoice("Samantha");
   voice.setRate(1);
   voice.setPitch(1.3);
-  voice.setLang("en-US");
+  //voice.setLang("en-US");
   voice.speak(voiceText2);
 }
 
@@ -86,6 +84,17 @@ function draw() {
   let y = constrain(mouseY, height - 87, height - 68);
   fill(0);
   rect(x, y, 15, 20, 15 / 2);
+
+  //first balloon
+  if (frameCount < 30 && frameCount > 0) {
+    image(img2, 100, height - 140, 471.5 / 2, 121 / 2);
+  }
+
+  //  second balloon
+  if (frameCount < 600 && frameCount > 30) {
+    image(img, 100, height - 140, 471.5 / 2, 121 / 2);
+  }
+  
 }
 
 function hovering() {
