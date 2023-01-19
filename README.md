@@ -2,7 +2,7 @@
 
 # Delph⋅E
 
-Delph⋅E is a virtual space that aims to make tangible the presence of technology and profiling algorithms in everyday life. Every time a user surfs the Internet, he unknowingly leaves behind a trail of data. This data is collected and exploited by profiling algorithms to 'know' the user and return 'tailored' recommendations, showing only what the user might like.
+Delph⋅E is a virtual space that aims to make tangible the presence of technology and profiling algorithms in everyday life. Every time a user surfs the Internet, they unknowingly leaves behind a trail of data. This data is collected and exploited by profiling algorithms to 'know' the user and return 'tailored' recommendations, showing only what the user might like.
 
 ## 1. [THE PROJECT](#the-project)
 
@@ -62,7 +62,7 @@ The goal of our project is to make the profiling algorithm very tangible, raw, a
 
 <!--Immagine concept-->
 
-Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such as facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profiling uses also some implicit datas, that the user is not aware  he is giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
+Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such as facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profiling uses also some implicit datas, that the user is not aware they're giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
 
 The name "Delph⋅E" comes from the algorithms' ambition to not only know everything about the world but to know everything about its user.  The most famous  Delphic maxim in the Ancient Greek was indeed "know thyself".
 
@@ -85,10 +85,10 @@ The algorithm kindly asks the user's name. This will the only information that t
 
 ![](./readme/Video.jpg)
 **Face Recognition**
-The algorithm will analyze the user's gender, age and emotions through the webcam. The user knows that these informations are explicitly taken by the algorithm, but she/he don't know for what purpose they will be used.  
+The algorithm will analyze the user's gender, age and emotions through the webcam. The user knows that these informations are explicitly taken by the algorithm, but they don't know for what purpose they will be used.  
 
 **Loading**
-In this part, while the user's waiting for the loading to end, the website will take the implicit information about her/his behaviours: if the user remains still and doesn't interact with the website then the algorithm will consider he/she as a "chill person", otherwise the user will appear nevrotic. 
+In this part, while the user's waiting for the loading to end, the website will take the implicit information about their behaviours: if the user remains still and doesn't interact with the website then the algorithm will consider them as a "chill person", otherwise the user will appear nevrotic. 
 
 ![](./readme/React.jpg)
 **Reacting to GIFs**
