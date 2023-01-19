@@ -94,7 +94,7 @@ function draw() {
 
   //  balloon
   if (frameCount > 20) {
-    image(comment, 100, height - 140, 455 / 2, 121 / 2);
+    image(comment, 100, height - 140, 315 / 2, 121 / 2);
   }
 }
 

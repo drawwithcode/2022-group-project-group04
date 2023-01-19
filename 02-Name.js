@@ -104,7 +104,7 @@ function draw() {
   myType.input(textWritten);
 }
 
-//  balloon
+//  balloon change
 function textWritten() {
   push();
   img.size(0, 0);
