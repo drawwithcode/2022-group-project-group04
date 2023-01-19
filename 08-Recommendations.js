@@ -58,7 +58,7 @@ function setup() {
   myButton3.mouseOver(hoveringback);
 
   //  recommendations for GIF1 (animals)
-  if (parameter1 > 0 && parameter1 <= 2) {
+  if (parameter1 > 0 && parameter1 <= 3) {
     sugg1 = createImg("./assets/ints/s-1.svg");
     sugg1.style("cursor:pointer;position:absolute;");
     sugg1.size(329/1.05, 544/1.05);
@@ -67,7 +67,7 @@ function setup() {
     sugg1.mousePressed(sugg1hover);
   } 
     
-  else if (parameter1 > 2 && parameter1 <= 4.5) {
+  else if (parameter1 > 3 && parameter1 <= 7) {
     sugg2 = createImg("./assets/ints/s-2.svg");
     sugg2.style("cursor:pointer;position:absolute;");
     sugg2.size(329/1.05, 544/1.05);
@@ -86,7 +86,7 @@ function setup() {
   }
 
   //  recommendations for GIF2 (Bob Marley)
-  if (parameter2 > 0 && parameter2 <= 2) {
+  if (parameter2 > 0 && parameter2 <= 3) {
     sugg4 = createImg("./assets/ints/s-4.svg");
     sugg4.style("cursor:pointer;position:absolute");
     sugg4.size(329/1.05, 544/1.05);
@@ -95,7 +95,7 @@ function setup() {
     sugg4.mousePressed(sugg4hover);
   } 
     
-  else if (parameter2 > 2 && parameter2 <= 4.5) {
+  else if (parameter2 > 3 && parameter2 <= 7) {
     sugg5 = createImg("./assets/ints/s-5.svg");
     sugg5.style("cursor:pointer;position:absolute");
     sugg5.size(329/1.05, 544/1.05);
@@ -114,7 +114,7 @@ function setup() {
   }
 
   //  recommendations for GIF3 (moms)
-  if (parameter3 > 0 && parameter3 <= 2) {
+  if (parameter3 > 0 && parameter3 <= 3) {
     sugg7 = createImg("./assets/ints/s-7.svg");
     sugg7.style("cursor:pointer;position:absolute");
     sugg7.size(329/1.05, 544/1.05);
@@ -123,7 +123,7 @@ function setup() {
     sugg7.mousePressed(sugg7hover);
   } 
     
-  else if (parameter3 > 2 && parameter3 <= 4.5) {
+  else if (parameter3 > 3 && parameter3 <= 7) {
     sugg8 = createImg("./assets/ints/s-8.svg");
     sugg8.style("cursor:pointer;position:absolute");
     sugg8.size(329/1.05, 544/1.05);
@@ -142,7 +142,7 @@ function setup() {
   }
 
   //  recommendations for GIF4 (pizza)
-  if (parameter4 > 0 && parameter4 <= 2) {
+  if (parameter4 > 0 && parameter4 <= 3) {
     sugg10 = createImg("./assets/ints/s-10.svg");
     sugg10.style("cursor:pointer;position:absolute");
     sugg10.size(329/1.05, 544/1.05);
@@ -151,7 +151,7 @@ function setup() {
     sugg10.mousePressed(sugg10hover);
   } 
     
-  else if (parameter4 > 2 && parameter4 <= 4.5) {
+  else if (parameter4 > 3 && parameter4 <= 7) {
     sugg11 = createImg("./assets/ints/s-10.svg");
     sugg11.style("cursor:pointer;position:absolute");
     sugg11.size(329/1.05, 544/1.05);
