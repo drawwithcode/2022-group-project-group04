@@ -62,7 +62,7 @@ The goal of our project is to make the profiling algorithm very tangible, raw, a
 
 <!--Immagine concept-->
 
-Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such as facial expression recognition, the website collects user’s emotions and reactions to certain content to extort his preferences and make a series of decisions about him. The profiling uses also some implicit datas, that the user is not aware they're giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
+Delph⋅E replicates this experience, making it intentionally coarse and stereotypical. Through some explicit technologies such as facial expression recognition, the website collects user’s emotions and reactions to certain content to extort their preferences and make a series of decisions about him. The profiling uses also some implicit datas, that the user is not aware they're giving during the experience such as the time spent watching the gifs. The result is the flattening of the user, associated with a false and stereotypical identity model.
 
 The name "Delph⋅E" comes from the algorithms' ambition to not only know everything about the world but to know everything about its user.  The most famous  Delphic maxim in the Ancient Greek was indeed "know thyself".
 
@@ -103,7 +103,7 @@ The recommendations given are extreme, in some cases violent. This is to make th
 
 ![](./readme/Review.jpg)
 **Review**
-At the end, the website will let the user leave a comment about the whole experience, but the algorithm thinks it knows the user better than the user himself, so it can anticipate and force his opinions.
+At the end, the website will let the user leave a comment about the whole experience, but the algorithm thinks it knows the user better than the user himself, so it can anticipate and force their opinions.
 
 
 # DESIGN CHALLENGES
