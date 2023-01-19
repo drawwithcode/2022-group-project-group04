@@ -58,6 +58,7 @@ function setup() {
   myButton3.mouseOver(hoveringback);
 
   //  recommendations for GIF1 (animals)
+  // if cycle to show different images according to different parameter values
   if (parameter1 > 0 && parameter1 <= 3) {
     sugg1 = createImg("./assets/ints/s-1.svg");
     sugg1.style("cursor:pointer;position:absolute;");
